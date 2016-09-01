@@ -10,11 +10,15 @@ h1 {
     border-style: outset;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
+    text-align: center;
+    line-height: 100px;
 }
 
 h2 {
     background-image: url( "../Assets/bg2.jpg" );
     height: 50px;
+    text-align: center;
+    line-height: 50px;
     border-style: outset;
     color: white;
 }
@@ -37,3 +41,15 @@ ul {
 li {
     color: white;
 }
+
+img#matrix {
+    width: 600px;
+    height: 300px;
+    margin: auto;
+}
+
+img#UD {
+    margin: auto;
+}
+
+
