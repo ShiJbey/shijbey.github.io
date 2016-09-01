@@ -45,10 +45,12 @@ li {
 img#matrix {
     width: 600px;
     height: 300px;
+    display: block;
     margin: auto;
 }
 
 img#UD {
+    display: block;
     margin: auto;
 }
 
