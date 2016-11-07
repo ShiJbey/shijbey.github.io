@@ -5,51 +5,86 @@
     <link rel="stylesheet" type="text/css" href="./Style/style1.css">
 </head>
 <body>
-    <h1>Welcome to My Site</h1>
-    <img src="./Assets/csbrain.jpg" height="360" width="650" id="UD"/>
-    
-    <p>My name is Shi(pronounced like "Shy") Johnson-Bey. I am a student at the University of Delaware
+    <div class="container">
+        
+        <header>
+           <h1>Shi Johnson-Bey | University of Delaware</h1>
+        </header>
+        
+        <nav id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <li><a href="#Projects">Projects</a></li>
+            <li><a href="#Career">Career Goals</a></li>
+            <li><a href="#Resume">Resume</a></li>
+            <li><a href="#Contact">Contact</a></li>
+        </nav>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        
+        <section>
+        <img src="./Assets/csbrain.jpg" height="360" width="650" id="UD"/>
+        <p>My name is Shi(pronounced like "Shy") Johnson-Bey. I am a student at the University of Delaware
         pursuing bachelor of science degrees in computer science and neuroscience.
         This site has links to  my past and current GitHub projects, resume, and contact info.
         Please enjoy.</p>
-    
-    <h2>What have I been up to?</h2>
-    
-    <h3>Current Projects</h3>
-    <ul>
-        <li><a href="http://shijbey.github.io">This site</a></li>
-        <li><a href="http://github.com/ShiJbey/WeaponGenerator">Procedurally generated swords project</a> 
-            <a href="http://www.reddit.com/r/proceduralgeneration/comments/4wubjy/monthly_challenge_9_august_2016_procedural_weapons/">(Redit Challenge)</a></li>
-    </ul>
-    
-    <h3>Past Projects</h3>
-    <ul>
-        <li><a href="http://github.com/ShiJbey/Bomb-Diffuse-Game">Bomb Diffusal Game (Java & LibGDX)</a></li>
-        <li><a href="http://github.com/ShiJbey/Plants-vs-Zombies-Racket">Plants vs. Zombies clone (Racket)</a></li>
-        <li><a href="http://github.com/ShiJbey/Battleship-Game-Racket">Battleship Game (Racket)</a></li>
-    </ul>
+        </section>
 
-    <h3>Other Cool Stuff</h3>
-    <ul>
-        <li><a href="http://openbci.com">OpenBCI</a></li>
-    </ul>
+        <section>
+            <h2>What have I been up to?<a name="Projects" /></h2>    
+            <h3>Current Projects</h3>
+            <ul>
+                <li><a href="http://shijbey.github.io">This site</a></li>
+                <li><a href="http://github.com/ShiJbey/WeaponGenerator">Procedurally generated swords project</a> 
+                    <a href="http://www.reddit.com/r/proceduralgeneration/comments/4wubjy/monthly_challenge_9_august_2016_procedural_weapons/">(Redit Challenge)</a></li>
+            </ul>
     
-    <h2>Career Goals</h2>
-    <p>I want to develop brain-computer interface technologies that provide sensory
-        feedback for virtual reality experiences. VR is becoming a big in 2016 and it will
-        continue to be as we move into the future. So far the biggest problem has 
-        been finding an interface that fully complements the VR experience. We have touch
-        controllers that allow for a higher sense of immersion and interaction with the world,
-        but it is still far from feeling real. I want to get our mind involved more in the
-        gaming process and take VR immersion to the next level. Following undergraduate study,
-        I will be attending graduate school to conduct research on closed-loop haptic brain-machine
-        interfaces to help create the next generation of VR.</p>
-    <img src="Assets/matrix_morpheus.jpg" id="matrix">
-    <h2>Resume</h2>
-    <a href="Assets/IJohnson-Bey Resume.pdf"><img src="./Assets/pdf.ico"  height="52" width="52"></a>
-    
-    <h2>Contact</h2>
-    <a href="http://twitter.com/shijbey"><img src="./Assets/twitter.png" height="52" width="52"></a>
-        <a href="http://www.linkedin.com/in/shijbey" ><img src="./Assets/linkedin.png" height="52" width="52"></a>
+            <h3>Past Projects</h3>
+            <ul>
+                <li><a href="http://github.com/ShiJbey/Bomb-Diffuse-Game">Bomb Diffusal Game (Java & LibGDX)</a></li>
+                <li><a href="http://github.com/ShiJbey/Plants-vs-Zombies-Racket">Plants vs. Zombies clone (Racket)</a></li>
+                <li><a href="http://github.com/ShiJbey/Battleship-Game-Racket">Battleship Game (Racket)</a></li>
+            </ul>
+
+            <h3>Other Cool Stuff</h3>
+            <ul>
+                <li><a href="http://openbci.com">OpenBCI</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Career Goals<a name="Career"/></h2>
+            <p>I want to develop brain-computer interface technologies that provide sensory
+            feedback for virtual reality experiences. VR is becoming a big in 2016 and it will
+            continue to be as we move into the future. So far the biggest problem has 
+            been finding an interface that fully complements the VR experience. We have touch
+            controllers that allow for a higher sense of immersion and interaction with the world,
+            but it is still far from feeling real. I want to get our mind involved more in the
+            gaming process and take VR immersion to the next level. Following undergraduate study,
+            I will be attending graduate school to conduct research on closed-loop haptic brain-machine
+            interfaces to help create the next generation of VR.</p>
+            <img src="Assets/matrix_morpheus.jpg" id="matrix"/>
+        </section>
+
+        <section>
+            <h2>Resume<a name="Resume" /></h2>
+            <a href="Assets/IJohnson-Bey Resume.pdf"><img src="./Assets/pdf.ico"  height="52" width="52"></a>
+        </section>
+
+        <section>
+            <h2>Contact<a name="Contact" /></h2>
+            <a href="http://twitter.com/shijbey"><img src="./Assets/twitter.png" height="52" width="52" /></a>
+            <a href="http://www.linkedin.com/in/shijbey" ><img src="./Assets/linkedin.png" height="52" width="52" /></a>
+        </section>
+
+        <footer>Last updated: November 2016</footer>
+    </div>
+    <script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "50%";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+    </script>
 </body>
 </html>
