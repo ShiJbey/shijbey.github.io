@@ -113,6 +113,7 @@ p {
 ul {
     margin: 30px;
     color: white;
+    list-style: none;
 }
 
 li {
