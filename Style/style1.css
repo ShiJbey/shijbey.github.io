@@ -117,6 +117,7 @@ ul {
 
 li {
     color: white;
+    list-style: none;
 }
 
 img#matrix {
