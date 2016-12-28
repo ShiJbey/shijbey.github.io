@@ -121,6 +121,11 @@ li {
     list-style: none;
 }
 
+img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 img#matrix {
     width: 600px;
     height: 300px;
@@ -133,4 +138,11 @@ img#UD {
     margin: auto;
 }
 
+a {
+    color: white;
+}
+
+a:hover {
+    color: orange;
+}
 
