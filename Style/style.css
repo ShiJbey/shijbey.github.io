@@ -4,7 +4,7 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-ul, li {
+nav ul, nav li {
     margin: 0;
     padding: 0;
     overflow: hidden;

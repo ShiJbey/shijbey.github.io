@@ -43,7 +43,7 @@
                 
                 lava.stop().animate({
                     left: $(this).position().left,
-                    width: $(this).outerWidth()
+                    width: $(this).width()
                 }, options.speed);
                 
                 reset = setTimeout(function() {
