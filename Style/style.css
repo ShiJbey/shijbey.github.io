@@ -1,0 +1,128 @@
+#container {
+    width: 800px;
+    margin: 100px auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#lava {
+    background: black;
+    border-right: 1px solid #0059ec;
+    border-left: 1px solid #0059ec;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    background: -moz-linear-gradient(top, #0b2b61, #1153c0);
+    background: -webkit-gradient(linear, left top, left bottom, from(#0b2b61), to(#1153c0));
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-box-shadow: 2px 3px 10px #011331;
+    box-shadow:  2px 3px 10px #011331;
+    -webkit-box-shadow: 2px 3px 10px #011331;
+}
+
+#nav {
+    position: relative;
+    background: #292929;
+    _float: left
+}
+
+
+
+#nav li {
+    float: left;
+    list-style: none;
+    border-right: 1px solid  #4a4a4a;
+    border-left: 1px solid black;
+}
+
+#nav li a {
+    color: #c3c3c3;
+    position: relative;
+    z-index: 2;
+    float: left;
+    font-size: 15px;
+    font-family: Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    padding: 15px 22px;
+}
+
+h2 {
+    background: -moz-linear-gradient(top, #0b2b61, #1153c0);
+    background: -webkit-gradient(linear, left top, left bottom, from(#0b2b61), to(#1153c0));
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-box-shadow: 2px 3px 10px #011331;
+    box-shadow:  2px 3px 10px #011331;
+    -webkit-box-shadow: 2px 3px 10px #011331;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-style: outset;
+    color: white;
+}
+
+h3 {
+    color: white;
+}
+
+header {
+    background: -moz-linear-gradient(top, #0b2b61, #1153c0);
+    background: -webkit-gradient(linear, left top, left bottom, from(#0b2b61), to(#1153c0));
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-box-shadow: 2px 3px 10px #011331;
+    box-shadow:  2px 3px 10px #011331;
+    -webkit-box-shadow: 2px 3px 10px #011331;
+    border-style: outset;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+footer {
+    padding: 1em;
+    color: white;
+    clear: left;
+    text-align: center;
+}
+
+body {
+    background-color: black;
+    margin: 30px;
+    color: white;
+}
+
+img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img#matrix {
+    width: 600px;
+    height: 300px;
+    display: block;
+    margin: auto;
+    
+}
+
+img#UD {
+    display: block;
+    margin: auto;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: orange;
+}
