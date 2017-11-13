@@ -1,0 +1,133 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+    <title>Sword forge</title>  
+    <link rel="stylesheet" href="Style/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="Style/forge_style.css" type="text/css" media="screen" />
+</head>
+<body>
+    <div id="container">
+
+    <header>
+        <h1>Web Sword Forger (WIP)</h1>
+    </header>
+
+    <nav>
+        <ul id="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li  id="selected"><a href="weaponforge.html">Sword Forge</a></li>
+        </ul>
+    </nav>
+
+    <div id="options_pane">  
+        <p>Sword Style:
+        <select id="swordStyle" name="swordStyle" required>
+            <option value="short">Short</option>
+            <option value="long" selected="selected">Long</option>
+            <option value="great">Great</option>
+        </select>
+        </p>
+
+        <p>Hands required:
+        <select name="numHands">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+        </p>
+
+        <p>Seed:
+        <input type="text" id="seedVal" placeholder="RandomSeed" name="seed"/>
+        </p>
+
+        <p class="slidecontainer"> Blade Base Width (%):
+                <input type="range" min="1" max="50" value="30" class="slider" id="baseWidth">
+        </p>
+
+        <p class="slidecontainer"> Edge-Width Ratio (%):
+                <input type="range" min="10" max="100" value="20" class="slider" id="edgeWidthRatio">
+        </p>
+
+        <p class="slidecontainer"> Blade Length:
+                <input type="range" min="1" max="6" value="3" class="slider" id="bladeLength">
+        </p>
+
+        <p>
+        <input type="button" value="Randomize seed" onclick="randomize_seed()">
+        <input type="submit" value="Forge!" onclick="forgeSword()"/>
+        </p> 
+    </div>
+            
+    <div id="scene_pane">
+
+        <script src="js/three.js"></script>
+        <script src="js/psrandom.js"></script>
+        <script src="js/SwordGenerator.js"></script>
+
+
+        <script type="text/javascript">
+
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera( 75, 1, 1, 1000 );
+
+        var renderer = new THREE.WebGLRenderer();
+
+        renderer.setSize(800 * .75, 800  * .75);
+        
+        document.getElementById('scene_pane').appendChild( renderer.domElement );
+
+        var geometry = new THREE.BoxGeometry( 1, .5, 1 );
+        var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+        var cube = new THREE.Mesh( geometry, material );
+        scene.add( cube );
+
+        camera.position.z = 5;
+
+        function forgeSword() {
+            var style = document.getElementById('swordStyle').value;
+            var basewidth = document.getElementById('baseWidth').value;
+            var edgeWidthRatio = document.getElementById('edgeWidthRatio').value;
+            var bladeLength = document.getElementById('bladeLength').value;
+            var seedVal = document.getElementById('seedVal').value;
+
+            var swordTemplate = {
+                "baseWidth": basewidth/100, "widthMarginRatio": (edgeWidthRatio/100), "length": bladeLength
+            };
+
+            var generator = new SwordGenerator(seedVal, style, swordTemplate);
+            sword = generator.generateSword();
+            console.log(sword);
+            scene.remove(cube);
+            cube = new THREE.Mesh(sword.geometry, material);
+            cube.position.y = -3;
+            scene.add(cube);
+            console.log("done");
+        }
+
+        var animate = function () {
+            requestAnimationFrame( animate );
+            
+            //cube.rotation.x += 0.05;
+            cube.rotation.y += 0.05;
+
+            renderer.render(scene, camera);
+        };
+
+        animate();
+        forgeSword();
+        </script>
+    </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.lavaNav.js"></script>
+    <script type="text/javascript">
+    $('#nav').lavaNav();
+    </script>
+
+</body>
+
+</html>

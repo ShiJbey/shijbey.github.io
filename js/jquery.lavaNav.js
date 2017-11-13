@@ -21,6 +21,7 @@
                 height: currentPageItem.outerHeight() + options.overlap,
                 
                 top: currentPageItem.position().top - options.overlap/2,
+                left: currentPageItem.position().left,
                 backgroundColor: options.color
             }).appendTo('#nav');
 

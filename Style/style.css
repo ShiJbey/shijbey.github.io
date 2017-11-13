@@ -10,8 +10,42 @@ nav ul, nav li {
     overflow: hidden;
 }
 
+img#headshot {
+    margin-top: 10px;
+    float: left;
+    width:165px;
+    height:245px;
+}
+
+img#art {
+    margin-top: 10px;
+    float: left;
+    height:245px;
+}
+
+img#brain {
+    margin-top: 10px;
+    float: left;
+    width: 199px;
+    height:245px;
+}
+
+
+p#bio {
+    float: right;
+}
+
+section#about {
+    float: left;
+}
+
+section#updates {
+    float: left;
+}
+
+
 #lava {
-    background: black;
+    background: rgb(54, 48, 48);
     border-right: 1px solid #0059ec;
     border-left: 1px solid #0059ec;
     position: absolute;
@@ -54,6 +88,7 @@ nav ul, nav li {
 }
 
 h2 {
+
     background: -moz-linear-gradient(top, #0b2b61, #1153c0);
     background: -webkit-gradient(linear, left top, left bottom, from(#0b2b61), to(#1153c0));
     -moz-border-radius: 10px;
@@ -96,27 +131,9 @@ footer {
 }
 
 body {
-    background-color: black;
+    background-color: rgb(102, 93, 93);
     margin: 30px;
     color: white;
-}
-
-img {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-img#matrix {
-    width: 600px;
-    height: 300px;
-    display: block;
-    margin: auto;
-    
-}
-
-img#UD {
-    display: block;
-    margin: auto;
 }
 
 a {
