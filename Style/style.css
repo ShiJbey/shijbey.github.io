@@ -10,39 +10,43 @@ nav ul, nav li {
     overflow: hidden;
 }
 
+hr {
+    clear: both;
+}
+
+img {
+    float: left;
+    padding: 10px;
+    margin: 10px;
+    width: auto;
+    height: 200px;
+    border: 2px solid #c3c3c3;
+    margin: 10px;
+    padding: 2px;
+}
+
 img#headshot {
-    margin-top: 10px;
-    float: left;
     width:165px;
-    height:245px;
+    height: auto;
 }
 
-img#art {
-    margin-top: 10px;
-    float: left;
-    height:245px;
-}
-
-img#brain {
-    margin-top: 10px;
-    float: left;
-    width: 199px;
-    height:245px;
+img#linkedinLogo {
+    width: 52px;
+    height: 52px;
+    border: 0px;
 }
 
 
-p#bio {
-    float: right;
+h3.ProjectTitle {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    clear: both;
 }
 
-section#about {
-    float: left;
+section {
+    clear: both;
 }
-
-section#updates {
-    float: left;
-}
-
 
 #lava {
     background: rgb(54, 48, 48);
@@ -64,7 +68,6 @@ section#updates {
 #nav {
     position: relative;
     background: #292929;
-    _float: left
 }
 
 
@@ -102,6 +105,7 @@ h2 {
     line-height: 50px;
     border-style: outset;
     color: white;
+    clear: both;
 }
 
 h3 {
