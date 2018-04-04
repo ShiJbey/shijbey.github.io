@@ -2,7 +2,6 @@
 .slider {
     -webkit-appearance: none;  /* Override default CSS styles */
     align-self: center;
-    appearance: none;
     width: 50%; /* Full-width */
     height: 25px; /* Specified height */
     background: #d3d3d3; /* Grey background */
@@ -20,16 +19,206 @@
 /* The slider handle (use webkit (Chrome, Opera, Safari, Edge) and moz (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
-    appearance: none;
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
-    background: #4CAF50; /* Green background */
+    background: #fffb00; /* Green background */
     cursor: pointer; /* Cursor on hover */
 }
 
 .slider::-moz-range-thumb {
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
-    background: #4CAF50; /* Green background */
+    background: #fffb00; /* Green background */
     cursor: pointer; /* Cursor on hover */
 }
+
+
+div#game-container {
+    margin-top: 16px;
+    border: 10px inset;
+    position: relative;
+    width: 780px;
+    height: 600px;
+    -webkit-border-image: url(../Assets/infiniforge/border1.png) 30 stretch;
+    -o-border-image: url(../Assets/infiniforge/border1.png) 30 stretch;
+    border-image: url(../Assets/infiniforge/border1.png) 30 stretch;
+}
+
+div#scene-pane {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 210px;
+    height: 600px;
+}
+
+canvas#threejs-canvas {
+    width: 210px;
+    height: 580px;
+    border: 10px outset rgb(70, 41, 4);
+    overflow: auto;
+}
+
+div#options-pane {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 530px;
+    height: 580px;
+    background: #4d2c02;
+    border: 10px outset rgb(70, 41, 4);
+}
+
+p {
+    margin-left: 10px;
+    color: white;
+}
+
+#forge-button, #smelt-button {
+    display: inline-block;
+    padding: 10px 25px;
+    margin: 0px 10px;
+    font-size: 22px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #ac381b;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px rgb(228, 148, 0);
+    
+}
+  
+#forge-button:hover, #smelt-button:hover {
+    background-color: #4b260d
+}
+  
+#forge-button:active, #smelt-button:active {
+    background-color: #b13200;
+    box-shadow: 0 5px rgb(48, 21, 0);
+    transform: translateY(4px);
+}
+
+
+
+body {font-family: Arial;}
+            
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+#item-options-pane {
+    height: 200px;
+}
+
+#smelt-options {
+    height: 160px;
+    border: inset 5px silver;
+    background-color: #444;
+    background-image: url(../Assets/infiniforge/wood.jpg)
+}
+
+#forge-options {
+    height: 200px;
+    border: inset 5px silver;
+    background-color: #444;
+    background-image: url(../Assets/infiniforge/wood.jpg)
+}
+
+/* Style the tab content */
+.tab-content {
+    display: none;
+    border-top: none;
+    background-color: #444;
+    height: 100%;
+    border: inset 5px silver;
+    background-color: #444;
+    background-image: url(../Assets/infiniforge/wood.jpg)
+}
+.tab-content p {
+    color: white;
+}
+
+#anvil-sprite {
+    height: 64px;
+    width: 64px;
+    border: none;
+}
+
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    text-decoration-color: white;
+    font-size: 16px;
+    cursor: pointer;
+    height: 30px;
+    line-height: 30px;
+    width: 520px;
+    text-align: center;
+    align-content: center;
+    border: none;
+    outline: none;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    height: 170px;
+    overflow: auto;
+}
+
+.dropdown-content p {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content p:hover {
+    background-color: #d3d3d3;
+}
+
+
+
+.show {display:block;}

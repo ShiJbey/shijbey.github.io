@@ -1,8 +1,23 @@
-'use strict';
+/**
+ * Given two numbers, this function returns a random in that is
+ * in the range [min,max)
+ * 
+ * @param {any} rng
+ * @param {number} min 
+ * @param {number} max
+ * @return {number}
+ */
+function getRandomInt(rng, min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(rng.random() * (max - min)) + min;
+}
 
-// Swords are the weapon type that has an associated
-// stye and THREE geometry object
-class Sword {
+/** 
+ * Swords are the weapon type that has an associated
+ * stye and THREE geometry object
+ */
+ class Sword {
     constructor(style) {
         this.style = style;
         this.geometry = new THREE.Geometry();
@@ -27,7 +42,7 @@ class SwordGenerator {
      */
     constructor(seedVal, swordStyle, swordTemplate, options = {}) {
         this.seedVal = seedVal;
-        this.numGenerator = (seedVal != '') ? new PseudoRandGenerator(this.seedVal) : {random: Math.random};
+        this.numGenerator = (seedVal != '') ?  {random: new Math.seedrandom(this.seedVal)} : {random: Math.random};
         this.swordStyle = swordStyle;
         this.swordTemplate = swordTemplate;
         // Sets all optional parameters for generation
@@ -88,8 +103,8 @@ class SwordGenerator {
         this.buildPommel(sword.geometry);
         sword.geometry.uvsNeedUpdate = true;
         sword.geometry.computeBoundingBox();
-        //sword.geometry.computeVertexNormals();
-        //sword.geometry.computeFaceNormals();
+        sword.geometry.computeVertexNormals();
+        sword.geometry.computeFaceNormals();
         return sword;
     }
 
@@ -115,8 +130,8 @@ class SwordGenerator {
         var fullerDepth = this.bladeThickness / 4;
 
         // Determine how many divisions each section has
-        var numBaseDivs = getRandomInt(1, this.maxBaseDivs + 1);
-        var numMidDivs = getRandomInt(1, this.maxMidDivs + 1);
+        var numBaseDivs = getRandomInt(this.numGenerator, 1, this.maxBaseDivs + 1);
+        var numMidDivs = getRandomInt(this.numGenerator, 1, this.maxMidDivs + 1);
         var numTipDivs = Math.floor(this.numGenerator.random() * this.maxTipDivs) + 1;
         var totalBladeDivs = numBaseDivs + numMidDivs + numTipDivs;
 
@@ -124,10 +139,10 @@ class SwordGenerator {
         var baseSectionLength = bladeLength * this.bladeBaseProportion;
         var midSectionLength = bladeLength * this.bladeMidProportion;
         var tipSectionLength = bladeLength * (1 - (this.bladeBaseProportion + this.bladeMidProportion));
-        console.log(`Base Section Length: ${baseSectionLength}`);
-        console.log(`Mid Section Length: ${midSectionLength}`);
-        console.log(`Tip Section Length: ${tipSectionLength}`);
-        console.log(`Total Section Length: ${bladeLength}`);
+        //console.log(`Base Section Length: ${baseSectionLength}`);
+        //console.log(`Mid Section Length: ${midSectionLength}`);
+        //console.log(`Tip Section Length: ${tipSectionLength}`);
+        //console.log(`Total Section Length: ${bladeLength}`);
 
         // Calculate how long equivalent divisions can be depending on the section
         var equalBaseDivLength = baseSectionLength / numBaseDivs;
@@ -239,9 +254,9 @@ class SwordGenerator {
         
         bladeGeometry = SwordGenerator.createBladeTip(bladeGeometry);
 
-        console.log(bladeGeometry);
+        //console.log(bladeGeometry);
         var threeBladeGeometry = SwordGenerator.convertToTHREEGeometry(bladeGeometry);
-        console.log(threeBladeGeometry);
+        //console.log(threeBladeGeometry);
         var mat = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
         var blade = new THREE.Mesh(threeBladeGeometry, mat);
         blade.updateMatrix();
@@ -329,7 +344,7 @@ class SwordGenerator {
         var mat = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
         var pommel = new THREE.Mesh(pommelGeom, mat);
 
-        pommel.updateMatrix();
+        //pommel.updateMatrix();
         swordGeom.merge(pommel.geometry, pommel.matrix);
     }
 
