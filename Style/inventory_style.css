@@ -295,6 +295,36 @@ input[type="range"]
     background-position: -128px 0px;
 }
 
+.inventory-item.Char-Ingot
+{
+    background-position: 0px -32px;
+}
+
+.inventory-item.Blaze-Ingot
+{
+    background-position: -32px -32px; 
+}
+
+.inventory-item.Lava-Ingot
+{
+    background-position: -64px -32px;
+}
+
+.inventory-item.Wave-Ingot
+{
+    background-position: -96px -32px; 
+}
+
+.inventory-item.Mud-Ingot
+{
+    background-position: -128px -32px;
+}
+
+.inventory-item.Sand-Ingot
+{
+    background-position: -160px -32px;
+}
+
 .inventory-item.Iron-Ore
 {
     background-position: -160px 0px;

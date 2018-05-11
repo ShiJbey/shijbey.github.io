@@ -52,12 +52,13 @@ div#scene-pane {
     height: 600px;
 }
 
+
 canvas#threejs-canvas {
     width: 210px;
     height: 580px;
     border: 10px outset rgb(70, 41, 4);
-    overflow: auto;
 }
+
 
 div#options-pane {
     position: absolute;

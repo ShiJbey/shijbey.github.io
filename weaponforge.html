@@ -166,10 +166,10 @@
 <script src="js/jquery.lavaNav.js"></script>
 <script type="text/javascript">$('#nav').lavaNav();</script>            
 <script src="js/three.min.js"></script>
-<script src="js/swordgenerator.js"></script>
 <script src="js/seedrandom.min.js"></script>
-<script src="js/inventory_script.js"></script>
-<script src="js/inventory.js"></script>
+<script src="js/inventory-gui.js"></script>
+<script src="js/swordgenerator.min.js"></script>
+<script src="js/inventory.min.js"></script>
 
 <script>
     function randomizeSeed(seedLength = 7) {
@@ -285,6 +285,12 @@ function init() {
 }
 
 function forgeSword() {
+
+    $('#sliding-door').animate({top:0}, 500,
+    function() {
+
+    });
+
     var style = document.getElementById('sword-style').value;
     // Check to make sure the correc tnumber of ingots were given
     var requiredNumIngots = 1;
@@ -339,6 +345,8 @@ function animate () {
     swordModel.rotation.y += 0.05;
     renderer.render(scene, camera);
 };
+
+// This code is supposed to program the sliding door
 
 init();
 animate();

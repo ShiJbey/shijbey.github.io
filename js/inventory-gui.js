@@ -1,4 +1,6 @@
 "use strict";
+// Code borrowed from: Eric Eastwood
+// @: https://codepen.io/MadLittleMods/pen/vmhLF
 
 jQuery.fn.extend({
     addRemoveItems: function(targetCount) {
@@ -95,6 +97,9 @@ function refreshSortableInventoryList()
         connectWith: '.inventory-cell',
         placeholder: 'inventory-item-sortable-placeholder',
         receive: function( event, ui ) {
+
+            //console.log(ui.item);
+
             var attrWhitelist = $(this).closest('.inventory-table').attr('data-item-filter-whitelist');
             var attrBlackList = $(this).closest('.inventory-table').attr('data-item-filter-blacklist');
             var itemFilterWhitelistArray = attrWhitelist ? attrWhitelist.split(/\s+/) : [];
@@ -116,11 +121,27 @@ function refreshSortableInventoryList()
             }
             else                
             {
-            
+                
                 // Swap places of items if dragging on top of another
                 // Add the items in this list to the list the new item was from
                 $(this).children().not(ui.item).parentToAnimate($(ui.sender), 200);
                 
+                // Check the quantity in the players inventory to see if we leave
+                // some items in the inventory
+                var itemName = getItemName($(ui.item).attr('class'))
+                //console.log("Item name is: " + itemName);
+                var amountInInventory = playerInventory.getQuantity(itemName);
+                //console.log("Amount in inventory: " + amountInInventory);
+                if (amountInInventory > 1) {
+                    //console.log("There are more than one in the inventory");
+                    var item_copy = ui.item.clone()
+                    //$(this).children().not(item_copy).parentToAnimate($(ui.sender), 200);
+                    
+                    //$(ui.item).parentToAnimate($(ui.sender), 200); 
+                } else {
+                    //$(this).children().not(ui.item).parentToAnimate($(ui.sender), 200);
+                }
+
                 // $(this) is the list the item is being moved into
                 // $(ui.sender) is the list the item came from
                 // Don't forget the move swap items as well
@@ -149,11 +170,11 @@ function verifyWithWhiteBlackLists(itemList, whiteList, blackList)
     // Else return false
     
     
-    console.group("Lists");
-    console.log(itemList);
-    console.log(whiteList);
-    console.log(blackList);
-    console.groupEnd();
+    //console.group("Lists");
+    //console.log(itemList);
+    //console.log(whiteList);
+    //console.log(blackList);
+    //console.groupEnd();
 
     // If white and black lists are empty, return true
     // Save the calculations, no filtering
