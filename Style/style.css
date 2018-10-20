@@ -26,11 +26,11 @@ img {
 }
 
 img#headshot {
-    width:165px;
+    width: 400px;
     height: auto;
 }
 
-img#linkedinLogo {
+img#LinkedInLogo, img#GitHubLogo {
     width: 52px;
     height: 52px;
     border: 0px;
