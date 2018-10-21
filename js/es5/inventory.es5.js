@@ -320,6 +320,17 @@ function getItemID(itemName) {
     }
     return -1;
 }
+
+/**
+ * Given an item, returns the html used to display
+ * the stats in the tooltip
+ * @param {any} item
+ * @return {string}
+ */
+function statsToHtml(item, inventory) {
+    var itemQuantity = inventory.getQuantity(item.name);
+    return "<p>" + item.name + "</p><p>" + item.description + "</p><p>Quantity: " + itemQuantity;
+}
 "use strict";
 
 // This file defines all the functions used when
@@ -590,6 +601,8 @@ playerInventory.addItemByName("Fire Ore", 20);
 playerInventory.addItemByName("Water Ore", 20);
 playerInventory.addItemByName("Wind Ore", 20);
 playerInventory.addItemByName("Earth Ore", 20);
+playerInventory.addItemByName("Earth Ingot", 20);
+playerInventory.addItemByName("Fire Ingot", 20);
 //playerInventory.addItem(0, 1);
 //playerInventory.addItem(1, 1);
 //playerInventory.addItem(2, 1);
@@ -715,7 +728,7 @@ function refreshSortableInventoryList() {
                 // Swap places of items if dragging on top of another
                 // Add the items in this list to the list the new item was from
                 $(this).children().not(ui.item).parentToAnimate($(ui.sender), 200);
-
+                $(this).find(".tooltip").remove();
                 // Check the quantity in the players inventory to see if we leave
                 // some items in the inventory
                 var itemName = getItemName($(ui.item).attr('class'));

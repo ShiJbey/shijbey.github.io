@@ -172,6 +172,30 @@
 <script src="js/inventory.min.js"></script>
 
 <script>
+    $(".inventory-item").mouseenter(
+        function () {
+            console.log("hovering");
+           var itemName = getItemName($(this).attr("class"));
+           var itemStats = getItem(itemName);
+           var itemHtml = statsToHtml(itemStats, playerInventory);
+           $( this ).append( $( `<div class='tooltip'><span class='tooltiptext'>${itemHtml}</span></div>`) );
+        }
+        /*, function() {
+            $( this ).find( ".tooltip" ).remove();
+        }*/
+    );
+    $(".inventory-item").mouseleave(
+        function () {
+            $( this ).find( ".tooltip" ).remove();
+        }
+    );
+    $()
+
+
+</script>
+
+
+<script>
     function randomizeSeed(seedLength = 7) {
         var seed = "";
         lowercaseAsciiOffset = 97;
