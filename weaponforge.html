@@ -41,7 +41,7 @@
                     <!--Holds all the tabs for inventory-->
                     <div class="tab">
                         <button class="tab-links" onclick="OpenTab(event, 'inventory')" id="default-open">Inventory</button>
-                        <button class="tab-links" onclick="OpenTab(event, 'sword-stats')">Sword Stats</button>
+                        <button class="tab-links" onclick="OpenTab(event, 'sword-stats')">Blade Stats</button>
                     </div>
                     <div id="inventory" class="tab-content">
                         <p>Inventory:</p>
@@ -101,10 +101,10 @@
                 </div>
                 <div id="forge-options">
                     <div class="dropdown">
-                        <button id="forge-options-dropbtn" class="dropbtn" onclick="showForgeOptions()">Open Forge Options</button>
+                        <button id="forge-options-dropbtn" class="dropbtn" onclick="ToggleForgeOptions()">Open Forge Options</button>
                         
                         <div id="forge-options-dropdown" class="dropdown-content">
-                            <p>Sword Style:
+                            <p>Blade Style:
                                 <select id="sword-style" name="swordStyle" required>
                                     <option value="short">Short</option>
                                     <option value="long" selected="selected">Long</option>
@@ -197,22 +197,122 @@
 <script src="js/inventory.min.js"></script>
 
 <script>
+
+    // Set the keyboard handlers
+    document.onkeyup = handle_keyboard_up;
+    document.onkeydown = handle_keyboard_down;
+
+    // Controls the rotation of the sword
+    var rotation = {
+        "left":  false,
+        "right": false,
+        "up": false,
+        "down": false
+    };
+
+    function handle_keyboard_down(event) {
+        event = event || window.event;
+        if (event.which == 65) {
+            // LEFT
+            rotation["left"] = true;
+            rotation["right"] = false;
+        }
+        else if (event.which == 68) {
+            // RIGHT
+            rotation["right"] = true;
+            rotation["left"] = false;
+        }
+        else if (event.which == 87) {
+            // UP
+            rotation["up"] = true;
+            rotation["down"] = false;
+        }
+        else if (event.which == 83) {
+            // DOWN
+            rotation["down"] = true;
+            rotation["up"] = false;
+        }
+    }
+
+
+    function handle_keyboard_up(event) {
+        event = event || window.event;
+        if (event.which == 65) {
+            // LEFT
+            rotation["left"] = false;
+            rotation["right"] = false;
+        }
+        else if (event.which == 68) {
+            // RIGHT
+            rotation["right"] = false;
+            rotation["left"] = false;
+        }
+        else if (event.which == 87) {
+            // UP
+            rotation["up"] = false;
+            rotation["down"] = false;
+        }
+        else if (event.which == 83) {
+            // DOWN
+            rotation["down"] = false;
+            rotation["up"] = false;
+        }
+    }
+
+    $(".inventory-item").mouseenter(
+        function () {
+            console.log("hovering");
+           var itemName = getItemName($(this).attr("class"));
+           var itemStats = getItem(itemName);
+           var itemHtml = statsToHtml(itemStats, playerInventory);
+           $( this ).append( $( `<div class='tooltip'><span class='tooltiptext'>${itemHtml}</span></div>`) );
+        }
+        /*, function() {
+            $( this ).find( ".tooltip" ).remove();
+        }*/
+    );
+
+
+    $(".inventory-item").mouseleave(
+        function () {
+            $( this ).find( ".tooltip" ).remove();
+        }
+    );
+
+
+</script>
+
+
+<script>
+
+    // Borrowed from MDN Math.Random()
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+    }
+
+    // Creates a rnadom seed using upper case, lowercase
+    // and numbers
     function randomizeSeed(seedLength = 7) {
         var seed = "";
+        numberAsciiOffset = 48;
         lowercaseAsciiOffset = 97;
         uppercaseAsciiOffset = 65;
         for (var i = 0; i < seedLength; i++) {
-            var useLowerCase = Math.random() > .5;
-            if (useLowerCase){
-                seed += String.fromCharCode(lowercaseAsciiOffset + Math.round(Math.random() * 25))
-            } else {
-                seed += String.fromCharCode(uppercaseAsciiOffset + Math.round(Math.random() * 25))
+            var rand_num = Math.random();
+            if (rand_num <= 0.33){
+                seed += String.fromCharCode(numberAsciiOffset + getRandomInt(10));
+            } 
+            else if (rand_num > 0.33 && rand_num <= 0.66) {
+                seed += String.fromCharCode(lowercaseAsciiOffset + getRandomInt(25));
+            }
+            else {
+                seed += String.fromCharCode(uppercaseAsciiOffset + getRandomInt(25));
             }
         }
         document.getElementById('seed-value').value = seed;
     }
 
-    var styleSelector = document.getElementById('sword-style')
+    var styleSelector = document.getElementById('sword-style');
     styleSelector.addEventListener("change", () => {
         // Get the current value
         var selectedStyle = styleSelector.value;
@@ -231,7 +331,7 @@
         refreshSortableInventoryList();
     });
 
-    function showForgeOptions() {
+    function ToggleForgeOptions() {
         var dropdown = $("#forge-options-dropdown");
         dropdown.toggleClass("show");
         var forgeOptionsDropdownButton = $("#forge-options-dropbtn");
@@ -259,23 +359,6 @@
     document.getElementById("default-open").click();
 </script>
 
-<script>
-    var acc = document.getElementsByClassName("accordion");
-    var i;
-
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-            }
-        });
-    }
-</script>
-
 
 
 
@@ -283,30 +366,38 @@
 var scene, camera, renderer;
 var swordModel, material;
 var frustumSize = 1000;
+var renderer_rect;
 
 function init() {
     var ThreeJSCanvas = document.getElementById("threejs-canvas");
+    
     renderer = new THREE.WebGLRenderer({ canvas: ThreeJSCanvas, antialias: true });
+    renderer_rect = renderer.domElement.getBoundingClientRect();
+    renderer.setSize(renderer_rect.width, renderer_rect.height);
+    renderer.setPixelRatio(window.devicePixelRatio);
 
-    var aspect = ThreeJSCanvas.style.height / ThreeJSCanvas.style.width;
-    //camera = new THREE.OrthographicCamera(frustumSize * aspect / -2, 
-        //frustumSize * aspect / 2, frustumSize / 2, frustumSize / -2, 1, 100);
-    camera = new THREE.PerspectiveCamera(75, .3, 1, 1000);
+    var aspect = renderer_rect.width / renderer_rect.height;
+    camera = new THREE.PerspectiveCamera(75, aspect, 1, 1000);
     camera.position.z = 7;
+    camera.updateProjectionMatrix();
 
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0xf0f0f0);
+    var texture = new THREE.TextureLoader().load("Assets/infiniforge/Lisbeth_shop_interior.png");
+    //texture.wrapS = THREE.RepeatWrapping;
+    //texture.wrapT = THREE.RepeatWrapping;
+    //texture.repeat.set(4, 4);
+    scene.background = texture;
     
     var light = new THREE.DirectionalLight(0xe6e6ff, 1);
     light.position.set(1, 1, 1).normalize();
     scene.add(light);
     
+    // 
     var geometry = new THREE.BoxBufferGeometry(1, 1, 1);
     material = new THREE.MeshLambertMaterial( { color: 0xffffff } )
     swordModel = new THREE.Mesh(geometry, material);
-    scene.add(swordModel);
-    
-    renderer.setPixelRatio(window.devicePixelRatio);
+    scene.add(swordModel); 
 }
 
 function forgeSword() {
@@ -367,11 +458,23 @@ function forgeSword() {
 
 function animate () {
     requestAnimationFrame(animate);
-    swordModel.rotation.y += 0.05;
+
+    if (rotation["left"]) {
+        swordModel.rotation.y -= 0.05;
+    }
+    else if (rotation["right"]) {
+        swordModel.rotation.y += 0.05;
+    }
+
+    if (rotation["down"]) {
+        swordModel.rotation.x += 0.05;
+    }
+    else if (rotation["up"]) {
+        swordModel.rotation.x -= 0.05;
+    }
+
     renderer.render(scene, camera);
 };
-
-// This code is supposed to program the sliding door
 
 init();
 animate();

@@ -76,7 +76,7 @@ function smeltOre() {
     for (var i = 0; i < oreItemEntries.length; i++) {
         playerInventory.removeItem(getItemID(oreItemEntries[i].name), 1);
     }
-    playerInventory.render('player-inventory');
+    
 
     // Clear the slots in the smelt inventory
     var cells = $("#smelt-items.inventory-table  .inventory-cell"); 
@@ -85,6 +85,8 @@ function smeltOre() {
             cells[i].removeChild(cells[i].firstChild);
         }
     }
+
+    playerInventory.addItemByName("Earth Ingot", 20);
 }
 
 /**

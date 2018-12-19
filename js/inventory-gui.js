@@ -125,7 +125,7 @@ function refreshSortableInventoryList()
                 // Swap places of items if dragging on top of another
                 // Add the items in this list to the list the new item was from
                 $(this).children().not(ui.item).parentToAnimate($(ui.sender), 200);
-                
+                $(this).find( ".tooltip" ).remove();
                 // Check the quantity in the players inventory to see if we leave
                 // some items in the inventory
                 var itemName = getItemName($(ui.item).attr('class'))

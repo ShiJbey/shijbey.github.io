@@ -83,6 +83,7 @@ class Inventory {
 
     render(inventoryId, columns = 8, maxRows = 3) {
         // Resize the inventory
+        /*
         var targetRows = Math.ceil(this.length / 8);
         if (targetRows > maxRows) {
             targetRows = maxRows;
@@ -92,6 +93,7 @@ class Inventory {
         inventoryTag += ' .inventory-row'
         $(inventoryTag).addRemoveItems(columns);
         refreshSortableInventoryList();
+        */
         
         var cells = $("#" + inventoryId + ".inventory-table" + " .inventory-cell");
         for (var i = 0; i < cells.length; i++) {
@@ -122,6 +124,8 @@ playerInventory.addItemByName("Fire Ore", 20);
 playerInventory.addItemByName("Water Ore", 20);
 playerInventory.addItemByName("Wind Ore", 20);
 playerInventory.addItemByName("Earth Ore", 20);
+playerInventory.addItemByName("Earth Ingot", 20);
+playerInventory.addItemByName("Fire Ingot", 20);
 //playerInventory.addItem(0, 1);
 //playerInventory.addItem(1, 1);
 //playerInventory.addItem(2, 1);

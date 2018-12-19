@@ -337,3 +337,14 @@ function getItemID(itemName) {
     }
     return -1;
 }
+
+/**
+ * Given an item, returns the html used to display
+ * the stats in the tooltip
+ * @param {any} item
+ * @return {string}
+ */
+function statsToHtml(item, inventory) {
+    var itemQuantity = inventory.getQuantity(item.name);
+    return `<p>${item.name}</p><p>${item.description}</p><p>Quantity: ${itemQuantity}`;
+}
