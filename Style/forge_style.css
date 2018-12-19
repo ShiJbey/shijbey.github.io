@@ -48,15 +48,14 @@ div#scene-pane {
     position: absolute;
     left: 0;
     top: 0;
-    width: 210px;
+    width: 230px;
     height: 600px;
 }
 
 
 canvas#threejs-canvas {
-    width: 210px;
-    height: 580px;
-    border: 10px outset rgb(70, 41, 4);
+    width: 230px;
+    height: 600px;
 }
 
 
@@ -64,10 +63,9 @@ div#options-pane {
     position: absolute;
     right: 0;
     top: 0;
-    width: 530px;
-    height: 580px;
-    background: #4d2c02;
-    border: 10px outset rgb(70, 41, 4);
+    width: 550px;
+    height: 600px;
+    background: #000000;
 }
 
 p {
