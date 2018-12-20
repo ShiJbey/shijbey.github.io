@@ -97,7 +97,7 @@
                             </div>
                         </div>
                     </div>
-                    <button id="smelt-button" class="button" onclick="smeltOre()">Smelt</button>
+                    <button id="smelt-button" class="button" onclick="smeltOre()" disabled>Smelt</button>
                 </div>
                 <div id="forge-options">
                     <div class="dropdown">
@@ -153,6 +153,7 @@
                 <li><strong>Select Your Ingots: </strong>Drag and drop two of the ingots created from the previous step.</li>
                 <li><strong>Forge Your Blade: </strong>Click 'Open Forge Options' to configure your build. Click 'Forge' button when ready.</li>
             </ol>
+            <p>Rotate the model using W, A, S, D.</p>
         </section>
         
         <section>
@@ -365,14 +366,12 @@
 <script type="text/javascript">
 var scene, camera, renderer;
 var swordModel, material;
-var frustumSize = 1000;
-var renderer_rect;
 
 function init() {
     var ThreeJSCanvas = document.getElementById("threejs-canvas");
     
     renderer = new THREE.WebGLRenderer({ canvas: ThreeJSCanvas, antialias: true });
-    renderer_rect = renderer.domElement.getBoundingClientRect();
+    var renderer_rect = renderer.domElement.getBoundingClientRect();
     renderer.setSize(renderer_rect.width, renderer_rect.height);
     renderer.setPixelRatio(window.devicePixelRatio);
 
@@ -384,16 +383,12 @@ function init() {
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0xf0f0f0);
     var texture = new THREE.TextureLoader().load("Assets/infiniforge/Lisbeth_shop_interior.png");
-    //texture.wrapS = THREE.RepeatWrapping;
-    //texture.wrapT = THREE.RepeatWrapping;
-    //texture.repeat.set(4, 4);
     scene.background = texture;
     
     var light = new THREE.DirectionalLight(0xe6e6ff, 1);
     light.position.set(1, 1, 1).normalize();
     scene.add(light);
     
-    // 
     var geometry = new THREE.BoxBufferGeometry(1, 1, 1);
     material = new THREE.MeshLambertMaterial( { color: 0xffffff } )
     swordModel = new THREE.Mesh(geometry, material);
@@ -402,27 +397,28 @@ function init() {
 
 function forgeSword() {
 
-    $('#sliding-door').animate({top:0}, 500,
-    function() {
-
-    });
-
     var style = document.getElementById('sword-style').value;
+
     // Check to make sure the correc tnumber of ingots were given
     var requiredNumIngots = 1;
+
     if (style == "short") {
-            requiredNumIngots = 1;
-        } else if (style == "long") {
-            requiredNumIngots = 2;
-        } else if (style == "great") {
-            requiredNumIngots = 3;
+        requiredNumIngots = 1;
     }
+    else if (style == "long") {
+        requiredNumIngots = 2;
+    } 
+    else if (style == "great") {
+        requiredNumIngots = 3;
+    }
+
     // Get all the ingots passed for forging
     var itemsForForge = $('#forge-items.inventory-table .inventory-row .inventory-item');
     // stop if we don't have enough ingots
     if (itemsForForge.length < requiredNumIngots) {
         return
     }
+
     var seedVal = document.getElementById('seed-value').value;
     // Add the names of the the ingots to the seedVal
     for (var i = 0; i < itemsForForge.length; i++) {

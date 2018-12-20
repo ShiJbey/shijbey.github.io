@@ -411,7 +411,6 @@ function smeltOre() {
     for (var i = 0; i < oreItemEntries.length; i++) {
         playerInventory.removeItem(getItemID(oreItemEntries[i].name), 1);
     }
-    playerInventory.render('player-inventory');
 
     // Clear the slots in the smelt inventory
     var cells = $("#smelt-items.inventory-table  .inventory-cell");
@@ -420,6 +419,8 @@ function smeltOre() {
             cells[i].removeChild(cells[i].firstChild);
         }
     }
+
+    playerInventory.addItemByName("Earth Ingot", 20);
 }
 
 /**
@@ -557,15 +558,17 @@ var Inventory = function () {
             var maxRows = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 3;
 
             // Resize the inventory
+            /*
             var targetRows = Math.ceil(this.length / 8);
             if (targetRows > maxRows) {
                 targetRows = maxRows;
             }
-            var inventoryTag = "#" + inventoryId + ".inventory-table";
+            var inventoryTag = "#" + inventoryId + ".inventory-table"
             $(inventoryTag).addRemoveItems(targetRows);
-            inventoryTag += ' .inventory-row';
+            inventoryTag += ' .inventory-row'
             $(inventoryTag).addRemoveItems(columns);
             refreshSortableInventoryList();
+            */
 
             var cells = $("#" + inventoryId + ".inventory-table" + " .inventory-cell");
             for (var i = 0; i < cells.length; i++) {
@@ -601,18 +604,12 @@ playerInventory.addItemByName("Fire Ore", 20);
 playerInventory.addItemByName("Water Ore", 20);
 playerInventory.addItemByName("Wind Ore", 20);
 playerInventory.addItemByName("Earth Ore", 20);
+playerInventory.addItemByName("Iron Ingot", 20);
 playerInventory.addItemByName("Earth Ingot", 20);
 playerInventory.addItemByName("Fire Ingot", 20);
-//playerInventory.addItem(0, 1);
-//playerInventory.addItem(1, 1);
-//playerInventory.addItem(2, 1);
-//playerInventory.addItem(3, 1);
-//playerInventory.addItem(4, 1);
-//playerInventory.addItem(5, 20);
-//playerInventory.addItem(6, 20);
-//playerInventory.addItem(7, 20);
-//playerInventory.addItem(8, 20);
-//playerInventory.addItem(9, 20);
+playerInventory.addItemByName("Wind Ingot", 20);
+playerInventory.addItemByName("Water Ingot", 20);
+
 playerInventory.render('player-inventory');
 "use strict";
 // Code borrowed from: Eric Eastwood

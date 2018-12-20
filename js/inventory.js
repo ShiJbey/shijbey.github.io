@@ -124,16 +124,12 @@ playerInventory.addItemByName("Fire Ore", 20);
 playerInventory.addItemByName("Water Ore", 20);
 playerInventory.addItemByName("Wind Ore", 20);
 playerInventory.addItemByName("Earth Ore", 20);
+
+/*
+playerInventory.addItemByName("Iron Ingot", 20);
 playerInventory.addItemByName("Earth Ingot", 20);
 playerInventory.addItemByName("Fire Ingot", 20);
-//playerInventory.addItem(0, 1);
-//playerInventory.addItem(1, 1);
-//playerInventory.addItem(2, 1);
-//playerInventory.addItem(3, 1);
-//playerInventory.addItem(4, 1);
-//playerInventory.addItem(5, 20);
-//playerInventory.addItem(6, 20);
-//playerInventory.addItem(7, 20);
-//playerInventory.addItem(8, 20);
-//playerInventory.addItem(9, 20);
+playerInventory.addItemByName("Wind Ingot", 20);
+playerInventory.addItemByName("Water Ingot", 20);
+*/
 playerInventory.render('player-inventory');
