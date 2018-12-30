@@ -2,17 +2,28 @@
   "name": "shijbey.github.io",
   "version": "1.0.0",
   "description": "Personal Portfolio Site",
-  "main": "index.html",
   "dependencies": {
-    "babel": "^6.23.0",
-    "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1"
+    "@types/three": "^0.93.13"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "typescript": "^3.2.2",
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/plugin-proposal-class-properties": "^7.2.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-typescript": "^7.1.0",
+    "webpack": "^2.3.3",
+    "awesome-typescript-loader": "^3.1.2",
+    "source-map-loader": "^0.2.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel ./js/items.js ./js/item-crafting.js ./js/inventory.js ./js/inventory-gui.js --out-file ./js/es5/inventory.es5.js && babel ./js/swordgenerator.js --out-file ./js/es5/swordgenerator.es5.js",
-    "minify": "uglifyjs ./js/es5/inventory.es5.js -o ./js/inventory.min.js && uglifyjs ./js/es5/swordgenerator.es5.js -o ./js/swordgenerator.min.js"
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
+    "bundle": "webpack"
   },
   "repository": {
     "type": "git",
