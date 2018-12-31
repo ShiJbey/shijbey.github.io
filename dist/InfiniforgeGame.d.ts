@@ -5,3 +5,4 @@ declare class InfiniforgeGame {
 declare class InfiniforgeGameMode {
     constructor();
 }
+//# sourceMappingURL=InfiniforgeGame.d.ts.map
