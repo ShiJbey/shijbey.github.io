@@ -23,7 +23,6 @@
     "source-map-loader": "^0.2.1",
     "three": "^0.100.0",
     "typescript": "^3.2.2",
-    "uniq": "^1.0.1",
     "webpack": "^2.3.3"
   },
   "scripts": {

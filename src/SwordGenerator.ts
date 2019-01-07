@@ -1,7 +1,7 @@
 /// <reference types="three" />
 /// <reference types="seedrandom" />
 
-import { DoubleSide, BufferGeometry, BufferAttribute, BoxGeometry, MeshPhongMaterial, VertexColors, Vector3, CylinderGeometry, SphereGeometry } from "three";
+import * as THREE from "three";
 import * as seedrandom from "seedrandom";
 
 /**
@@ -45,7 +45,7 @@ export class Sword {
 
     constructor(style: string) {
         this.style = style;
-        this.geometry = new BufferGeometry();
+        this.geometry = new THREE.BufferGeometry();
         this.triangles = [];
         this.vertices = [];
         this.colors = [];
@@ -108,14 +108,14 @@ export class SwordGenerator {
         this.buildPommel(template, genParams, sword);
 
         // Add attributes to the geometry, add a material, and build a mesh
-        sword.geometry.addAttribute("position", new BufferAttribute(new Float32Array(sword.vertices), 3));
-        sword.geometry.addAttribute("color", new BufferAttribute(new Float32Array(sword.colors), 3));
+        sword.geometry.addAttribute("position", new THREE.BufferAttribute(new Float32Array(sword.vertices), 3));
+        sword.geometry.addAttribute("color", new THREE.BufferAttribute(new Float32Array(sword.colors), 3));
         sword.geometry.computeVertexNormals();
 
         // Borrowed from: https://github.com/mrdoob/three.js/blob/master/examples/webgl_buffergeometry_indexed.html#L72
-        var material = new MeshPhongMaterial({
+        var material = new THREE.MeshPhongMaterial({
             specular: 0x111111, shininess: 250,
-            side: DoubleSide, vertexColors: VertexColors
+            side: THREE.DoubleSide, vertexColors: THREE.VertexColors
         });
         
         return sword;
@@ -152,7 +152,7 @@ export class SwordGenerator {
         sword.vertices.concat(SwordGenerator.createBladeCrossSection(template.baseWidth, fullerDepth, fullerWidth, genParams));
 
         // Extrude blade cross-section to full length with all the divisions present
-        var generatedGeometry : VerticesAndTriangles = SwordGenerator.extrudeTopMultiple(sword.vertices, new Vector3(0.0, bladeLength/totalBladeDivs, 0.0), totalBladeDivs);
+        var generatedGeometry : VerticesAndTriangles = SwordGenerator.extrudeTopMultiple(sword.vertices, new THREE.Vector3(0.0, bladeLength/totalBladeDivs, 0.0), totalBladeDivs);
         // Add the vertices and triangles to the sword
         sword.vertices.concat(generatedGeometry.vertices);
         sword.triangles.concat(generatedGeometry.triangles);
@@ -208,10 +208,10 @@ export class SwordGenerator {
         guardBladeRatio : number = 4.0) : Sword {
 
         // Create a simple box
-        var guardGeometry = new BoxGeometry( guardBladeRatio * bladeWidth, .2, guardThickness);
+        var guardGeometry = new THREE.BoxGeometry( guardBladeRatio * bladeWidth, .2, guardThickness);
 
         // Convert the box to a buffer geometry
-        var guardBufferGeometry = new BufferGeometry().fromGeometry(guardGeometry);
+        var guardBufferGeometry = new THREE.BufferGeometry().fromGeometry(guardGeometry);
 
         // Append the vertices to the swords vertex array and add their indices to the vertex indices array
         var vertices = guardBufferGeometry.getAttribute("position"); 
@@ -257,13 +257,13 @@ export class SwordGenerator {
      */
     buildHandle(template : SwordTemplate, genParams : GenerationParameters, sword: Sword, handleLength = 1.35, handleWidth = 0.1, numHands = 1) {
         // Create a simple cylinder
-        var handleGeometry = new CylinderGeometry( handleWidth, handleWidth, handleLength, 8);
+        var handleGeometry = new THREE.CylinderGeometry( handleWidth, handleWidth, handleLength, 8);
 
         // Moves translates the handle to fall below the guard and blade
         handleGeometry.translate(0,-handleLength / 2,0);
 
         // Convert the box to a buffer geometry
-        var handleBufferGeometry = new BufferGeometry().fromGeometry(handleGeometry);
+        var handleBufferGeometry = new THREE.BufferGeometry().fromGeometry(handleGeometry);
 
         // Append the vertices to the swords vertex array and add their indices to the vertex indices array
         var vertices = handleBufferGeometry.getAttribute("position"); 
@@ -309,12 +309,12 @@ export class SwordGenerator {
      */
     buildPommel(template : SwordTemplate, genParams : GenerationParameters, sword: Sword, bladeWidth=0.6, handleLength = 1.35, pommelBladeWidthRatio = 0.50) : Sword {
         var pommelWidth = pommelBladeWidthRatio * bladeWidth;
-        var pommelGeometry = new SphereGeometry(pommelWidth, 5, 4);
+        var pommelGeometry = new THREE.SphereGeometry(pommelWidth, 5, 4);
         // Translates the pommel to fall below the handle
         pommelGeometry.translate(0,-handleLength,0);
 
         // Convert the box to a buffer geometry
-        var pommelBufferGeometry = new BufferGeometry().fromGeometry(pommelGeometry);
+        var pommelBufferGeometry = new THREE.BufferGeometry().fromGeometry(pommelGeometry);
 
         // Append the vertices to the swords vertex array and add their indices to the vertex indices array
         var vertices = pommelBufferGeometry.getAttribute("position"); 
@@ -419,7 +419,7 @@ export class SwordGenerator {
      * Given: All the vertices in the model, and a direction to extrude in, and a number of times to extrude
      * Returns: The new vertices and the triangles created during extrusion
      */
-    static extrudeTopMultiple(vertices: number[], direction : Vector3, numRepeat : number) : VerticesAndTriangles {
+    static extrudeTopMultiple(vertices: number[], direction : THREE.Vector3, numRepeat : number) : VerticesAndTriangles {
 
         var generatedGeometry : VerticesAndTriangles;
         var bufferedVertices = vertices.slice();
@@ -440,7 +440,7 @@ export class SwordGenerator {
      * Returns: The new vertices and the triangles created during extrusion
      * ## Note: Assumes that the top is a flat, horizontal face
      */
-    static extrudeTop(vertices: number[], direction : Vector3) : VerticesAndTriangles {
+    static extrudeTop(vertices: number[], direction : THREE.Vector3) : VerticesAndTriangles {
 
         var topVertIndices : number[] = SwordGenerator.getTopVertIndices(vertices);
 
@@ -454,7 +454,7 @@ export class SwordGenerator {
      * Given: All the vertices in the model, the indices to extrude, and the direction to extrude in
      * Returns: The new vertices and the triangles created during extrusion
      */
-    static extrudeFace(vertices: number[], faceIndices : number[],  direction : Vector3) : VerticesAndTriangles {
+    static extrudeFace(vertices: number[], faceIndices : number[],  direction : THREE.Vector3) : VerticesAndTriangles {
 
         if (faceIndices.length == 0) {
             throw "No vertices given to extrude";
