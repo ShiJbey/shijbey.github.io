@@ -1,9 +1,11 @@
 <!Doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <title>Infiniforge</title>
+    <link rel="shortcut icon" href="Assets/favicon.ico"/>
     <link rel="stylesheet" href="Style/style.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="Style/forge_style.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="Style/inventory_style.css" type="text/css" media="screen" />
@@ -11,7 +13,7 @@
 
 <body>
     <div id="container">
-        
+
         <header>
             <h1>Shi Johnson-Bey</h1>
             <h3>Graduate Student at Carnegie Mellon University</h3>
@@ -31,35 +33,30 @@
             </ul>
         </nav>
 
-        
         <div id="game-container">
+
             <div id="scene-pane">
                 <canvas id="threejs-canvas"></canvas>
             </div>
+
             <div id="options-pane">
                 <div id="item-options-pane">
-                    <!--Holds all the tabs for inventory-->
-                    <div class="tab">
-                        <button class="tab-links" onclick="OpenTab(event, 'inventory')" id="default-open">Inventory</button>
-                        <button class="tab-links" onclick="OpenTab(event, 'sword-stats')">Blade Stats</button>
-                    </div>
-                    <div id="inventory" class="tab-content">
+                    <div id="inventory">
                         <p>Inventory:</p>
                         <div id="player-inventory" class="inventory-table">
                             <div class="inventory-row">
-                                <div class="inventory-cell">
-                                    <div class="inventory-item iron-ingot tooltip" data-item-type="ingot"></div>
-                                </div>
-                                <div class="inventory-cell">
-                                    <div class="inventory-item earth-ingot" data-item-type="ingot"></div>
-                                </div>
                                 <div class="inventory-cell"></div>
-                                <div class="inventory-cell">
-                                    <div class="inventory-item fire-ore" data-item-type="ore"></div>
-                                </div>
-                                <div class="inventory-cell">
-                                    <div class="inventory-item fire-ore" data-item-type="ore"></div>
-                                </div>
+                                <div class="inventory-cell"></div>
+                                <div class="inventory-cell"></div>
+                                <div class="inventory-cell"></div>
+                                <div class="inventory-cell"></div>
+                            </div>
+                            <div class="inventory-row">
+                                <div class="inventory-cell"></div>
+                                <div class="inventory-cell"></div>
+                                <div class="inventory-cell"></div>
+                                <div class="inventory-cell"></div>
+                                <div class="inventory-cell"></div>
                             </div>
                             <div class="inventory-row">
                                 <div class="inventory-cell"></div>
@@ -70,92 +67,53 @@
                             </div>
                         </div>
                     </div>
-                    <div id="sword-stats" class="tab-content">
-                        <table>
-                            <p>Coming Soon!</p>
-                            <!--
-                            <tr>
-                                <th>Name:</th>
-                                <td id="stats-sword-name">Excalibur</td>
-                            </tr>
-                            <tr>
-                                <th>Style:</th>
-                                <td id="stats-sword-style">LongSword</td>
-                            </tr>
-                            -->
-                        </table>
-                    </div>
                 </div>
-                
+
                 <div id="smelt-options">
                     <p>Drag and drop ore to smelt ingots</p>
                     <div id="smelt-items" class="inventory-table" data-item-filter-whitelist="ore" data-item-filter-blacklist="ingot">
                         <div class="inventory-row">
-                            <div class="inventory-cell">
-                            </div>
-                            <div class="inventory-cell">
-                            </div>
+                            <div class="inventory-cell"></div>
+                            <div class="inventory-cell"></div>
                         </div>
                     </div>
+                    <br>
                     <button id="smelt-button" class="button" onclick="smeltOre()">Smelt</button>
                 </div>
+
                 <div id="forge-options">
-                    <div class="dropdown">
-                        <button id="forge-options-dropbtn" class="dropbtn" onclick="ToggleForgeOptions()">Open Forge Options</button>
-                        
-                        <div id="forge-options-dropdown" class="dropdown-content">
-                            <p>Blade Style:
-                                <select id="sword-style" name="swordStyle" required>
-                                    <option value="short">Short</option>
-                                    <option value="long" selected="selected">Long</option>
-                                    <option value="great">Great</option>
-                                </select>
-                            </p>
-
-                            <p>Seed:
-                                <input type="text" id="seed-value" placeholder="Random Seed" name="seed" />
-                                <button id="random-seed-button" class="button" onclick="randomizeSeed()">Random Seed</button>
-                            </p>
-
-                            <p class="slide-container"> Blade Base Width (%):
-                                <input type="range" min="1" max="50" value="30" class="slider" id="base-width">
-                            </p>
-
-                            <p class="slide-container"> Edge-Width Ratio (%):
-                                <input type="range" min="10" max="100" value="20" class="slider" id="edge-width-ratio">
-                            </p>
-
-                            <p class="slide-container"> Blade Length:
-                                <input type="range" min="1" max="6" value="3" class="slider" id="blade-length">
-                            </p>
+                    <p>Drag and drap ingots to forge a sword</p>
+                    <div id="forge-items" class="inventory-table" data-item-filter-whitelist="ingot gem"
+                        data-item-filter-blacklist="ore">
+                        <div class="inventory-row">
+                            <div class="inventory-cell"></div>
+                            <div class="inventory-cell"></div>
                         </div>
                     </div>
-                    <p>Drag and drap ingots to forge a sword</p>
-                        <div id="forge-items" class="inventory-table" data-item-filter-whitelist="ingot gem" data-item-filter-blacklist="ore">
-                            <div class="inventory-row">
-                                <div class="inventory-cell">
-                                </div>
-                                <div class="inventory-cell">
-                                </div>
-                            </div>
-                        </div>
-                        <button id="forge-button" class="button" onclick="forgeSword()">Forge!</button>
+                    <br>
+                    <button id="forge-button" class="button" onclick="forgeSword(true)">Forge!</button>
                 </div>
+
             </div>
         </div>
-        <section>
+
+        <section id="how-to-play">
             <h2>How to Play </h2>
             <p>This game was designed to be an example of how a crafting system
                 could utilize the procedural sword code.
             </p>
             <ol>
-                <li><strong>Smelt Ore: </strong>Drag any of the colored ores into the two blocks. Creating an ingot requires two ore items</li>
-                <li><strong>Select Your Ingots: </strong>Drag and drop two of the ingots created from the previous step.</li>
-                <li><strong>Forge Your Blade: </strong>Click 'Open Forge Options' to configure your build. Click 'Forge' button when ready.</li>
+                <li><strong>Smelt Ore: </strong>Drag any of the colored ores into the two blocks. Creating an ingot
+                    requires two ore items</li>
+                <li><strong>Select Your Ingots: </strong>Drag and drop two of the ingots created from the previous
+                    step.</li>
+                <li><strong>Forge Your Blade: </strong>Click 'Open Forge Options' to configure your build. Click
+                    'Forge' button when ready.</li>
             </ol>
+            <p>Rotate the model using W, A, S, D.</p>
         </section>
-        
-        <section>
+
+        <section id=recent-updates>
             <h2>Recent Updates</h2>
             <h3>April 2018</h3>
             <ul>
@@ -164,7 +122,8 @@
                 <li>Fixed pseudo randomness of generation process</li>
             </ul>
         </section>
-        <section>
+
+        <section id="features">
             <h2>Features to Add</h2>
             <ul>
                 <li>Show the item count in inventory</li>
@@ -176,310 +135,334 @@
                 <li>Stats about the blade</li>
             </ul>
         </section>
-        <section>
+
+        <section id="credits">
             <h2>Credits</h2>
             <ul>
-                <li>Inventory system adapted from Eric Eastwood @ <a href="https://codepen.io/MadLittleMods/pen/vmhLF"> Inventory Sample Code</a></a></li>
+                <li>Inventory system adapted from Eric Eastwood @ <a href="https://codepen.io/MadLittleMods/pen/vmhLF">
+                        Inventory Sample Code</a></li>
                 <li>W3Schools Web UI tutorials</li>
             </ul>
         </section>
+
     </div>
-</body>
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/jquery-ui.min.js" type="text/javascript"></script>
-<script src="js/jquery.lavaNav.js"></script>
-<script type="text/javascript">$('#nav').lavaNav();</script>            
-<script src="js/three.min.js"></script>
-<script src="js/seedrandom.min.js"></script>
-<script src="js/inventory-gui.js"></script>
-<script src="js/swordgenerator.min.js"></script>
-<script src="js/inventory.min.js"></script>
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/jquery-ui.min.js"></script>
+<script src="js/lib/dat.gui.min.js"></script>
+<script src="js/lib/three.min.js"></script>
+<script src="js/lib/seedrandom.min.js"></script>
 
-<script>
-
-    // Set the keyboard handlers
-    document.onkeyup = handle_keyboard_up;
-    document.onkeydown = handle_keyboard_down;
-
-    // Controls the rotation of the sword
-    var rotation = {
-        "left":  false,
-        "right": false,
-        "up": false,
-        "down": false
-    };
-
-    function handle_keyboard_down(event) {
-        event = event || window.event;
-        if (event.which == 65) {
-            // LEFT
-            rotation["left"] = true;
-            rotation["right"] = false;
-        }
-        else if (event.which == 68) {
-            // RIGHT
-            rotation["right"] = true;
-            rotation["left"] = false;
-        }
-        else if (event.which == 87) {
-            // UP
-            rotation["up"] = true;
-            rotation["down"] = false;
-        }
-        else if (event.which == 83) {
-            // DOWN
-            rotation["down"] = true;
-            rotation["up"] = false;
-        }
-    }
+<script src="js/ui/jquery.lavaNav.js"></script>
+<script type="text/javascript">$('#nav').lavaNav();</script>
 
 
-    function handle_keyboard_up(event) {
-        event = event || window.event;
-        if (event.which == 65) {
-            // LEFT
-            rotation["left"] = false;
-            rotation["right"] = false;
-        }
-        else if (event.which == 68) {
-            // RIGHT
-            rotation["right"] = false;
-            rotation["left"] = false;
-        }
-        else if (event.which == 87) {
-            // UP
-            rotation["up"] = false;
-            rotation["down"] = false;
-        }
-        else if (event.which == 83) {
-            // DOWN
-            rotation["down"] = false;
-            rotation["up"] = false;
-        }
-    }
-
-    $(".inventory-item").mouseenter(
-        function () {
-            console.log("hovering");
-           var itemName = getItemName($(this).attr("class"));
-           var itemStats = getItem(itemName);
-           var itemHtml = statsToHtml(itemStats, playerInventory);
-           $( this ).append( $( `<div class='tooltip'><span class='tooltiptext'>${itemHtml}</span></div>`) );
-        }
-        /*, function() {
-            $( this ).find( ".tooltip" ).remove();
-        }*/
-    );
-
-
-    $(".inventory-item").mouseleave(
-        function () {
-            $( this ).find( ".tooltip" ).remove();
-        }
-    );
-
-
-</script>
-
+<script src="js/infiniforge/items.js"></script>
+<script src="js/infiniforge/item-crafting.js"></script>
+<script src="js/infiniforge/inventory-gui.js"></script>
+<script src="js/infiniforge/inventory.js"></script>
+<script src="js/infiniforge/infiniforge.bundle.js"></script>
 
 <script>
+///////////////////////////////////////////////////////////
+//          HANDLE SWORD ROTATION CONTROLS               //
+///////////////////////////////////////////////////////////
 
-    // Borrowed from MDN Math.Random()
-    function getRandomInt(max) {
-        return Math.floor(Math.random() * Math.floor(max));
+// Set the keyboard handlers
+document.onkeyup = handle_keyboard_up;
+document.onkeydown = handle_keyboard_down;
+
+// Controls the rotation of the sword
+var rotation = {
+    "left": false,
+    "right": false,
+    "up": false,
+    "down": false
+};
+
+function handle_keyboard_down(event) {
+    event = event || window.event;
+    if (event.which == 65) {
+        // LEFT
+        rotation["left"] = true;
+        rotation["right"] = false;
     }
-
-    // Creates a rnadom seed using upper case, lowercase
-    // and numbers
-    function randomizeSeed(seedLength = 7) {
-        var seed = "";
-        numberAsciiOffset = 48;
-        lowercaseAsciiOffset = 97;
-        uppercaseAsciiOffset = 65;
-        for (var i = 0; i < seedLength; i++) {
-            var rand_num = Math.random();
-            if (rand_num <= 0.33){
-                seed += String.fromCharCode(numberAsciiOffset + getRandomInt(10));
-            } 
-            else if (rand_num > 0.33 && rand_num <= 0.66) {
-                seed += String.fromCharCode(lowercaseAsciiOffset + getRandomInt(25));
-            }
-            else {
-                seed += String.fromCharCode(uppercaseAsciiOffset + getRandomInt(25));
-            }
-        }
-        document.getElementById('seed-value').value = seed;
+    else if (event.which == 68) {
+        // RIGHT
+        rotation["right"] = true;
+        rotation["left"] = false;
     }
+    else if (event.which == 87) {
+        // UP
+        rotation["up"] = true;
+        rotation["down"] = false;
+    }
+    else if (event.which == 83) {
+        // DOWN
+        rotation["down"] = true;
+        rotation["up"] = false;
+    }
+}
 
-    var styleSelector = document.getElementById('sword-style');
-    styleSelector.addEventListener("change", () => {
-        // Get the current value
-        var selectedStyle = styleSelector.value;
-        var requiredNumIngots = 1;
-        if (selectedStyle == "short") {
-            requiredNumIngots = 1;
-        } else if (selectedStyle == "long") {
-            requiredNumIngots = 2;
-        } else if (selectedStyle == "great") {
-            requiredNumIngots = 3;
+function handle_keyboard_up(event) {
+    event = event || window.event;
+    if (event.which == 65) {
+        // LEFT
+        rotation["left"] = false;
+        rotation["right"] = false;
+    }
+    else if (event.which == 68) {
+        // RIGHT
+        rotation["right"] = false;
+        rotation["left"] = false;
+    }
+    else if (event.which == 87) {
+        // UP
+        rotation["up"] = false;
+        rotation["down"] = false;
+    }
+    else if (event.which == 83) {
+        // DOWN
+        rotation["down"] = false;
+        rotation["up"] = false;
+    }
+}
+
+///////////////////////////////////////////////////////////
+//              TOOLTIPS FOR SAMPLE GAME                 //
+///////////////////////////////////////////////////////////
+
+/*
+$(".inventory-item").mouseenter(
+    function () {
+        //console.log("hovering");
+        var itemName = getItemName($(this).attr("class"));
+        var itemStats = getItem(itemName);
+        var itemHtml = statsToHtml(itemStats, playerInventory);
+        $(this).append($(`<div class='tooltip'><span class='tooltiptext'>${itemHtml}</span></div>`));
+    }
+);
+
+
+$(".inventory-item").mouseleave(
+    function () {
+        $(this).find(".tooltip").remove();
+    }
+);
+*/
+
+///////////////////////////////////////////////////////////
+//                  HELPER FUNTIONS                      //
+///////////////////////////////////////////////////////////
+
+// Borrowed from MDN Math.Random()
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
+
+function randomSeed(seedLength = 7) {
+    var seed = "";
+    numberAsciiOffset = 48;
+    lowercaseAsciiOffset = 97;
+    uppercaseAsciiOffset = 65;
+    for (var i = 0; i < seedLength; i++) {
+        var rand_num = Math.random();
+        if (rand_num <= 0.33) {
+            seed += String.fromCharCode(numberAsciiOffset + getRandomInt(10));
         }
-        console.log("Resizing the forge to require " + requiredNumIngots + " ingots.");
-        // Resize the forge-item inventory space
-        $('#forge-items.inventory-table').addRemoveItems(1);
-        $('#forge-items.inventory-table .inventory-row').addRemoveItems(requiredNumIngots);
-        refreshSortableInventoryList();
-    });
-
-    function ToggleForgeOptions() {
-        var dropdown = $("#forge-options-dropdown");
-        dropdown.toggleClass("show");
-        var forgeOptionsDropdownButton = $("#forge-options-dropbtn");
-        if (dropdown.hasClass("show")) {
-            forgeOptionsDropdownButton.html("Close Forge Options");
-        } else {
-            forgeOptionsDropdownButton.html("Open Forge Options");
+        else if (rand_num > 0.33 && rand_num <= 0.66) {
+            seed += String.fromCharCode(lowercaseAsciiOffset + getRandomInt(25));
+        }
+        else {
+            seed += String.fromCharCode(uppercaseAsciiOffset + getRandomInt(25));
         }
     }
+    return seed;
+}
 
-    
-    function OpenTab(event, tabName) {
-        var i, tabContent, tabLinks;
-        tabContent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabContent.length; ++i) {
-            tabContent[i].style.display = "none";
-        }
-        tabLinks = document.getElementsByClassName("tab-links");
-        for (i = 0; i < tabLinks.length; ++i) {
-            tabLinks[i].className = tabLinks[i].className.replace(" active", "");
-        }
-        document.getElementById(tabName).style.display = "block";
-        event.currentTarget.className += " active";
-    }
-    document.getElementById("default-open").click();
-</script>
+///////////////////////////////////////////////////////////
+//                   THREEJS SET UP                      //
+///////////////////////////////////////////////////////////
 
-
-
-
-<script type="text/javascript">
 var scene, camera, renderer;
 var swordModel, material;
-var frustumSize = 1000;
-var renderer_rect;
 
 function init() {
     var ThreeJSCanvas = document.getElementById("threejs-canvas");
-    
+
     renderer = new THREE.WebGLRenderer({ canvas: ThreeJSCanvas, antialias: true });
-    renderer_rect = renderer.domElement.getBoundingClientRect();
+    var renderer_rect = renderer.domElement.getBoundingClientRect();
     renderer.setSize(renderer_rect.width, renderer_rect.height);
     renderer.setPixelRatio(window.devicePixelRatio);
 
     var aspect = renderer_rect.width / renderer_rect.height;
     camera = new THREE.PerspectiveCamera(75, aspect, 1, 1000);
-    camera.position.z = 7;
+    camera.position.z = 3;
+    camera.position.y = 1;
     camera.updateProjectionMatrix();
 
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0xf0f0f0);
     var texture = new THREE.TextureLoader().load("Assets/infiniforge/Lisbeth_shop_interior.png");
-    //texture.wrapS = THREE.RepeatWrapping;
-    //texture.wrapT = THREE.RepeatWrapping;
-    //texture.repeat.set(4, 4);
     scene.background = texture;
-    
+
     var light = new THREE.DirectionalLight(0xe6e6ff, 1);
     light.position.set(1, 1, 1).normalize();
     scene.add(light);
-    
-    // 
+
     var geometry = new THREE.BoxBufferGeometry(1, 1, 1);
-    material = new THREE.MeshLambertMaterial( { color: 0xffffff } )
+    material = new THREE.MeshLambertMaterial({ color: 0xffffff })
     swordModel = new THREE.Mesh(geometry, material);
-    scene.add(swordModel); 
+    scene.add(swordModel);
 }
 
-function forgeSword() {
-
-    $('#sliding-door').animate({top:0}, 500,
-    function() {
-
-    });
-
-    var style = document.getElementById('sword-style').value;
+function forgeSword(use_ingots) {
+    var style = swordStyleController.getValue()
+    var bladeLength = 1;
     // Check to make sure the correc tnumber of ingots were given
     var requiredNumIngots = 1;
-    if (style == "short") {
-            requiredNumIngots = 1;
-        } else if (style == "long") {
-            requiredNumIngots = 2;
-        } else if (style == "great") {
-            requiredNumIngots = 3;
+    if (style == "Short") {
+        requiredNumIngots = 1;
+        bladeLength = 0.5;
     }
+    else if (style == "Long") {
+        requiredNumIngots = 2;
+        bladeLength = 1.0;
+    }
+    else if (style == "Great") {
+        requiredNumIngots = 3;
+        bladeLength = 1.5;
+    }
+
     // Get all the ingots passed for forging
     var itemsForForge = $('#forge-items.inventory-table .inventory-row .inventory-item');
     // stop if we don't have enough ingots
-    if (itemsForForge.length < requiredNumIngots) {
+    if (itemsForForge.length < requiredNumIngots && use_ingots) {
         return
     }
-    var seedVal = document.getElementById('seed-value').value;
-    // Add the names of the the ingots to the seedVal
-    for (var i = 0; i < itemsForForge.length; i++) {
-        seedVal += getItemName(itemsForForge[i].className);
+
+    var seedVal =  seedController.getValue();
+
+    if (use_ingots) {
+        // Add the names of the the ingots to the seedVal
+        for (var i = 0; i < itemsForForge.length; i++) {
+            seedVal += getItemName(itemsForForge[i].className);
+        }
     }
-    var basewidth = document.getElementById('base-width').value;
-    var edgeWidthRatio = document.getElementById('edge-width-ratio').value;
-    var bladeLength = document.getElementById('blade-length').value;
-    
+
+    var basewidth = baseWidthController.getValue();
+    var edgeWidthRatio = edgeWidthRatioController.getValue();
+
+
     var swordTemplate = {
-        "baseWidth": basewidth / 100, "widthMarginRatio": (edgeWidthRatio / 100), "length": bladeLength
+        "baseWidth": basewidth, "widthMarginRatio": edgeWidthRatio, "length": bladeLength
     };
-    var generator = new SwordGenerator(seedVal, style, swordTemplate);
-    sword = generator.generateSword();
+
+    var generator = new Infiniforge.SwordGenerator(seedVal);
+    sword = generator.generateSword(swordTemplate, Infiniforge.DEFAULT_GEN_PARAMS);
     scene.remove(swordModel);
-    swordModel = new THREE.Mesh(sword.geometry, material);
-    swordModel.position.y = -3;
+    swordModel = sword.getMesh();
     scene.add(swordModel);
 
     for (var i = 0; i < itemsForForge.length; i++) {
         playerInventory.removeItem(getItemID(getItemName(itemsForForge[i].className)), 1);
     }
+
     playerInventory.render('player-inventory');
     // Clear the slots in the smelt inventory
-    var cells = $("#forge-items.inventory-table  .inventory-cell"); 
-    //console.log(cells.length);
+    var cells = $("#forge-items.inventory-table  .inventory-cell");
+
     for (var i = 0; i < cells.length; i++) {
-        while(cells[i].firstChild) {
+        while (cells[i].firstChild) {
             cells[i].removeChild(cells[i].firstChild);
         }
     }
 }
 
-function animate () {
+function animate() {
+
+    var rotationSpeed = 0.05;
     requestAnimationFrame(animate);
 
     if (rotation["left"]) {
-        swordModel.rotation.y -= 0.05;
+        swordModel.rotation.y -= rotationSpeed;
     }
     else if (rotation["right"]) {
-        swordModel.rotation.y += 0.05;
+        swordModel.rotation.y += rotationSpeed;
     }
 
     if (rotation["down"]) {
-        swordModel.rotation.x += 0.05;
+        swordModel.rotation.x += rotationSpeed;
     }
     else if (rotation["up"]) {
-        swordModel.rotation.x -= 0.05;
+        swordModel.rotation.x -= rotationSpeed;
     }
 
     renderer.render(scene, camera);
 };
 
+///////////////////////////////////////////////////////////
+//                    GUI CONTROLS                       //
+///////////////////////////////////////////////////////////
+
+var GenerationParams = function() {
+    this.seed = 'pizza';
+    this.randomizeSeed = () => {}
+    this.swordStyle = 'Long'
+    this.baseWidth = 0.3;
+    this.edgeWidthRatio = 0.2;
+    this.forge = () => {
+        forgeSword(false);
+    }
+};
+
+var seedController, baseWidthController;
+var edgeWidthRatioController, swordStyleController;
+var gui = new dat.GUI({ autoPlace: false });
+var domGUI = gui.domElement;
+domGUI.id = 'dom-gui';
+var sceneContainer = document.getElementById('scene-pane');
+sceneContainer.appendChild(domGUI);
+
+var generationParams = new GenerationParams();
+seedController = gui.add(generationParams, 'seed');
+randomizeSeedController = gui.add(generationParams, 'randomizeSeed');
+swordStyleController = gui.add(generationParams, 'swordStyle', ['Short', 'Long', 'Great']);
+baseWidthController = gui.add(generationParams, 'baseWidth', 0.1, 0.5);
+edgeWidthRatioController = gui.add(generationParams, 'edgeWidthRatio', 0.1, 1.0);
+gui.add(generationParams, 'forge');
+
+randomizeSeedController.setValue(() => {
+    seedController.setValue(randomSeed());
+});
+
+
+swordStyleController.onChange(function(value) {
+
+    var selectedStyle = value;
+    var requiredNumIngots = 1;
+    if (selectedStyle == "Short") {
+        requiredNumIngots = 1;
+    } else if (selectedStyle == "Long") {
+        requiredNumIngots = 2;
+    } else if (selectedStyle == "Great") {
+        requiredNumIngots = 3;
+    }
+    //console.log("Resizing the forge to require " + requiredNumIngots + " ingots.");
+    // Resize the forge-item inventory space
+    //$('#forge-items.inventory-table').addRemoveItems(1);
+    $('#forge-items.inventory-table .inventory-row').addRemoveItems(requiredNumIngots);
+    refreshSortableInventoryList();
+});
+
+
+///////////////////////////////////////////////////////////
+//                 INITIALIZE GAME                       //
+///////////////////////////////////////////////////////////
 init();
 animate();
 forgeSword();
 </script>
-
-
+</body>
 </html>

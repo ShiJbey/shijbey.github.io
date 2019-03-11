@@ -12,7 +12,7 @@ body
 }
 */
 
-/* Item atlas: 
+/* Item atlas:
 *  - https://i.imgur.com/ngGK5MF.png
 *  - https://s3-us-west-2.amazonaws.com/s.cdpn.io/8709/item-atlas.png
 * Table/Inventory atlas:
@@ -20,18 +20,18 @@ body
 *  - https://s3-us-west-2.amazonaws.com/s.cdpn.io/8709/inventory-atlas.png
 */
 /*
-a, a:link, a:visited { 
+a, a:link, a:visited {
 color: #c00;
 text-decoration: none;
 
--webkit-transition: all 0.3s ease;  
+-webkit-transition: all 0.3s ease;
 transition: all 0.3s ease;
 }
-a:hover { 
+a:hover {
 color: #ff5c19;
 text-decoration: underline;
-}  
-a:active { 
+}
+a:active {
 color: #6aff19;
 }
 */
@@ -60,15 +60,15 @@ input[type="range"]
 {
     width: 36px;
     height: 36px;
-    
+
     flex-shrink: 0;
-    
+
     display: flex;
     flex-direction: row;
     justify-content: center; /* align items in Main Axis */
     align-items: center; /* align items in Cross Axis */
     align-content: center; /* Extra space in Cross Axis */
-    
+
     background-image: url('../Assets/infiniforge/inventory-atlas.png');
     background-position: -229px -331px;
 }
@@ -78,7 +78,7 @@ input[type="range"]
 {
     width: 38px;
     padding-left: 2px;
-    
+
     background-position: -190px -331px;
 }
 
@@ -87,17 +87,17 @@ input[type="range"]
 {
     width: 38px;
     padding-right: 2px;
-    
+
     background-position: -266px -331px;
 }
-    
+
 
 /* top ROW */
 .inventory-row:first-child .inventory-cell
 {
     height: 38px;
     padding-top: 2px;
-    
+
     background-position: -229px -292px;
 }
 
@@ -106,7 +106,7 @@ input[type="range"]
 {
     height: 38px;
     padding-bottom: 2px;
-    
+
     background-position: -229px -368px;
 }
 
@@ -115,7 +115,7 @@ input[type="range"]
 {
     width: 38px;
     height: 38px;
-    
+
     background-position: -190px -292px;
 }
 
@@ -124,7 +124,7 @@ input[type="range"]
 {
     width: 38px;
     height: 38px;
-    
+
     background-position: -266px -292px;
 }
 
@@ -133,7 +133,7 @@ input[type="range"]
 {
     width: 38px;
     height: 38px;
-    
+
     background-position: -190px -368px;
 }
 
@@ -142,7 +142,7 @@ input[type="range"]
 {
     width: 38px;
     height: 38px;
-    
+
     background-position: -266px -368px;
 }
 
@@ -151,7 +151,7 @@ input[type="range"]
 .inventory-row:only-child .inventory-cell
 {
     height: 40px;
-    
+
     background-position: -613px -286px;
 }
 /* single horizontal left */
@@ -159,7 +159,7 @@ input[type="range"]
 {
     width: 38px;
     height: 40px;
-    
+
     background-position: -574px -286px;
 }
 /* single horizontal right */
@@ -167,7 +167,7 @@ input[type="range"]
 {
     width: 38px;
     height: 40px;
-    
+
     background-position: -650px -286px;
 }
 
@@ -175,7 +175,7 @@ input[type="range"]
 .inventory-row .inventory-cell:only-child
 {
     width: 40px;
-    
+
     background-position: -563px -463px;
 }
 /* single vertical top */
@@ -183,7 +183,7 @@ input[type="range"]
 {
     width: 40px;
     height: 38px;
-    
+
     background-position: -563px -424px;
 }
 /* single vertical bottom */
@@ -191,16 +191,16 @@ input[type="range"]
 {
     width: 40px;
     height: 38px;
-    
+
     background-position: -563px -500px;
 }
 
 /* single by singel */
 .inventory-row:only-child .inventory-cell:only-child
 {
-    width: 40px;
-    height: 40px;
-    
+    width: 38px;
+    height: 38px;
+
     background-position: -30px -288px;
 }
 
@@ -212,10 +212,10 @@ input[type="range"]
     height: 32px;
     background-image: url(../Assets/infiniforge/ingot_ore_sprites.png);
     background-repeat: no-repeat;
-    
+
     cursor: hand;
     cursor: pointer;
-    
+
     -webkit-transition: opacity 0.3s ease;
     transition: opacity 0.3s ease;
 }
@@ -277,7 +277,7 @@ input[type="range"]
 
 .inventory-item.Earth-Ingot
 {
-    background-position: -32px 0px; 
+    background-position: -32px 0px;
 }
 
 .inventory-item.Fire-Ingot
@@ -287,7 +287,7 @@ input[type="range"]
 
 .inventory-item.Wind-Ingot
 {
-    background-position: -96px 0px; 
+    background-position: -96px 0px;
 }
 
 .inventory-item.Water-Ingot
@@ -302,7 +302,7 @@ input[type="range"]
 
 .inventory-item.Blaze-Ingot
 {
-    background-position: -32px -32px; 
+    background-position: -32px -32px;
 }
 
 .inventory-item.Lava-Ingot
@@ -312,7 +312,7 @@ input[type="range"]
 
 .inventory-item.Wave-Ingot
 {
-    background-position: -96px -32px; 
+    background-position: -96px -32px;
 }
 
 .inventory-item.Mud-Ingot
@@ -332,7 +332,7 @@ input[type="range"]
 
 .inventory-item.Earth-Ore
 {
-    background-position: -192px 0px; 
+    background-position: -192px 0px;
 }
 
 .inventory-item.Fire-Ore
@@ -342,7 +342,7 @@ input[type="range"]
 
 .inventory-item.Wind-Ore
 {
-    background-position: -256px 0px; 
+    background-position: -256px 0px;
 }
 
 .inventory-item.Water-Ore

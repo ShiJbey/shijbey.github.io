@@ -32,13 +32,12 @@
     cursor: pointer; /* Cursor on hover */
 }
 
-
 div#game-container {
     margin-top: 16px;
     border: 10px inset;
     position: relative;
     width: 780px;
-    height: 600px;
+    height: 620px;
     -webkit-border-image: url(../Assets/infiniforge/border1.png) 30 stretch;
     -o-border-image: url(../Assets/infiniforge/border1.png) 30 stretch;
     border-image: url(../Assets/infiniforge/border1.png) 30 stretch;
@@ -48,14 +47,14 @@ div#scene-pane {
     position: absolute;
     left: 0;
     top: 0;
-    width: 230px;
-    height: 600px;
+    width: 460px;
+    height: 620px;
 }
 
 
 canvas#threejs-canvas {
-    width: 230px;
-    height: 600px;
+    width: 460px;
+    height: 620px;
 }
 
 
@@ -63,7 +62,7 @@ div#options-pane {
     position: absolute;
     right: 0;
     top: 0;
-    width: 550px;
+    width: 320px;
     height: 600px;
     background: #000000;
 }
@@ -87,13 +86,13 @@ p {
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px rgb(228, 148, 0);
-    
+
 }
-  
+
 #forge-button:hover, #smelt-button:hover {
     background-color: #4b260d
 }
-  
+
 #forge-button:active, #smelt-button:active {
     background-color: #b13200;
     box-shadow: 0 5px rgb(48, 21, 0);
@@ -102,67 +101,26 @@ p {
 
 
 
-body {font-family: Arial;}
-            
-/* Style the tab */
-.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+body {
+    font-family: Arial;
 }
 
-/* Style the buttons inside the tab */
-.tab button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 10px 16px;
-    transition: 0.3s;
-    font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-    background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-    background-color: #ccc;
-}
 
 #item-options-pane {
     height: 200px;
 }
 
-#smelt-options {
-    height: 160px;
-    border: inset 5px silver;
-    background-color: #444;
-    background-image: url(../Assets/infiniforge/wood.jpg)
-}
-
-#forge-options {
+#forge-options, #smelt-options, #inventory{
     height: 200px;
     border: inset 5px silver;
     background-color: #444;
     background-image: url(../Assets/infiniforge/wood.jpg)
 }
 
-/* Style the tab content */
-.tab-content {
-    display: none;
-    border-top: none;
-    background-color: #444;
-    height: 100%;
-    border: inset 5px silver;
-    background-color: #444;
-    background-image: url(../Assets/infiniforge/wood.jpg)
-}
-.tab-content p {
-    color: white;
+#dom-gui {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #anvil-sprite {
@@ -170,55 +128,6 @@ body {font-family: Arial;}
     width: 64px;
     border: none;
 }
-
-.dropbtn {
-    background-color: #3498DB;
-    color: white;
-    text-decoration-color: white;
-    font-size: 16px;
-    cursor: pointer;
-    height: 30px;
-    line-height: 30px;
-    width: 520px;
-    text-align: center;
-    align-content: center;
-    border: none;
-    outline: none;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    height: 170px;
-    overflow: auto;
-}
-
-.dropdown-content p {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content p:hover {
-    background-color: #d3d3d3;
-}
-
-
 
 .show {display:block;}
 

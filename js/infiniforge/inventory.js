@@ -4,9 +4,10 @@
 
 class Inventory {
 
-    constructor(capacity = Infinity) {
+    constructor(ID, capacity = Infinity) {
         this.items = [];
         this.capacity = capacity;
+        this.ID = ID;
     }
 
     addItemByName(itemName, quantity) {
@@ -32,6 +33,14 @@ class Inventory {
         } else {
             return 0;
         }
+    }
+
+    getTotalQuantity() {
+        var total = 0;
+        for (var i = 0; i < this.items.length; i++) {
+            total += this.items[i].quantity;
+        }
+        return total;
     }
 
     getItem(itemName) {
@@ -77,32 +86,27 @@ class Inventory {
         return false;
     }
 
+    clear() {
+        this.items = [];
+    }
+
     resize(capacity) {
         this.capacity = capacity
     }
 
-    render(inventoryId, columns = 8, maxRows = 3) {
-        // Resize the inventory
-        /*
-        var targetRows = Math.ceil(this.length / 8);
-        if (targetRows > maxRows) {
-            targetRows = maxRows;
-        }
-        var inventoryTag = "#" + inventoryId + ".inventory-table"
-        $(inventoryTag).addRemoveItems(targetRows);
-        inventoryTag += ' .inventory-row'
-        $(inventoryTag).addRemoveItems(columns);
-        refreshSortableInventoryList();
-        */
-        
-        var cells = $("#" + inventoryId + ".inventory-table" + " .inventory-cell");
+    render() {
+        var cells = $("#" + this.ID + ".inventory-table" + " .inventory-cell");
+
+        // Clears all the existing DOM elements from
+        // inventory table wiht the id 'inventoryID
         for (var i = 0; i < cells.length; i++) {
             while(cells[i].firstChild) {
                 cells[i].removeChild(cells[i].firstChild);
             }
         }
-        
+
         // Loop though the elements in the player inventory
+        // Adds
         for (var i = 0; i < cells.length; i++) {
             var div = document.createElement("div");
             if (i < this.items.length) {
@@ -116,24 +120,24 @@ class Inventory {
     }
 }
 
-// Creates and instantiaates the player's
-// inventory with the basic items
-var playerInventory = new Inventory();
+var playerInventory = new Inventory('player-inventory');
 playerInventory.addItemByName("Iron Ore", 20);
 playerInventory.addItemByName("Fire Ore", 20);
 playerInventory.addItemByName("Water Ore", 20);
 playerInventory.addItemByName("Wind Ore", 20);
 playerInventory.addItemByName("Earth Ore", 20);
-playerInventory.addItemByName("Earth Ingot", 20);
-playerInventory.addItemByName("Fire Ingot", 20);
-//playerInventory.addItem(0, 1);
-//playerInventory.addItem(1, 1);
-//playerInventory.addItem(2, 1);
-//playerInventory.addItem(3, 1);
-//playerInventory.addItem(4, 1);
-//playerInventory.addItem(5, 20);
-//playerInventory.addItem(6, 20);
-//playerInventory.addItem(7, 20);
-//playerInventory.addItem(8, 20);
-//playerInventory.addItem(9, 20);
-playerInventory.render('player-inventory');
+
+var smeltItems = new Inventory('smelt-items', 2);
+
+
+var forgeItems = new Inventory('forge-items', 2);
+
+
+function updateAndRenderInventories() {
+    playerInventory.render();
+    //smeltItems.render();
+    //forgeItems.render();
+    refreshSortableInventoryList();
+}
+
+updateAndRenderInventories();

@@ -8,7 +8,7 @@ jQuery.fn.extend({
             var $children = $(this).children();
             var rowCountDifference = targetCount - $children.length;
             //console.log('row count diff: ' + rowCountDifference);
-           
+
             if(rowCountDifference > 0)
             {
                 // Add items
@@ -29,29 +29,29 @@ jQuery.fn.extend({
     // Origin: Davy8 (http://stackoverflow.com/a/5212193/796832)
     parentToAnimate: function(newParent, duration) {
         duration = duration || 'slow';
-        
+
         var $element = $(this);
         //console.log($element);
         if($element.length > 0)
         {
-            
+
             newParent = $(newParent); // Allow passing in either a JQuery object or selector
             var oldOffset = $element.offset();
             $(this).appendTo(newParent);
             var newOffset = $element.offset();
-            
-            
+
+
             var temp = $element.clone().appendTo('body');
-            
+
             temp.css({
                 'position': 'absolute',
                 'left': oldOffset.left,
                 'top': oldOffset.top,
                 'zIndex': 1000
             });
-            
+
             $element.hide();
-                
+
             temp.animate({
                 'top': newOffset.top,
                 'left': newOffset.left
@@ -59,93 +59,151 @@ jQuery.fn.extend({
                 $element.show();
                 temp.remove();
             });
-            
+
             //console.log("parentTo Animate done");
         }
     }
 });
 
-$('#row-count').on('input propertychange change', function() {
-    var targetRowCount = $(this).val();
-    //console.log('target count: ' + targetRowCount);
-    $('label[for="'+$(this).attr('id')+'"]').html(targetRowCount);
-      
-    $('#personal-inventory.inventory-table').addRemoveItems(targetRowCount);
-    
-    refreshSortableInventoryList();
-}).trigger('change');
-
-$('#column-count').on('input propertychange change', function() {
-    var targetColumnCount = $(this).val();
-    //console.log('target count: ' + targetColumnCount);
-    $('label[for="'+$(this).attr('id')+'"]').html(targetColumnCount);
-        
-    $('#personal-inventory.inventory-table .inventory-row').addRemoveItems(targetColumnCount);
-    
-    refreshSortableInventoryList();
-}).trigger('change');
-
-
-
-
 // Sorting, dragging, dropping, etc
-
-refreshSortableInventoryList();
 function refreshSortableInventoryList()
 {
+    var clone, before, parent;
     $('.inventory-cell').sortable({
         connectWith: '.inventory-cell',
         placeholder: 'inventory-item-sortable-placeholder',
-        receive: function( event, ui ) {
+        helper: "clone",
+        start: function (event, ui) {
 
-            //console.log(ui.item);
+            var itemName = getItemName($(ui.item).attr('class'))
+            console.log("Item name is: " + itemName);
+            var previousInventoryID = $(ui.item).closest('.inventory-table').attr('id');
+            var amountInInventory = 0;
+
+            switch(previousInventoryID) {
+                case 'player-inventory':
+                    amountInInventory = playerInventory.getQuantity(itemName);
+                    break;
+                case 'smelt-items':
+                    amountInInventory = smeltItems.getQuantity(itemName);
+                    break;
+                case 'forge-items':
+                    amountInInventory = forgeItems.getQuantity(itemName);
+                    break;
+            }
+
+            clone = $(ui.item).clone();
+            before = $(ui.item).prev();
+            parent = $(ui.item).parent();
+
+            console.log("Amount in inventory: " + amountInInventory);
+            if (amountInInventory > 1) {
+                console.log("There are more than one in the inventory");
+                // $(ui.item).show() gives the impression that the item is
+                // still in the old cell while being dragged
+                $(ui.item).show();
+            } else {
+                console.log("Last One");
+            }
+        },
+        receive: function( event, ui ) {
 
             var attrWhitelist = $(this).closest('.inventory-table').attr('data-item-filter-whitelist');
             var attrBlackList = $(this).closest('.inventory-table').attr('data-item-filter-blacklist');
             var itemFilterWhitelistArray = attrWhitelist ? attrWhitelist.split(/\s+/) : [];
             var itemFilterBlacklistArray = attrBlackList ? attrBlackList.split(/\s+/) : [];
             //console.log(itemFilterWhitelistArray);
-            //console.log(itemFilterBlacklistArray);  
-            
+            //console.log(itemFilterBlacklistArray);
+
             var attrTypeList = $(ui.item).attr('data-item-type');
             var itemTypeListArray = attrTypeList ? attrTypeList.split(/\s+/) : [];
             //console.log(itemTypeListArray);
-            
+
             var canMoveIntoSlot = verifyWithWhiteBlackLists(itemTypeListArray, itemFilterWhitelistArray, itemFilterBlacklistArray)
-            
-            if(!canMoveIntoSlot)
+
+            // Check the ID of the table to see what inventory to send it to
+            var destinationInventoryID = $(this).closest('.inventory-table').attr('id');
+            var previousInventoryID = $(ui.sender).closest('.inventory-table').attr('id');
+
+            if(!canMoveIntoSlot && destinationInventoryID != previousInventoryID)
             {
                 console.log("Can't move to this slot");
                 //$(ui.sender).sortable('cancel');
-                $(ui.item).parentToAnimate($(ui.sender), 200);
+                $(ui.item).parentToAnimate($(ui.sender), 2000);
             }
-            else                
+            else
             {
-                
+
+
+                // Get the name of the item being moved
+                var itemName = $(ui.item).attr('class').split(' ')[1].replace('-',' ');
+                console.log(`Moving ${itemName} from ${previousInventoryID} to ${destinationInventoryID}.`);
+
+                // Get the class of the object in the destination position
+                /*
+                var existingObject = "";
+                console.log($(this).children());
+                if ($(this).children().length == 1){
+                    existingObject = $(this).children()[0].attr('class');
+                }
+                console.log(`The object in the current position is: ${existingObject}`);
+                */
+
+                var amountInInventory = 0;
+                // Remove the item from the previous Inventory
+                // and add it to the destination
+                if (destinationInventoryID != previousInventoryID) {
+                    switch(previousInventoryID) {
+                        case 'player-inventory':
+                            playerInventory.removeItemByName(itemName, 1);
+                            amountInInventory = playerInventory.getQuantity(itemName);
+                            break;
+                        case 'smelt-items':
+                            smeltItems.removeItemByName(itemName, 1);
+                            amountInInventory = smeltItems.getQuantity(itemName);
+                            break;
+                        case 'forge-items':
+                            forgeItems.removeItemByName(itemName, 1);
+                            amountInInventory = forgeItems.getQuantity(itemName);
+                            break;
+                    }
+
+                    switch(destinationInventoryID) {
+                        case 'player-inventory':
+                            playerInventory.addItemByName(itemName, 1);
+                            break;
+                        case 'smelt-items':
+                            smeltItems.addItemByName(itemName, 1);
+                            break;
+                        case 'forge-items':
+                            forgeItems.addItemByName(itemName, 1);
+                            break;
+                    }
+                }
+
+                if (amountInInventory > 0) {
+                    // Place the clone in the old inventory
+                    if ($(ui.sender).children().length == 0) {
+                        if (before.length)
+                            before.after(clone);
+                        else
+                            parent.prepend(clone);
+                    }
+                }
+
+
                 // Swap places of items if dragging on top of another
                 // Add the items in this list to the list the new item was from
                 $(this).children().not(ui.item).parentToAnimate($(ui.sender), 200);
-                $(this).find( ".tooltip" ).remove();
-                // Check the quantity in the players inventory to see if we leave
-                // some items in the inventory
-                var itemName = getItemName($(ui.item).attr('class'))
-                //console.log("Item name is: " + itemName);
-                var amountInInventory = playerInventory.getQuantity(itemName);
-                //console.log("Amount in inventory: " + amountInInventory);
-                if (amountInInventory > 1) {
-                    //console.log("There are more than one in the inventory");
-                    var item_copy = ui.item.clone()
-                    //$(this).children().not(item_copy).parentToAnimate($(ui.sender), 200);
-                    
-                    //$(ui.item).parentToAnimate($(ui.sender), 200); 
-                } else {
-                    //$(this).children().not(ui.item).parentToAnimate($(ui.sender), 200);
-                }
 
-                // $(this) is the list the item is being moved into
+
+                //refreshSortableInventoryList();
+                updateAndRenderInventories();
+
+                // $(this) is the cell the item is being moved into
                 // $(ui.sender) is the list the item came from
                 // Don't forget the move swap items as well
-                
+
                 // $(this).attr('data-slot-position-x');
                 // $(this).attr('data-slot-position-y');
                 // $(ui.sender).attr('data-slot-position-x');
@@ -165,11 +223,11 @@ function verifyWithWhiteBlackLists(itemList, whiteList, blackList)
 {
     // itemList should contain tags
     // whiteList and blackList can contain tags and tag queries
-    
+
     // If we have a matching tags to some tag query in the whiteList but not in the blackList, then return true
     // Else return false
-    
-    
+
+
     //console.group("Lists");
     //console.log(itemList);
     //console.log(whiteList);
@@ -180,16 +238,16 @@ function verifyWithWhiteBlackLists(itemList, whiteList, blackList)
     // Save the calculations, no filtering
     if(whiteList.length == 0 && blackList.length == 0)
         return true;
-    
 
-    
+
+
     // Check if the itemList has an item in the blackList
     var inBlackList = false;
     $.each(blackList, function(index, value) {
         var itemBlack = value;
         var itemBlackAndArray = itemBlack.split(/\+/);
         console.log(itemBlackAndArray);
-        
+
         var andedResult = true;
         for(var i = 0; i < itemBlackAndArray.length; i++)
         {
@@ -202,21 +260,21 @@ function verifyWithWhiteBlackLists(itemList, whiteList, blackList)
                 andedResult = andedResult && false;
             }
         }
-        
+
         if(andedResult)
             inBlackList = true;
     });
-    
+
     inBlackList = blackList.length > 0 ? inBlackList : false;
-    
-    
+
+
     // Check if the itemList has an item in the whiteList
     var inWhiteList = false;
     $.each(whiteList, function(index, value) {
         var itemWhite = value;
         var itemWhiteAndArray = itemWhite.split(/\+/);
         //console.log(itemWhiteAndArray);
-        
+
         var andedResult = true;
         for(var i = 0; i < itemWhiteAndArray.length; i++)
         {
@@ -230,19 +288,19 @@ function verifyWithWhiteBlackLists(itemList, whiteList, blackList)
             }
         }
         //console.log("andedResult: " + andedResult);
-        
+
         if(andedResult)
             inWhiteList = true;
-       
+
     });
-    
+
     inWhiteList = whiteList.length > 0 ? inWhiteList : false;
-    
-    
+
+
     console.log("inWhite: " + inWhiteList + " - inBlack: " + inBlackList);
-    
+
     if((whiteList.length == 0 || inWhiteList) && !inBlackList)
         return true;
-    
+
     return false;
 }

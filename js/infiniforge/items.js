@@ -261,7 +261,7 @@ var ElementEnum = Object.freeze ({
  * Returns the base10 value of the Binary representation
  * of the array of elements for an item where each {0,1}
  * is a binary variable for the associated element type
- * 
+ *
  * @param {any} item
  * @return {number}
  */
@@ -286,8 +286,8 @@ function GetElementVect(item) {
 /**
  * Using the name of the item, returns the hyphenated name
  * that should correspond to a class in the css file
- * @param {any} item
- * @return {string} 
+ * @param {Item} item
+ * @return {string}
  */
 function getCssClass(item) {
     var name = item.name
