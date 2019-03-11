@@ -140,12 +140,14 @@ function refreshSortableInventoryList()
                 console.log(`Moving ${itemName} from ${previousInventoryID} to ${destinationInventoryID}.`);
 
                 // Get the class of the object in the destination position
+                /*
                 var existingObject = "";
                 console.log($(this).children());
                 if ($(this).children().length == 1){
                     existingObject = $(this).children()[0].attr('class');
                 }
                 console.log(`The object in the current position is: ${existingObject}`);
+                */
 
                 var amountInInventory = 0;
                 // Remove the item from the previous Inventory
