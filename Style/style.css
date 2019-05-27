@@ -30,7 +30,7 @@ img#headshot {
     height: auto;
 }
 
-img#LinkedInLogo, img#GitHubLogo {
+img#LinkedInLogo, img#GitHubLogo, img#PDFIcon {
     width: 52px;
     height: 52px;
     border: 0px;
