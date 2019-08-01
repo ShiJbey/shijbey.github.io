@@ -2,122 +2,130 @@
 <html lang="en">
 
 <head>
+    <title>shijbey-CV</title>
+
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
-    <title>ShiJBey | Resume</title>
-    <link rel="shortcut icon" href="Assets/favicon.ico"/>
+
+    <link rel="shortcut icon" href="Assets/favicon.ico" />
     <link rel="stylesheet" href="Style/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="Style/cv.css" type="text/css" media="screen" />
 </head>
 
 <body>
-
     <div id="container">
-
         <header>
-            <h1>Shi Johnson-Bey</h1>
+            <h1 id="header-name">Shi Johnson-Bey</h1>
+            <h3 id="header-subtitle">Research Software Engineer</h3>
         </header>
 
         <nav>
             <ul id="nav">
-                <li><a href="index.html">Home</a></li>
-                <li id="selected"><a href="resume.html">Resume</a></li>
-                <li><a href="infiniforge.html">Infiniforge Game</a></li>
+                <li>
+                    <a href="index.html">About</a>
+                </li>
+                <li>
+                    <a href="projects.html">Projects</a>
+                </li>
+                <li id="selected">
+                    <a href="resume.html">CV</a>
+                </li>
+                <li>
+                    <a href="infiniforge.html">Infiniforge</a>
+                </li>
             </ul>
         </nav>
 
         <section>
-            <h2>Education</h2>
+            <h2 class="sectionHeader">Education</h2>
+            
+            <p>M.S. Biomedical Engineering, Carnegie Mellon University, 2019</p>
+            <p>B.S. Computer Science, University of Delaware, 2017</p>
+            <p>B.S. Neuroscience, University of Delaware, 2017</p>
 
-            <h3>Carnegie Mellon University</h3>
-            <p>Degree: M.S. Biomedical Engineering</p>
-            <p>Anticipated Graduation: May 2019</p>
-
-            <h3>University of Delaware</h3>
-            <p>Degrees: B.S. Computer Science, B.S. Neuroscience</p>
-            <p>Graduated: May 2017</p>
         </section>
 
         <section>
-            <h2>Skills</h2>
+            <h2 class="sectionHeader">Skills</h2>
             <h3>Programming Languages</h3>
-            <p>Python, C#, Javascript, C++, C, Java, Lua, PHP</p>
+            <p>C/C++, JavaScript, Python, C#, Java, Lua, PHP, HTML, CSS</p>
             <h3>Technologies</h3>
-            <p>Unity Engine, OpenBCI, MATLAB</p>
+            <p>Unity, Android, NodeJs, OpenGL, ThreeJS, SteamVR, OpenBCI, MATLAB</p>
             <h3>Spoken Languages</h3>
             <p>English(Native), Japanese (N5)</p>
         </section>
 
         <section>
 
-            <h2>Teaching Experience</h2>
+            <h2 class="sectionHeader">Teaching Experience</h2>
 
-            <h3>University of Delaware CIS Department - Newark, DE</h3>
-            <h4>Teaching Assistant for "Introduction to Computer Science II"</h4>
-            <p>Feb 2017 - May 2017</p>
-            <ul id="taTasks">
-                <li>Responsible for grading student work</li>
-                <li>Manage weekly Lab section where student complete Java Programming problem sets</li>
-                <li>Held weekly office hours to facilitate students' learning and address concerns</li>
-            </ul>
-
-            <h2>Research Experience</h2>
-
-            <h3>U.S. Army Research Laboratory - Aberdeen Proving Ground, MD</h3>
-            <h4>ORAU Journeymen Fellow</h4>
-            <p>June 2018 - Present</p>
-            <ul id="arlTasks-2">
-                <li>Developed a virtual reality environment for testing a novel auditory P300
-                    brain-computer interface paradigm
-                </li>
-                <li>Assist senior researchers on projects</li>
-            </ul>
-
-            <hr>
-
-            <h3>U.S. Army Research Laboratory - Aberdeen Proving Ground, MD</h3>
-            <h4>ORAU Summer Journeymen Fellow</h4>
-            <p>June 2017 - Aug 2017</p>
-            <ul id="arlTasks-1">
-                <li>Developed a P300 speller to allow someone to type text using brain activity</li>
-            </ul>
-
-            <hr>
-
-            <h3>Johns Hopkins University Mind Brain Institude Computaional Neuroscience Lab - Baltimore, MD</h3>
-            <h4>Virtual Reality Developer / Research Intern</h4>
-            <p>June 2015 - August 2015</p>
-            <ul id="jhuTasks">
-                <li>Utilized the Unity Engine, Google Cardboard VR, C#, and Android
-                    to develop a virtual reality environment for a research project involving head movement and human
-                    observation of visual scenes</li>
-                <li>Learned about 3D math, VR design, data collection, and research experiment design</li>
-            </ul>
-
-            <h2>Software Engineering</h2>
-
-            <h3>SevOne - Newark, DE</h3>
-            <h4>Software Engineering Intern</h4>
-            <p>June 2016 - August 2016</p>
-            <ul id="sevoneTasks">
-                <li>Conducted manual tests and wrote FitNesse Acceptance tests for software components</li>
-                <li>Addressed software defects critical to release</li>
-                <li>Maintained C++ and PHP code</li>
-            </ul>
-
-            <hr>
-
-            <h3>Microsoft - Newark, DE</h3>
-            <h4>Microsoft Student Partner for the University of Delaware</h4>
-            <p>August 2015 - June 2016</p>
-            <ul id="mspTasks">
-                <li>Led fun, informative monthly workshops on game development and professional development</li>
-                <li>Maintained a Facebook group for connecting with students online</li>
-                <li>Collaborated with Microsoft professionals</li>
-            </ul>
+            <h3 class="position">Undergraduate Teaching Assistant for "Introduction to Computer Science II"</h3>
+            <p class="organization">University of Delaware CIS Department - Newark, DE</p>
+            <p class="dates">Feb 2017 - May 2017</p>
+            <p class="descriptionLabel">Description:</p>
+            <p id="taTasks" class="jobDescription">
+                I assisted in facilitating students' learning of Java and object-oriented programming/design concepts. As part of my role, I graded students' work, held a weekly office hour, and ran a weekly lab section where students worked on assigned problem sets. Because I really enjoy teaching, I held additional office hours and started conducting 3-hour exam review sessions during midterms and finals. Also, my hard work earned me the privilege of occasionally substituting in for the professor to give course lectures.
+            </p>
 
         </section>
 
         <section>
-            <h2>Publications</h2>
+            <h2 class="sectionHeader">Research Experience</h2>
+
+            <h3 class=position>ORAU Journeyman Fellow</h3>
+            <p class="organization">U.S. Army Research Laboratory - Aberdeen Proving Ground, MD</p>
+            <p class="dates">June 2018 - May 2019</p>
+            <p class="descriptionLabel">Description:</p>
+            <p id="arlTasks-2" class="jobDescription">
+                This research was coupled with my Master's research project in which I developed and implemented a virtual reality environment for testing event-related potentials (ERP) paradigms. The goal was to use the system to give users the ability to select and interact with objects in a virtual space. The environment was implemented using Unity and tested using an HTC Vive and a Brain Products EEG cap.
+            </p>
+
+            <hr>
+
+            <h3 class="position">ORAU Summer Journeyman</h3>
+            <p class="organization">U.S. Army Research Laboratory - Aberdeen Proving Ground, MD</p>
+            <p class="dates">June 2017 - Aug 2017</p>
+            <p class="descriptionLabel">Description:</p>
+            <p id="arlTasks-1" class="jobDescription">
+                As my first experience working with electroencephalography (EEG) recording, I learned about various brain-computer interface (BCI) paradigms and their practical usage. My project for the summer was to take what I had learned to implement a "P300 speller" application, which would allow users to type text using their recorded brain activity. I implemented my system using a Raspberry Pi 3, OpenBCI EEG board, and Python.
+            </p>
+
+            <hr>
+
+            <h3 class="position">Virtual Reality Developer / Research Intern</h3>
+            <p class="organization">Johns Hopkins University Mind Brain Institude Computaional Neuroscience Lab - Baltimore, MD</p>
+            <p class="dates">June 2015 - August 2015</p>
+            <p class="descriptionLabel">Description:</p>
+            <p id="jhuTasks">
+                I worked in with Dr. Ernst Niebur one of his Ph.D. students, on a project to explore the role head movements play in the visual exploration of images and scenes. As the developer on this project,  I implemented and deployed our virtual reality environment on an Andriod smartphone using Unity and the Google Cardboard SDK. This research was conducted in Dr. Niebur's lab in the Mind/Brain Institute at the Johns Hopkins University. 
+                I learned about 3D math, VR design, data collection, and research experiment design
+            </p>
+        </section>
+
+        <section>
+            <h2 class="sectionHeader">Software Engineering</h2>
+
+            <h3 class="position">Software Engineering Intern</h3>
+            <p class="organization">SevOne - Newark, DE</p>
+            <p class="dates">June 2016 - August 2016</p>
+            <p class="descriptionLabel">Description:</p>
+            <p id="sevoneTasks">
+                As an intern for the summer, I worked within a team of 5-6 software engineers on an agile-scrum team. My main responsibility was to address software defects critical to release. This included debugging C++ software/PHP extensions written in C++, conducting manual tests, and writing acceptance tests using PHP and FitNesse.
+            </p>
+
+            <hr>
+
+            <h3 class="position">Microsoft Student Partner for the University of Delaware</h3>
+            <p class="organization">Microsoft - Newark, DE</p>
+            <p class="dates">August 2015 - June 2016</p>
+            <p class="descriptionLabel">Description:</p>
+            <p id="mspTasks" class="jobDescription">
+                    This was a fun student tech evangelist role in which I had the opportunity to share my passion for technology with other students by leading monthly skill workshops and connecting students with Microsoft developer resources. My workshops mainly revolved around game development and professional development.
+            </p>
+
+        </section>
+
+        <section>
+            <h2 class="sectionHeader">Publications</h2>
             <ul>
                 <li>
                     Hu, Brian, Ishmael Johnson-Bey, Mansi Sharma, and Ernst Niebur. <a href="https://ieeexplore.ieee.org/abstract/document/8362264"><i>"Head movements are correlated
@@ -136,7 +144,7 @@
         </section>
 
         <section>
-            <h2>Awards, Honors, and Grants</h2>
+            <h2 class="sectionHeader">Awards, Honors, and Grants</h2>
             <ul>
                 <li>2018 Carnegie Mellon University Graduate Small Research Grant (GuSH)</li>
                 <li>2017 Steven Geracimos Memorial Award (University of Delaware, Computer Information Sciences Department)</li>
@@ -145,27 +153,27 @@
         </section>
 
         <section>
-            <h2>Leadership & Activities</h2>
+            <h2 class="sectionHeader">Leadership & Activities</h2>
 
-            <h3>Resources to Insure Successful Engineers (RISE)</h3>
-            <h4>Student Advisory Council Alumni Chair</h4>
-            <p>September 2014 - May 2017</p>
-
-            <hr>
-
-            <h3>Computer Animation and Game Design Club</h3>
-            <h4>President</h4>
-            <p>May 2015 - May 2016</p>
+            <h3 class="position">Student Advisory Council Alumni Chair</h3>
+            <p class="organization">Resources to Insure Successful Engineers (RISE)</p>
+            <p class="dates">September 2014 - May 2017</p>
 
             <hr>
 
-            <h3>University of Delaware Mascot Team</h3>
-            <h4>Team Captain</h4>
-            <p>May 2014 - May 2016</p>
+            <h3 class="position">President</h3>
+            <p class="organization">UD Computer Animation and Game Design (UDCAGD)</p>
+            <p class="dates">May 2015 - May 2016</p>
+
+            <hr>
+
+            <h3 class="position">Team Captain</h3>
+            <p class="organization">University of Delaware Mascot Team</p>
+            <p class="dates">May 2014 - May 2016</p>
 
         </section>
 
-        <footer>Last updated: December 2018</footer>
+        <footer>Last updated: August 2019</footer>
 
     </div>
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>Infiniforge</title>
+    <title>Shijbey-Infiniforge</title>
     <link rel="shortcut icon" href="Assets/favicon.ico"/>
     <link rel="stylesheet" href="Style/style.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="Style/forge_style.css" type="text/css" media="screen" />
@@ -13,15 +13,24 @@
 
 <body>
     <div id="container">
+        
+    <div id="container">
 
         <header>
-            <h1>Shi Johnson-Bey</h1>
+            <h1 id="header-name">Shi Johnson-Bey</h1>
+            <h3 id="header-subtitle">Research Software Engineer</h3>
         </header>
 
         <nav>
             <ul id="nav">
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="index.html">About</a>
+                </li>
+                <li>
+                    <a href="projects.html">Projects</a>
+                </li>
+                <li>
+                    <a href="resume.html">CV</a>
                 </li>
                 <li id="selected">
                     <a href="infiniforge.html">Infiniforge</a>
@@ -94,7 +103,7 @@
         </div>
 
         <section id="how-to-play">
-            <h2>How to Play </h2>
+            <h2 class="sectionHeader">How to Play </h2>
             <p>This game was designed to be an example of how a crafting system
                 could utilize the procedural sword code.
             </p>
@@ -110,7 +119,7 @@
         </section>
 
         <section id=recent-updates>
-            <h2>Recent Updates</h2>
+            <h2 class="sectionHeader">Recent Updates</h2>
             <h3>March 2018</h3>
             <ul>
                 <li>UI updates</li>
@@ -124,7 +133,7 @@
         </section>
 
         <section id="features">
-            <h2>Potential Features to Add</h2>
+            <h2 class="sectionHeader">Potential Features to Add</h2>
             <ul>
                 <li>Show the item count in inventory</li>
                 <li>Hover over item for more information</li>
@@ -133,7 +142,7 @@
         </section>
 
         <section id="credits">
-            <h2>Credits</h2>
+            <h2 class="sectionHeader">Credits</h2>
             <ul>
                 <li>Inventory system adapted from Eric Eastwood @ <a href="https://codepen.io/MadLittleMods/pen/vmhLF">
                         Inventory Sample Code</a></li>
@@ -404,9 +413,9 @@ function animate() {
 ///////////////////////////////////////////////////////////
 
 var GenerationParams = function() {
-    this.seed = 'pizza';
+    this.seed = 'sample-seed';
     this.randomizeSeed = () => {}
-    this.swordStyle = 'Long'
+    this.swordStyle = 'Great'
     this.baseWidth = 0.3;
     this.edgeWidthRatio = 0.2;
     this.forge = () => {
