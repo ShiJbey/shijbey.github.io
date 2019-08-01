@@ -2,22 +2,31 @@
 <html lang="en">
 
 <head>
+    <title>shijbey-About</title>
+
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
-    <title>Shi Johnson-Bey</title>
-    <link rel="shortcut icon" href="Assets/favicon.ico"/>
+
+    <link rel="shortcut icon" href="Assets/favicon.ico" />
     <link rel="stylesheet" href="Style/style.css" type="text/css" media="screen" />
 </head>
 
 <body>
     <div id="container">
         <header>
-            <h1>Shi Johnson-Bey</h1>
+            <h1 id="header-name">Shi Johnson-Bey</h1>
+            <h3 id="header-subtitle">Research Software Engineer</h3>
         </header>
 
         <nav>
             <ul id="nav">
                 <li id="selected">
-                    <a href="index.html">Home</a>
+                    <a href="index.html">About</a>
+                </li>
+                <li>
+                    <a href="projects.html">Projects</a>
+                </li>
+                <li>
+                    <a href="resume.html">CV</a>
                 </li>
                 <li>
                     <a href="infiniforge.html">Infiniforge</a>
@@ -26,8 +35,8 @@
         </nav>
 
         <section id="about">
+            <img id="headshot" src="./Assets/GDC19Headshot.jpg">
             <p id="bio">
-                <img id="headshot" src="./Assets/eeg_pittsburgh.jpg">
                 I earned my Master of Science in Biomedical Engineering from Carnegie Mellon University in 2019 and my Bachelor of Science from the University of Delaware with a double major in Computer Science and Neuroscience.
                 <br><br>
                 I am interested in the creativity, world-building, and engineering process behind creating immersive and expressive video game experiences. Following this interest, I chose my university majors because I wanted to research and develop hardware that used trans-cranial stimulation of the somatosensory cortex to provide haptic feedback for virtual and mixed reality.
@@ -48,107 +57,7 @@
             </p>
         </section>
 
-        <secion id="researchProjects">
-            <h2>Current Research</h2>
-            <h3 class="ProjectTitle">Auditory P300 Event-Related Potentials for Virtual Reality</h3>
-            <p>
-                <img id="audioErpScreenshot" src="./Assets/vr-screenshot.png" alt="audio erp screenshot">
-                This was my masters research project. The goal was to explore the use of an auditory P300
-                BCI paradigm for enabling users to select objects in virtual reality. What I ended with was
-                an EEG-hardware agnostic Unity project that could be configured to run different P300 paradigms
-                in virtual reality. The while runnning the unity scene EEG data is streamed from the headset
-                and written out to files to be processed. For example, one is able to take recorded EEG data
-                use a machine learning classifier to make predictions as to what object the user wants to select.
-                Pictured is the virtual apartment environment with three objects used during testing.
-
-                <p>
-                    Github Link: <a href="https://github.com/ShiJbey/AudioERP">Audio P300 ERP</a>
-                </p>
-            </p>
-        </secion>
-
-        <section id="pastProjects">
-            <h2>Past Projects</h2>
-            <h3 class="ProjectTitle">Magpie</h3>
-            <p>
-                <img id="magpiePoster" src="./Assets/magpie.jpg" alt="Magpie_Poster">
-                This was the final project for my Fall 2018 15-666: Computer Game Programming course. I worked with three
-                other students and My primary role
-                on this project was to write the code which imported our 3D assets,  built the level, and instanced
-                characters/animations. In the game you play a Magpie bird who is stealing items from a museum.
-                How many items can you steal before you're caught by security?
-
-                <p>
-                    Github Link: <a href="https://github.com/ShiJbey/Magpie">Magpie Game</a>
-                </p>
-            </p>
-            <hr>
-
-            <h3 class="ProjectTitle">An introduction to Reinforcement Learning with Boxing Agents</h3>
-            <p>
-                <img id="mlBoxingScreenshot" src="./Assets/ml-boxing.gif" alt="Ml_boxing gif">
-                I threw this project together over the course of a week as an entry in Unity's first challenge
-                for their new 'Ml-Agents' machine learning workflow. I had tossed around the idea of
-                using machine learning to train AI agents in fighting games, but I had never gotten around to it
-                until then. The agents learn via Reinforcement Learning and are given a simple policy that
-                positively rewards landed punches on the opponent, and negatively awards taking damage. Other
-                behaviors such as successful blocking, and advancing on the opponent are rewarded as well.
-                <p>
-                    Challenge Link: <a href="https://connect.unity.com/challenges/ml-agents-1">Unity Machine Learning Agent Challenge 1</a>
-                </p>
-                <p>
-                    Github Link: <a href="https://github.com/ShiJbey/Ml-Agent-Boxing">Reinforcement Learning Boxing Bots</a>
-                </p>
-            </p>
-            <hr>
-            <h3 class="ProjectTitle">Infiniforge: My introduction to Computer Graphics And Procedural Generation</h3>
-            <p>
-                <img id="swordScreenshot" src="./Assets/sword-screenshot.png" alt="Sword Screenshot">
-                Inspired by the then upcoming release of 'No Man's Sky' and my interest in blacksmithing,
-                I tried my hand at developing a PCG system for swords. My goal was to finish the project
-                and submit it to the Reddit PCG challenge linked below. This project served as an
-                introduction to both PCG as well as computer graphics. The result is a NodeJs server that
-                can export 3D meshes to Unity via a REST API. I am working on a HTML5 version that people
-                can play on this site. The current version (see 'Infiniforge' tab above), is still much under
-                construction.
-                <p>
-                   GitHub Link: <a href="http://github.com/ShiJbey/WeaponGenerator">Procedurally generated swords project</a>
-                </p>
-                <p>
-                   Reddit Challenge: <a href="http://www.reddit.com/r/proceduralgeneration/comments/4wubjy/monthly_challenge_9_august_2016_procedural_weapons/">August 2016 Reddit PCG Challenge</a>
-                </p>
-            </p>
-            <hr>
-            <h3 class="ProjectTitle">Plants vs. Zombies Clone</h3>
-            <p>
-                <img id="pvzScreenshot" src="./Assets/pvz-screenshot.png" alt="PvZ screenshot">
-                This is the first project from my Fall 2013 "CISC108: Intro to Computer Science I" course. This was also my first
-                group development project inwhich I worked with and another student. All groups were asked to produce
-                a clone of the popular 'Plants vs. Zombies' game. This project as both a lesson in game development as well as
-                a lesson in handling group dynamics. The game is written in Racket.
-                <p>
-                    GitHub Link: <a href="http://github.com/ShiJbey/Plants-vs-Zombies-Racket">Plants vs. Zombies clone</a>
-                </p>
-            </p>
-
-            <hr>
-
-            <h3 class="ProjectTitle">Battleship Clone</h3>
-            <p id="battleshipDescription">
-                <img id="battleshipScreenshot" src="./Assets/battleship-screenshot.png" alt="Battlship Clone Screenshot">
-                This game clone was the final group project in  my Fall 2013 "CISC108: Intro to Computer Science I" course.
-                Out of the cloning options, we chose to go with Battleship. The game is written using Racket and allows
-                one player to play against an AI. Core lessons learned during the course of this project included,
-                coordinating another student and programming GUIs in Racket.
-                <p>
-                    GitHub Link: <a href="http://github.com/ShiJbey/Battleship-Game-Racket">Battleship Clone</a>
-                </p>
-            </p>
-            <hr>
-        </section>
-
-
-        <footer>Last updated: May 2019</footer>
+        <footer>Last updated: August 2019</footer>
     </div>
 
     <script src="js/lib/jquery.min.js" type="text/javascript"></script>

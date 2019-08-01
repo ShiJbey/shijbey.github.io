@@ -1,7 +1,46 @@
+:root {
+    /* 
+    Colors are sampled from Base16
+    Hugo theme by Chris Kempson
+    */
+    --color-black: #2d2d2d;
+    --color-blue: #6699cc;
+    --color-lightblue: #66cccc;
+    --color-green: #99cc99;
+    --color-yellow: #ffcc66;
+    --color-orange: #f99157;
+    --color-red: #f2777a;
+    --color-white: #f2f0ec;
+
+    /*Nav Colors*/
+    --color-lava: #1153c0;
+    --color-lava-border: #0059ec;
+}
+
+body {
+    background-color: var(--color-black);
+}
+
 #container {
     width: 800px;
-    margin: 100px auto;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: auto;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--color-yellow);
+    justify-content: center;
+}
+
+#header-subtitle {
+    color: var(--color-white);
+}
+
+section {
+    clear: both;
+}
+
+h3 {
+    color: var(--color-white);
+    text-align: center;
+    clear: both;
 }
 
 nav ul, nav li {
@@ -20,9 +59,6 @@ img {
     margin: 10px;
     width: auto;
     height: 200px;
-    border: 2px solid #c3c3c3;
-    margin: 10px;
-    padding: 2px;
 }
 
 img#headshot {
@@ -36,47 +72,26 @@ img#LinkedInLogo, img#GitHubLogo, img#PDFIcon {
     border: 0px;
 }
 
-
-h3.ProjectTitle {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    clear: both;
-}
-
-section {
-    clear: both;
-}
-
 #lava {
-    background: rgb(54, 48, 48);
-    border-right: 1px solid #0059ec;
-    border-left: 1px solid #0059ec;
+    background: var(--color-black);
+    border-right: 1px solid var(--color-green);
+    border-left: 1px solid var(--color-green);
     position: absolute;
     z-index: 1;
     top: 0;
     background: -moz-linear-gradient(top, #0b2b61, #1153c0);
     background: -webkit-gradient(linear, left top, left bottom, from(#0b2b61), to(#1153c0));
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-box-shadow: 2px 3px 10px #011331;
-    box-shadow:  2px 3px 10px #011331;
-    -webkit-box-shadow: 2px 3px 10px #011331;
 }
 
 #nav {
     position: relative;
-    background: #292929;
+    background: black;
+    border: 1px solid var(--color-green);
 }
-
-
 
 #nav li {
     float: left;
     list-style: none;
-    border-right: 1px solid  #4a4a4a;
-    border-left: 1px solid black;
 }
 
 #nav li a {
@@ -90,60 +105,51 @@ section {
     padding: 15px 22px;
 }
 
-h2 {
-
+h2.sectionHeader {
     background: -moz-linear-gradient(top, #0b2b61, #1153c0);
     background: -webkit-gradient(linear, left top, left bottom, from(#0b2b61), to(#1153c0));
+    
     -moz-border-radius: 10px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
-    -moz-box-shadow: 2px 3px 10px #011331;
-    box-shadow:  2px 3px 10px #011331;
-    -webkit-box-shadow: 2px 3px 10px #011331;
+   
+    -moz-box-shadow: 0px 3px var(--color-black);
+    box-shadow:  0px 3px var(--color-black);
+    -webkit-box-shadow: 0px 3px var(--color-black);
+
+    border: 1px solid var(--color-green);
     height: 50px;
     text-align: center;
     line-height: 50px;
-    border-style: outset;
-    color: white;
-    clear: both;
-}
-
-h3 {
-    color: white;
+    color: var(--color-white);
 }
 
 header {
-    background: -moz-linear-gradient(top, #0b2b61, #1153c0);
-    background: -webkit-gradient(linear, left top, left bottom, from(#0b2b61), to(#1153c0));
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-box-shadow: 2px 3px 10px #011331;
-    box-shadow:  2px 3px 10px #011331;
-    -webkit-box-shadow: 2px 3px 10px #011331;
-    border-style: outset;
-    color: white;
+    background-color: var(--color-black);
+    color: var(--color-yellow);
     text-align: center;
     padding: 1em;
 }
 
 footer {
     padding: 1em;
-    color: white;
+    background-color: var(--color-black);
+    color: var(--color-blue);
     clear: left;
     text-align: center;
 }
 
-body {
-    background-color: rgb(102, 93, 93);
-    margin: 30px;
-    color: white;
-}
 
 a {
-    color: white;
+    color: var(--color-yellow);
 }
 
 a:hover {
-    color: orange;
+    color: var(--color-blue);
 }
+
+p {
+    padding: 10px;
+    color: var(--color-yellow);
+}
+
