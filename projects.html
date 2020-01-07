@@ -31,134 +31,108 @@
             </ul>
         </nav>
 
-        <section id="currentProjects">
-            <h2 class="sectionHeader">Current Projects</h2>
+        <section id="creative-projects">
+            <h2 class="sectionHeader">Creative Projects</h2>
 
-
-                <h3 class="ProjectTitle">Infiniforge: Procedurally Generating 3D swords with JavaScript</h3>
-            </a>
-
-            <img id="swordScreenshot" src="./Assets/sword-screenshot.png" alt="Sword Screenshot">
-            <p class="projectDescription">
-            Inspired by the then upcoming release of 'No Man's Sky' and my interest in blacksmithing,
-            I started this project. My goal was to finish and submit it to the Reddit PCG challenge linked below.
-            Since then, I have been continuously tinkering with this project in my free time.
-            This project served as my introduction to both procedurcal content generation as well as computer graphics.
-            The result is a NodeJs server that exports 3D meshes (ThreeJs) as glTF JSON via a REST API. These
-            glTF models can be imported into Unity and other software that support the format.
-            <br>
-            <br>
-            Project Blog: <a href="https://shijbey.github.io/Infiniforge">Infiniforge Blog Post</a>
-            <br>
-            GitHub Repo: <a href="http://github.com/ShiJbey/Infiniforge">Infiniforge</a>
-            <br>
-            Reddit Challenge: <a href="http://www.reddit.com/r/proceduralgeneration/comments/4wubjy/monthly_challenge_9_august_2016_procedural_weapons/">August 2016 Reddit PCG Challenge</a>
-            </p>
-
+            <div id="Infiniforge">
+                <h3 class="ProjectTitle">Infiniforge</h3>
+                <img id="swordScreenshot" src="./Assets/sword-screenshot.png" alt="Sword Screenshot">
+                <p class="projectDescription">
+                    I started this project in 2016 as an effort to learn more about procedural content generation and computer graphics. The then-upcoming release of 'No Man's Sky' and my interest in blacksmithing inspired me to pursue this.  My goal was to submit it to the /r/proceduralgeneration subreddit challenge linked below. Since then, I have continuously tinkered with this project in my free time.  Infiniforge is a NodeJs server that exports 3D meshes (using ThreeJs) as glTF JSON via a REST API. After exporting the models, they can then be imported into Unity or any other software that supports the glTF format.
+                <br>
+                <br>
+                Playable Demo: <a href="infiniforge.html">Infiniforge Demo</a>
+                <br>
+                GitHub Repo: <a href="http://github.com/ShiJbey/Infiniforge">Infiniforge</a>
+                <br>
+                Reddit Challenge: <a href="http://www.reddit.com/r/proceduralgeneration/comments/4wubjy/monthly_challenge_9_august_2016_procedural_weapons/">August 2016 Reddit PCG Challenge</a>
+                </p>
+            </div>
+            <hr>
+            <div id="Magpie">
+                <h3 class="ProjectTitle">Magpie</h3>
+                <img id="magpiePoster" src="./Assets/magpie.jpg" alt="Magpie_Poster">
+                <p class="projectDescription">
+                    This was the final project for my Fall 2018 15-466: Computer Game Programming course. I worked on a team with three other students where my primary role was to write the code which imported our 3D assets, built the level, and instanced characters/animations. In the game, you play a Magpie bird who is stealing items from a museum. How many items can you steal before you're caught by security?
+                <br>
+                <br>
+                Downloadable Demo: <a href="https://github.com/ShiJbey/Magpie/releases/tag/0.2.0">Magpie Download</a>
+                <br>
+                Project Blog: <a href="https://shijbey.github.io/Magpie">Magpie Blog Post</a>
+                <br>
+                Github Repo: <a href="https://github.com/ShiJbey/Magpie">Magpie Game</a>
+                </p>
+            </div>
         </section>
 
-        <section id="researchProjects">
-            <h2 class="sectionHeader">Past Research</h2>
+        <section id="technical-projects">
+            <h2 class="sectionHeader">Technical Projects</h2>
 
-            <h3 class="ProjectTitle">Auditory P300 Event-Related Potentials for Virtual Reality</h3>
-
-            <img id="audioErpScreenshot" src="./Assets/vr-screenshot.png" alt="audio erp screenshot">
-
-            <p class="projectDescription">
-            This was my masters research project. The goal was to explore the use of an auditory P300
-            BCI paradigm for enabling users to select objects in virtual reality. What I ended with was
-            an EEG-hardware agnostic Unity project that could be configured to run different P300 paradigms
-            in virtual reality. The while runnning the unity scene EEG data is streamed from the headset
-            and written out to files to be processed. For example, one is able to take recorded EEG data
-            use a machine learning classifier to make predictions as to what object the user wants to select.
-            Pictured is the virtual apartment environment with three objects used during testing.
-            <br>
-            <br>
-            Project Blog:<a href="https://shijbey.github.io/AudioERP">Audio ERP Blog Post</a>
-            <br>
-            Github Repo: <a href="https://github.com/ShiJbey/AudioERP">AudioERP</a>
-            </p>
-
+            <div id="RaidAI">
+                <h3 class="ProjectTitle">Raid AI (WIP)</h3>
+                <img id="raidAIScreenshot" src="./Assets/raidAI screenshot 2.PNG" alt="raid ai screenshot">
+                <p class="projectDescription">
+                I started this project in my free time during winter 2019. The goal is to train
+                AI agents to work as a team to deafeat a boss character in a MMORPG-style Raid battle.
+                <br>
+                <br>
+                Github Repo: <a href="https://github.com/ShiJbey/RaidAI">RaidAI</a>
+                </p>
+            </div>
+            <hr>
+            <div id="AudioERP">
+                <h3 class="ProjectTitle">Auditory P300 Event-Related Potentials for Virtual Reality</h3>
+                <img id="audioErpScreenshot" src="./Assets/vr-screenshot.png" alt="audio erp screenshot">
+                <p class="projectDescription">
+                    This was my masters research project. The goal was to explore the use of an auditory P300 BCI paradigm for enabling users to select objects in virtual reality. What I ended with was an EEG-hardware agnostic Unity project that could be configured to run different P300 paradigms in virtual reality. The while running the unity scene EEG data is streamed from the headset and written out to files to be processed. For example, one can take recorded EEG data using a machine learning classifier to make predictions as to what object the user wants to select. Pictured is the virtual apartment environment with three objects used during testing.
+                <br>
+                <br>
+                Masters Thesis: <a href="Assets/Event_Related_Potentials_for_Virtual_Reality_Interactions.pdf">Audio ERP Masters Thesis</a>
+                <br>
+                Github Repo: <a href="https://github.com/ShiJbey/AudioERP">AudioERP</a>
+                </p>
+            </div>
+            <hr>
+            <div id="MLAgentBoxing">
+                <h3 class="ProjectTitle">ML Agent Boxing</h3></a>
+                <p class="projectDescription">
+                <img id="mlBoxingScreenshot" src="./Assets/ml-boxing.gif" alt="Ml_boxing gif">
+                I threw this project together over the course of a week as an entry in Unity's first challenge for their new 'Ml-Agents' machine learning workflow. I had tossed around the idea of using machine learning to train AI agents in fighting games, but I had never gotten around to it until then. The agents learn via Reinforcement Learning and are given a simple policy that positively rewards landed punches on the opponent, and negatively awards taking damage. Other behaviors such as successful blocking, and advancing on the opponent are rewarded as well.
+                <br>
+                <br>
+                Playable Demo: <a href="ml-boxing/index.html">ML Agent Boxing Demo</a>
+                <br>
+                Github Repo: <a href="https://github.com/ShiJbey/Ml-Agent-Boxing">ML-Agent-Boxing</a>
+                <br>
+                Unity Challenge Link: <a href="https://connect.unity.com/challenges/ml-agents-1">Unity Machine Learning Agent Challenge</a>
+                </p>
+            </div>
         </section>
 
-        <section id="pastProjects">
-            <h2 class="sectionHeader">Past Projects</h2>
-
-
-            <h3 class="ProjectTitle">Magpie</h3>
-
-            <img id="magpiePoster" src="./Assets/magpie.jpg" alt="Magpie_Poster">
-            <p class="projectDescription">
-            This was the final project for my Fall 2018 15-666: Computer Game Programming course. I worked with
-            three
-            other students and My primary role
-            on this project was to write the code which imported our 3D assets, built the level, and instanced
-            characters/animations. In the game you play a Magpie bird who is stealing items from a museum.
-            How many items can you steal before you're caught by security?
-            <br>
-            <br>
-            Project Blog: <a href="https://shijbey.github.io/Magpie">Magpie Blog Post</a>
-            <br>
-            Github Repo: <a href="https://github.com/ShiJbey/Magpie">Magpie Game</a>
-            </p>
-
+        <section id="class-projects">
+            <h2 class="sectionHeader">Class Projects</h2>
+            <div id="PvZ">
+                <h3 class="ProjectTitle">Plants vs. Zombies Clone</h3>
+                <img id="pvzScreenshot" src="./Assets/pvz-screenshot.png" alt="PvZ screenshot">
+                <p class="projectDescription">
+                    This was the first class project from my Fall 2013 "CISC108: Intro to Computer Science I" course.  All groups were asked to produce a clone of the popular 'Plants vs. Zombies' game. This project was both a lesson in game development as well as a lesson in handling group dynamics. The game is written in Racket.
+                <br>
+                <br>
+                GitHub Repo: <a href="http://github.com/ShiJbey/Plants-vs-Zombies-Racket">Plants vs. Zombies clone</a>
+                </p>
+            </div>
             <hr>
-
-
-                <h3 class="ProjectTitle">Teaching Agents to Box with Reinforcement Learning in Unity</h3>
-            </a>
-
-            <p class="projectDescription">
-            <img id="mlBoxingScreenshot" src="./Assets/ml-boxing.gif" alt="Ml_boxing gif">
-            I threw this project together over the course of a week as an entry in Unity's first challenge
-            for their new 'Ml-Agents' machine learning workflow. I had tossed around the idea of
-            using machine learning to train AI agents in fighting games, but I had never gotten around to it
-            until then. The agents learn via Reinforcement Learning and are given a simple policy that
-            positively rewards landed punches on the opponent, and negatively awards taking damage. Other
-            behaviors such as successful blocking, and advancing on the opponent are rewarded as well.
-            <br>
-            <br>
-            Project Blog: <a href="https://shijbey.github.io/ML-Agent-Boxing">ML Agent Boxing Blog</a>
-            <br>
-            Github Repo: <a href="https://github.com/ShiJbey/Ml-Agent-Boxing">ML-Agent-Boxing</a>
-            <br>
-            Unity Challenge Link: <a href="https://connect.unity.com/challenges/ml-agents-1">Unity Machine Learning Agent Challenge</a>
-            </p>
-
-
-            <hr>
-
-            <h3 class="ProjectTitle">Plants vs. Zombies Clone</h3>
-
-            <img id="pvzScreenshot" src="./Assets/pvz-screenshot.png" alt="PvZ screenshot">
-            <p class="projectDescription">
-            This is the first project from my Fall 2013 "CISC108: Intro to Computer Science I" course. This was also
-            my first
-            group development project inwhich I worked with and another student. All groups were asked to produce
-            a clone of the popular 'Plants vs. Zombies' game. This project as both a lesson in game development as
-            well as
-            a lesson in handling group dynamics. The game is written in Racket.
-            <br>
-            <br>
-            GitHub Repo: <a href="http://github.com/ShiJbey/Plants-vs-Zombies-Racket">Plants vs. Zombies clone</a>
-            </p>
-
-
-            <hr>
-
-            <h3 class="ProjectTitle">Battleship Clone</h3>
-            <img id="battleshipScreenshot" src="./Assets/battleship-screenshot.png"
-                alt="Battlship Clone Screenshot">
-            <p id="projectDescription">
-            This game clone was the final group project in my Fall 2013 "CISC108: Intro to Computer Science I"
-            course.
-            Out of the cloning options, we chose to go with Battleship. The game is written using Racket and allows
-            one player to play against an AI. Core lessons learned during the course of this project included,
-            coordinating another student and programming GUIs in Racket.
-            <br>
-            <br>
-            GitHub Repo: <a href="http://github.com/ShiJbey/Battleship-Game-Racket">Battleship Clone</a>
-            </p>
+            <div id="Battleship">
+                <h3 class="ProjectTitle">Battleship Clone</h3>
+                <img id="battleshipScreenshot" src="./Assets/battleship-screenshot.png"
+                    alt="Battlship Clone Screenshot">
+                <p id="projectDescription">
+                    This game clone was the final group project in my Fall 2013 "CISC108: Intro to Computer Science I" course. Out of the possible games to create, my group chose to go with Battleship. The game was written using Racket and allows one player to play against an AI. Core lessons learned during this project included coordinating another student and programming GUIs in Racket.
+                <br>
+                <br>
+                GitHub Repo: <a href="http://github.com/ShiJbey/Battleship-Game-Racket">Battleship Clone</a>
+                </p>
+            </div>
         </section>
 
 
