@@ -1,0 +1,88 @@
+/* Base on Base16 Hugo theme by Chris Kempson */
+
+:root {
+    --color-black: #2d2d2d;
+    --color-blue: #6699cc;
+    --color-lightblue: #66cccc;
+    --color-green: #99cc99;
+    --color-yellow: #ffcc66;
+    --color-orange: #f99157;
+    --color-red: #f2777a;
+    --color-white: #f2f0ec;
+}
+
+.base16-black {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.base16-blue {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+}
+
+.base16-lightblue {
+    background-color: var(--color-lightblue);
+    color: var(--color-white);
+}
+
+.base16-green {
+    background-color: var(--color-green);
+    color: var(--color-white);
+}
+
+.base16-yellow {
+    background-color: var(--color-yellow);
+    color: var(--color-white);
+}
+
+.base16-orange {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+}
+
+.base16-red {
+    background-color: var(--color-red);
+    color: var(--color-white);
+}
+
+.base16-white {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.base16-black-text {
+    color: var(--color-black);
+}
+
+.base16-blue-text {
+    color: var(--color-blue);
+}
+
+.base16-lightblue-text {
+    color: var(--color-lightblue);
+}
+
+.base16-green-text {
+    color: var(--color-green);
+}
+
+.base16-yellow-text {
+    color: var(--color-yellow);
+}
+
+.base16-orange-text {
+    color: var(--color-orange);
+}
+
+.base16-red-text {
+    color: var(--color-red);
+}
+
+.base16-white-text {
+    color: var(--color-white);
+}
+
+.base16-shadow-white {
+    text-shadow: 8px 8px 16px var(--color-white);
+}

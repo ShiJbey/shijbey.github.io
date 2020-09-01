@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
 <head>
     <title>shijbey-About</title>
@@ -7,137 +7,58 @@
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="Assets/favicon.ico" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="Style/style.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="Style/responsive_nav.css" type="text/css" media="screen" />
-
-    <style>
-        :root {
-            /*
-            Colors are sampled from Base16
-            Hugo theme by Chris Kempson
-            */
-            --color-black: #2d2d2d;
-            --color-blue: #6699cc;
-            --color-lightblue: #66cccc;
-            --color-green: #99cc99;
-            --color-yellow: #ffcc66;
-            --color-orange: #f99157;
-            --color-red: #f2777a;
-            --color-white: #f2f0ec;
-        }
-
-        #headshot {
-            float: left;
-            max-width: 40%;
-            height: auto;
-            padding: 10px;
-            min-width: 20%;
-        }
-
-        #info-links {
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 10px;
-        }
-
-        #LinkedInLogo, #GitHubLogo, #PDFIcon {
-            width: 52px;
-            height: 52px;
-            padding: 10px;
-        }
-
-        img {
-            float: left;
-            padding: 15px;
-            height: auto;
-            max-width: 50%;
-        }
-
-        h3 {
-            color: var(--color-yellow);
-            text-align: center;
-        }
-
-        .blogTitle {
-            clear: both;
-        }
-
-        .blogPreview {
-            clear: both;
-            background-color: #242424;
-            border: 1px solid var(--color-green);
-            display: flex;
-            flex-direction: column;
-            margin: 10px;
-        }
-    </style>
+    <link rel="shortcut icon" href="Assets/anvil.png">
+    <link rel="stylesheet" href="style/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="style/responsive_nav.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="style/base16.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="style/w3.css" type="text/css" media="screen">
+    <script src="https://kit.fontawesome.com/aa8432bc25.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <div id="container">
-        <header>
-            <h1 id="header-title">Shi Johnson-Bey</h1>
-            <h2 id="header-subtitle">Computational Media Ph.D. Student</h2>
+<body class="w3-grey w3-card">
+    <div class="w3-container base16-black" style="min-height: 100vh;">
+
+        <header class="w3-container w3-center base16-white-text">
+            <h1 class="w3-xxlarge">Shi Johnson-Bey</h1>
+            <h2 class="w3-large base16-yellow-text">Computational Media Ph.D. Student</h2>
         </header>
 
-        <nav class="topnav" id="topNav">
-            <a href="index.html" class="active">Home</a>
+        <nav class="topnav w3-bar w3-card w3-black" id="topNav">
+            <a href="index.html" class="active">About</a>
             <a href="projects.html">Projects</a>
-            <a href="resume.html">Resume</a>
+            <a href="resume.html">Resume/CV</a>
             <a href="javascript:void(0);" class="icon" onclick="expandNav()">
                 <i class="fa fa-bars"></i>
             </a>
         </nav>
 
-        <img id="headshot" src="./Assets/GDC19Headshot.jpg" />
 
-        <div id="bio">
-            <h3>About Me</h3>
 
-            <p>
+        <div class="w3-container">
+            <h3 class="section-title">About Me</h3>
+
+            <img class="w3-padding section-img" src="./Assets/GDC19Headshot.jpg">
+
+            <p class="w3-padding">
                 I am a Computational Media Ph.D. student in the
                 <a href="https://eis.ucsc.edu">Expressive Intelligence Studio</a> at
                 the University of California - Santa Cruz.
                 I have a M.S. in Biomedical Engineering from Carnegie Mellon University and
                 two B.S. degrees in Computer Science and Neuroscience from the University of Delaware.
-                I currently work on multi-agent simulations and AI.
-                In my freetime, I enjoy developing games and learning about new game dev techniques.
-                My tools of choice are Unity, C#, JavaScript, and Python.
             </p>
         </div>
 
-        <section>
-            <h2 class="sectionHeader">Dev Blogs</h2>
 
-            <div class="blogPreview" id="UnderTheTable">
-                <h3 class="blogTitle">Under The Table</h3>
-                <img  class="blogImg" src="./Assets/magpie.jpg" alt="magpie">
-                <p class="blogPreviewText">
-                    Creating a monopoly clone
-                </p>
+        <footer class="w3-container w3-center w3-opacity w3-margin-bottom">
+            <div class="w3-large w3-padding-16 w3-bar">
+                <a class="w3-bar-item w3-center" href="https://www.linkedin.com/in/shijbey" style="text-decoration: none;">
+                    <i class="fab fa-linkedin fa-2x w3-hover-opacity"></i>
+                </a>
+
+                <a class="w3-bar-item" href="https://github.com/ShiJbey" style="text-decoration: none;">
+                    <i class="fab fa-github fa-2x w3-hover-opacity"></i>
+                </a>
             </div>
-
-            <div class="blogPreview" id="UnderTheTable">
-                <h3 class="blogTitle">Under The Table</h3>
-                <img  class="blogImg" src="./Assets/magpie.jpg" alt="magpie">
-                <p class="blogPreviewText">
-                    Creating a monopoly clone
-                </p>
-            </div>
-        </section>
-
-
-        <div id="info-links">
-            <a href="https://www.linkedin.com/in/shijbey"><img id="LinkedInLogo" src="Assets/linkedin.png" /></a>
-            <a href="https://github.com/ShiJbey"><img id="GitHubLogo" src="Assets/github_logo.png" /></a>
-            <a href="Assets/IJohnson-BeyCV.pdf"><img id="PDFIcon" src="Assets/pdf_icon.png" /></a>
-        </div>
-
-        <footer>
-            <p>Last updated: July 2020</p>
         </footer>
     </div>
 

@@ -1,24 +1,9 @@
 /* https://www.w3schools.com/howto/howto_js_topnav_responsive.asp*/
-
-:root {
-    /*
-    Colors are sampled from Base16
-    Hugo theme by Chris Kempson
-    */
-    --color-black: #2d2d2d;
-    --color-blue: #6699cc;
-    --color-lightblue: #66cccc;
-    --color-green: #99cc99;
-    --color-yellow: #ffcc66;
-    --color-orange: #f99157;
-    --color-red: #f2777a;
-    --color-white: #f2f0ec;
-}
+@import "./base16.css";
 
 .topnav {
     overflow: hidden;
-    background-color: #242424;
-    border: 1px solid var(--color-green);
+    background-color: black;
 }
 
 .topnav a {
@@ -48,7 +33,7 @@
 }
 
 @media screen and (max-width: 600px) {
-    .topnav a:not(:first-child) {
+    .topnav a:not(.active) {
         display: none;
     }
 

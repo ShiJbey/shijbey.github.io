@@ -7,26 +7,13 @@
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="Assets/favicon.ico" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="Style/style.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="Style/responsive_nav.css" type="text/css" media="screen" />
+    <link rel="shortcut icon" href="Assets/anvil.png">
+    <link rel="stylesheet" href="style/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="style/responsive_nav.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="style/base16.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="style/w3.css" type="text/css" media="screen">
+    <script src="https://kit.fontawesome.com/aa8432bc25.js" crossorigin="anonymous"></script>
     <style>
-        :root {
-            /*
-            Colors are sampled from Base16
-            Hugo theme by Chris Kempson
-            */
-            --color-black: #2d2d2d;
-            --color-blue: #6699cc;
-            --color-lightblue: #66cccc;
-            --color-green: #99cc99;
-            --color-yellow: #ffcc66;
-            --color-orange: #f99157;
-            --color-red: #f2777a;
-            --color-white: #f2f0ec;
-        }
-
         .position {
             color: var(--color-white);
         }
@@ -36,63 +23,70 @@
         }
 
         .descriptionLabel {
-            color: var(--color-orange);
+            color: var(--color-red);
         }
     </style>
 </head>
 
-<body>
-    <div id="container">
-        <header>
-            <h1 id="header-title">Shi Johnson-Bey</h1>
-            <h2 id="header-subtitle">Computational Media Ph.D. Student</h2>
+<body class="w3-grey w3-card">
+    <div class="w3-container base16-black">
+        <header class="w3-container w3-center base16-white-text">
+            <h1 class="w3-xxlarge">Shi Johnson-Bey</h1>
+            <h2 class="w3-large base16-yellow-text">Computational Media Ph.D. Student</h2>
         </header>
 
-        <nav class="topnav" id="topNav">
-            <a href="index.html">Home</a>
+        <nav class="topnav w3-bar w3-card w3-black" id="topNav">
+            <a href="index.html">About</a>
             <a href="projects.html">Projects</a>
-            <a href="resume.html" class="active">Resume</a>
+            <a href="resume.html" class="active">Resume/CV</a>
             <a href="javascript:void(0);" class="icon" onclick="expandNav()">
                 <i class="fa fa-bars"></i>
             </a>
         </nav>
 
-        <section>
-            <h2 class="sectionHeader">Education</h2>
-            <h3>Ph.D. Computaional Media, UC Santa Cruz, 2020 - Present</h3>
-            <h3>M.S. Biomedical Engineering, Carnegie Mellon University, 2019</h3>
-            <h3>B.S. Computer Science, University of Delaware, 2017</h3>
-            <h3>B.S. Neuroscience, University of Delaware, 2017</h3>
-        </section>
+        <div class="w3-container w3-center w3-card w3-black w3-margin-top rounded-16 w3-padding-16 w3-border">
+            <h3 class="section-title">Downloads</h3>
+            <span>
+                <i class="fas fa-file-pdf fa-2x base16-red-text"></i>
+                <a class="w3-bar-item" href="Assets/IJohnson-BeyCV.pdf" style="text-decoration: none;">CV</a>
+            </span>
+        </div>
 
-        <section>
-            <h2 class="sectionHeader">Skills</h2>
-            <h3>Programming Languages</h3>
+        <div class="w3-container w3-card w3-black w3-margin-top rounded-16 w3-padding-16 w3-border">
+            <h3 class="section-title">Education</h3>
+            <p>Ph.D. Computaional Media, UC Santa Cruz, 2020 - Present</p>
+            <p>M.S. Biomedical Engineering, Carnegie Mellon University, 2019</p>
+            <p>B.S. Computer Science, University of Delaware, 2017</p>
+            <p>B.S. Neuroscience, University of Delaware, 2017</p>
+        </div>
+
+        <div class="w3-container w3-card w3-black w3-margin-top rounded-16 w3-padding-16 w3-border">
+            <h3 class="section-title">Skills</h3>
+            <h4 class="section-subtitle">Programming Languages</h4>
             <p>C/C++, Typescript, JavaScript, Python, C#, Java, Lua, PHP, HTML, CSS</p>
-            <h3>Technologies</h3>
+            <h4 class="section-subtitle">Technologies</h4>
             <p>Unity, Android, NodeJs, OpenGL, ThreeJS, SteamVR, OpenBCI, MATLAB</p>
-            <h3>Spoken Languages</h3>
+            <h4 class="section-subtitle">Spoken Languages</h4>
             <p>English(Native), Japanese (N5)</p>
-        </section>
+        </div>
 
-        <section>
+        <div class="w3-container w3-card w3-black w3-margin-top rounded-16 w3-padding-16 w3-border">
+            <h3 class="section-title">Teaching Experience</h3>
 
-            <h2 class="sectionHeader">Teaching Experience</h2>
-
-            <h3 class="position">Undergraduate Teaching Assistant for "Introduction to Computer Science II"</h3>
+            <h4 class="position">Undergraduate Teaching Assistant for "Introduction to Computer Science II"</h4>
             <p class="organization">University of Delaware CIS Department - Newark, DE</p>
             <p class="dates">Feb 2017 - May 2017</p>
             <p class="descriptionLabel">Description:</p>
             <p id="taTasks" class="jobDescription">
                 I assisted in facilitating students' learning of Java and object-oriented programming/design concepts. As part of my role, I graded students' work, held a weekly office hour, and ran a weekly lab section where students worked on assigned problem sets. Because I really enjoy teaching, I held additional office hours and started conducting 3-hour exam review sessions during midterms and finals. Also, my hard work earned me the privilege of occasionally substituting in for the professor to give course lectures.
             </p>
+        </div>
 
-        </section>
+        <div class="w3-container w3-card w3-black w3-margin-top rounded-16 w3-padding-16 w3-border">
+            <h3 class="section-title">Research Experience</h3>
 
-        <section>
-            <h2 class="sectionHeader">Research Experience</h2>
+            <h4 class="section-subtitle">Research Software Engineer</h4>
 
-            <h3 class=position>Research Software Engineer</h3>
             <p class="organization">U.S. Army Research Laboratory (CISD) - Aberdeen Proving Ground, MD</p>
             <p class="dates">August 2019 - Present</p>
             <p class="descriptionLabel">Description:</p>
@@ -102,7 +96,7 @@
 
             <hr>
 
-            <h3 class=position>ORAU Journeyman Fellow</h3>
+            <h4 class="section-subtitle">ORAU Journeyman Fellow</h4>
             <p class="organization">U.S. Army Research Laboratory (HRED) - Aberdeen Proving Ground, MD</p>
             <p class="dates">June 2018 - May 2019</p>
             <p class="descriptionLabel">Description:</p>
@@ -112,7 +106,7 @@
 
             <hr>
 
-            <h3 class="position">ORAU Summer Journeyman</h3>
+            <h4 class="section-subtitle">ORAU Summer Journeyman</h4>
             <p class="organization">U.S. Army Research Laboratory (HRED) - Aberdeen Proving Ground, MD</p>
             <p class="dates">June 2017 - Aug 2017</p>
             <p class="descriptionLabel">Description:</p>
@@ -122,7 +116,7 @@
 
             <hr>
 
-            <h3 class="position">Virtual Reality Developer / Research Intern</h3>
+            <h4 class="section-subtitle">Virtual Reality Developer / Research Intern</h4>
             <p class="organization">Johns Hopkins University Mind Brain Institude Computaional Neuroscience Lab - Baltimore, MD</p>
             <p class="dates">June 2015 - August 2015</p>
             <p class="descriptionLabel">Description:</p>
@@ -130,12 +124,12 @@
                 I worked in with Dr. Ernst Niebur one of his Ph.D. students, on a project to explore the role head movements play in the visual exploration of images and scenes. As the developer on this project,  I implemented and deployed our virtual reality environment on an Andriod smartphone using Unity and the Google Cardboard SDK. This research was conducted in Dr. Niebur's lab in the Mind/Brain Institute at the Johns Hopkins University.
                 I learned about 3D math, VR design, data collection, and research experiment design
             </p>
-        </section>
+        </div>
 
-        <section>
-            <h2 class="sectionHeader">Software Engineering</h2>
+        <div class="w3-container w3-card w3-black w3-margin-top rounded-16 w3-padding-16 w3-border">
+            <h3 class="section-title">Software Engineering</h3>
 
-            <h3 class="position">Software Engineering Intern</h3>
+            <h4 class="section-subtitle">Software Engineering Intern</h4>
             <p class="organization">SevOne - Newark, DE</p>
             <p class="dates">June 2016 - August 2016</p>
             <p class="descriptionLabel">Description:</p>
@@ -145,7 +139,7 @@
 
             <hr>
 
-            <h3 class="position">Microsoft Student Partner for the University of Delaware</h3>
+            <h4 class="section-subtitle">Microsoft Student Partner for the University of Delaware</h4>
             <p class="organization">Microsoft - Newark, DE</p>
             <p class="dates">August 2015 - June 2016</p>
             <p class="descriptionLabel">Description:</p>
@@ -153,10 +147,10 @@
                     This was a fun student tech evangelist role in which I had the opportunity to share my passion for technology with other students by leading monthly skill workshops and connecting students with Microsoft developer resources. My workshops mainly revolved around game development and professional development.
             </p>
 
-        </section>
+        </div>
 
-        <section>
-            <h2 class="sectionHeader">Publications</h2>
+        <div class="w3-container w3-card w3-black w3-margin-top rounded-16 w3-padding-16 w3-border">
+            <h3 class="section-title">Publications</h3>
             <ul>
                 <li>
                     Ishmael Johnson-Bey and Venkat Dasari "A novel approach towards computing global maps for
@@ -175,39 +169,47 @@
                     (CISS), 2017 51st Annual Conference on, pp. 1-6. IEEE, 2017.
                 </li>
             </ul>
-        </section>
+        </div>
 
-        <section>
-            <h2 class="sectionHeader">Awards, Honors, and Grants</h2>
+        <div class="w3-container w3-card w3-black w3-margin-top rounded-16 w3-padding-16 w3-border">
+            <h3 class="section-title">Awards, Honors, and Grants</h3>
             <ul>
                 <li>2018 Carnegie Mellon University Graduate Small Research Grant (GuSH)</li>
                 <li>2017 Steven Geracimos Memorial Award (University of Delaware, Computer Information Sciences Department)</li>
                 <li>2015 Elbert C. Wiser RISE Corporate Friends Award (University of Delaware, College of Engineering)</li>
             </ul>
-        </section>
+        </div>
 
-        <section>
-            <h2 class="sectionHeader">Leadership & Activities</h2>
+        <div class="w3-container w3-card w3-black w3-margin-top rounded-16 w3-padding-16 w3-border">
+            <h3 class="section-title">Leadership & Activities</h3>
 
-            <h3 class="position">Student Advisory Council Alumni Chair</h3>
+            <h4 class="section-subtitle">Student Advisory Council Alumni Chair</h4>
             <p class="organization">Resources to Insure Successful Engineers (RISE) Program</p>
             <p class="dates">September 2014 - May 2017</p>
 
             <hr>
 
-            <h3 class="position">President</h3>
+            <h4 class="section-subtitle">President</h4>
             <p class="organization">UD Computer Animation and Game Design (UDCAGD)</p>
             <p class="dates">May 2015 - May 2016</p>
 
             <hr>
 
-            <h3 class="position">Team Captain</h3>
+            <h4 class="section-subtitle">Team Captain</h4>
             <p class="organization">University of Delaware Mascot Team</p>
             <p class="dates">May 2014 - May 2016</p>
-        </section>
+        </div>
 
-        <footer>
-            <p>Last updated: July 2020</p>
+        <footer class="w3-container w3-center w3-opacity w3-margin-bottom">
+            <div class="w3-large w3-padding-16 w3-bar">
+                <a class="w3-bar-item w3-center" href="https://www.linkedin.com/in/shijbey" style="text-decoration: none;">
+                    <i class="fab fa-linkedin fa-2x w3-hover-opacity"></i>
+                </a>
+
+                <a class="w3-bar-item" href="https://github.com/ShiJbey" style="text-decoration: none;">
+                    <i class="fab fa-github fa-2x w3-hover-opacity"></i>
+                </a>
+            </div>
         </footer>
     </div>
 

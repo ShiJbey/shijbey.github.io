@@ -1,24 +1,28 @@
-<!Doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-us">
 
 <head>
-    <title>Shijbey-Infiniforge</title>
+    <title>shijbey-About</title>
 
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="Assets/favicon.ico" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="Style/style.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="Style/responsive_nav.css" type="text/css" media="screen" />
+    <link rel="shortcut icon" href="Assets/anvil.png">
+    <link rel="stylesheet" href="style/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="style/responsive_nav.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="style/base16.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="style/w3.css" type="text/css" media="screen">
+    <script src="https://kit.fontawesome.com/aa8432bc25.js" crossorigin="anonymous"></script>
 
     <style>
         canvas {
+            position: relative;
             width: 100%;
         }
 
         div#game-container {
             width: 100%;
+            position: relative;
         }
     </style>
 
@@ -30,45 +34,56 @@
     <script src="js/infiniforge/infiniforge.bundle.js"></script>
 </head>
 
-<body>
-    <div id="container">
+<body class="w3-grey w3-card">
+    <div class="w3-container base16-black" style="min-height: 100vh;">
 
-        <header>
-            <h1 id="header-title">Shi Johnson-Bey</h1>
-            <h2 id="header-subtitle">Computational Media Ph.D. Student</h2>
+        <header class="w3-container w3-center base16-white-text">
+            <h1 class="w3-xxlarge">Shi Johnson-Bey</h1>
+            <h2 class="w3-large base16-yellow-text">Computational Media Ph.D. Student</h2>
         </header>
 
-        <nav class="topnav" id="topNav">
-            <a href="index.html">Home</a>
+        <nav class="topnav w3-bar w3-card w3-black" id="topNav">
+            <a href="index.html">About</a>
             <a href="projects.html" class="active">Projects</a>
-            <a href="resume.html">Resume</a>
+            <a href="resume.html">Resume/CV</a>
             <a href="javascript:void(0);" class="icon" onclick="expandNav()">
                 <i class="fa fa-bars"></i>
             </a>
         </nav>
 
-        <section id="game-section">
-            <h2 class="sectionHeader">Infiniforge</h2>
+        <div class="w3-container w3-card w3-black w3-margin-top rounded-16 w3-padding-16 w3-border">
             <div id="game-container">
-                <canvas id="threejs-canvas"></canvas>
+                <canvas id="threejs-canvas" class="rounded-8"></canvas>
             </div>
-            <a id="gltf-download" href="javascript: void(0)" download="sword.gltf">Download Sword as glTF!</a>
-        </section>
+
+
+            <a
+                id="gltf-download"
+                href="javascript: void(0)"
+                download="sword.gltf"
+                style="text-decoration: none;"
+                class="w3-container w3-margin-top w3-button w3-right w3-orange rounded-8">
+
+                <i class="fas fa-download" aria-hidden="true"></i>
+                <br>
+               Download Sword as glTF!
+            </a>
+        </div>
 
 
 
 
-        <section id="how-to-play">
-            <h2 class="sectionHeader">How to Play</h2>
+        <div class="w3-container w3-card w3-black w3-margin-top rounded-16 w3-padding-16 w3-border">
+            <h3 class="section-title">How to Play</h3>
             <p>This is demo uses a webpack'ed bundle of the <a
                     href="https://github.com/ShiJbey/Infiniforge">Infiniforge</a> module.</p>
             <p>Rotate the model using 'W', 'A', 'S', 'D'.</p>
             <p>Move the model forward with '1' and backwards with '2'/</p>
             <p>Move model vertically with 'Q' and 'E'.</p>
-        </section>
+        </div>
 
-        <section id="about-the-game">
-            <h2 class="sectionHeader">About The Game</h2>
+        <div class="w3-container w3-card w3-black w3-margin-top rounded-16 w3-padding-16 w3-border">
+            <h3 class="section-title">About The Game</h3>
             <p>
                 I started designing this project in 2016. At the time, I was heavily interested in both blacksmithing and procedural generation. When I started, I didn't know anything about computer graphics or PCG. So, this project served as my introduction to both of those. Over the past three years, this project has helped me to grow more as a programmer.  I continue to add to Infiniforge, even though it was to be submitted for the August 2016 /procedural_generation subreddit challenge. Infiniforge is a NodeJS module that, when combined with an HTTP server, exports 3D meshes (using ThreeJs) as glTF JSON via a REST API. The resulting glTF models can then be imported into Unity or any other software that supports the format.
                 <br>
@@ -83,31 +98,39 @@
                 <br>
                 All code is available on GitHub. Also, a demo is available below. Feel free to play with the different generation parameters. If you find a sword you like, export it as glTF and 3D print it.
             </p>
-        </section>
+        </div>
 
 
 
-        <section id=recent-updates>
-            <h2 class="sectionHeader">Updates</h2>
-            <h3>March 2018</h3>
+        <div class="w3-container w3-card w3-black w3-margin-top rounded-16 w3-padding-16 w3-border">
+            <h3 class="section-title">Updates</h3>
+            <h4 class="section-subtitle">March 2018</h4>
             <ul>
                 <li>UI updates</li>
             </ul>
-            <h3>April 2018</h3>
+            <h4 class="section-subtitle">April 2018</h4>
             <ul>
                 <li>New UI</li>
                 <li>Items! Players can now smelt and Forge using items in their inventory!</li>
                 <li>Fixed pseudo randomness of generation process</li>
             </ul>
-            <h3>August 2019</h3>
+            <h4 class="section-subtitle">August 2019</h4>
             <ul>
                 <li>Removed old crafting game</li>
                 <li>Users now have access to all the parameters used to make blades!</li>
             </ul>
-        </section>
+        </div>
 
-        <footer>
-            <p>Last updated: Sept 2019</p>
+        <footer class="w3-container w3-center w3-opacity w3-margin-bottom">
+            <div class="w3-large w3-padding-16 w3-bar">
+                <a class="w3-bar-item w3-center" href="https://www.linkedin.com/in/shijbey" style="text-decoration: none;">
+                    <i class="fab fa-linkedin fa-2x w3-hover-opacity"></i>
+                </a>
+
+                <a class="w3-bar-item" href="https://github.com/ShiJbey" style="text-decoration: none;">
+                    <i class="fab fa-github fa-2x w3-hover-opacity"></i>
+                </a>
+            </div>
         </footer>
     </div>
 
@@ -122,9 +145,7 @@
         }
     </script>
 
-    <script>
-
-        console.log(Infiniforge);
+    <script type="module">
 
         ///////////////////////////////////////////////////////////
         //          HANDLE SWORD ROTATION CONTROLS               //
@@ -255,6 +276,8 @@
         }
 
 
+
+
         ///////////////////////////////////////////////////////////
         //                  HELPER FUNTIONS                      //
         ///////////////////////////////////////////////////////////
@@ -331,6 +354,22 @@
             camera.position.z = 2;
             camera.updateProjectionMatrix();
 
+            // controls
+
+			// controls = new TOrbitControls( camera, renderer.domElement );
+
+            // //controls.addEventListener( 'change', render ); // call this only in static scenes (i.e., if there is no animation loop)
+
+            // controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
+            // controls.dampingFactor = 0.05;
+
+            // controls.screenSpacePanning = false;
+
+            // controls.minDistance = 100;
+            // controls.maxDistance = 500;
+
+            // controls.maxPolarAngle = Math.PI / 2;
+
             scene = new THREE.Scene();
             scene.background = new THREE.Color(0xf0f0f0);
 
@@ -345,10 +384,12 @@
 
         function resizeCanvas() {
             var renderer_rect = renderer.domElement.getBoundingClientRect();
+            camera.aspect = renderer_rect.width / renderer_rect.height;
+            camera.updateProjectionMatrix();
             renderer.setSize(renderer_rect.width, renderer_rect.height);
-            animate();
-            console.log("Resizing...");
         }
+
+
 
         function animate() {
             requestAnimationFrame(animate);
@@ -520,13 +561,12 @@
             }
         });
 
-        document.body.appendChild(gui.domElement);
-        var pos = $('#threejs-canvas').position();
-        var width = $('#threejs-canvas').outerWidth();
+        document.getElementById("game-container").appendChild(gui.domElement);
         $('#gui').css({
-            position: 'absolute',
-            top: pos.top + "px",
-            left: (pos.left) + "px"
+            position: "absolute",
+            top: "0px",
+            left: "0px",
+            'z-index': 10
         }).show();
 
         //////htt/////////////////////////////////////////////////////
