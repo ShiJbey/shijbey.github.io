@@ -186,6 +186,7 @@ exports.DIAMOND = {
   "name": "Diamond",
   "vertices": [0.0, 0.5, 0.15, 0.0, 0.0, -0.5, -0.15, 0.0],
   "edgeVertices": [0, 2],
+  "normEdgeVertices": [1, 3],
   "width": 1.0,
   "thickness": 0.3
 };
@@ -193,6 +194,7 @@ exports.HALLOW_GROUND = {
   "name": "HallowGround",
   "vertices": [0.0, 0.5, 0.03, 0.25, 0.06, 0.1, 0.15, 0.0, 0.06, -0.1, 0.03, -0.25, 0.0, -0.5, -0.03, -0.25, -0.06, -0.1, -0.15, 0.0, -0.06, 0.1, -0.03, 0.25],
   "edgeVertices": [0, 6],
+  "normEdgeVertices": [3, 9],
   "width": 1.0,
   "thickness": 0.3
 };
@@ -200,6 +202,7 @@ exports.HEXAGONAL = {
   "name": "Hexagonal",
   "vertices": [0.0, 0.5, 0.1, 0.3, 0.1, -0.3, 0.0, -0.5, -0.1, -0.3, -0.1, 0.3],
   "edgeVertices": [0, 3],
+  "normEdgeVertices": [1, 2, 4, 5],
   "width": 1,
   "thickness": 0.2
 };
@@ -207,6 +210,7 @@ exports.THICKENED_DIAMOND = {
   "name": "ThickenedDiamond",
   "vertices": [0.0, 0.5, 0.5, 0.0, 0.0, -0.5, -0.5, 0.0],
   "edgeVertices": [0, 2],
+  "normEdgeVertices": [1, 3],
   "width": 1.0,
   "thickness": 1.3
 };
@@ -221,6 +225,7 @@ exports.FULLER = {
   "name": "Fuller",
   "vertices": [0.0, 0.5, 0.04, 0.4, 0.10, 0.1, 0.15, 0.04, 0.10, 0.0, 0.15, -0.04, 0.10, -0.1, 0.04, -0.4, 0.0, -0.5, -0.04, -0.4, -0.10, -0.1, -0.15, -0.03, -0.10, 0.0, -0.15, 0.03, -0.10, 0.1, -0.04, 0.4],
   "edgeVertices": [0, 8],
+  "normEdgeVertices": [3, 4, 5, 11, 12, 13],
   "width": 1.0,
   "thickness": 0.3
 };
@@ -228,6 +233,7 @@ exports.DOUBLE_FULLER = {
   "name": "DoubleFuller",
   "vertices": [0.0, 0.5, 0.04, 0.4, 0.10, 0.1, 0.05, 0.07, 0.15, 0.03, 0.15, -0.03, 0.05, -0.07, 0.10, -0.1, 0.04, -0.4, 0.0, -0.5, -0.04, -0.4, -0.10, -0.1, -0.05, -0.07, -0.15, -0.03, -0.15, 0.03, -0.05, 0.07, -0.10, 0.1, -0.04, 0.4],
   "edgeVertices": [0, 9],
+  "normEdgeVertices": [2, 3, 4, 5, 6, 7, 11, 12, 13, 15, 16, 17],
   "width": 1.0,
   "thickness": 0.3
 };
@@ -235,6 +241,7 @@ exports.BROAD_FULLER = {
   "name": "BroadFuller",
   "vertices": [0.0, 0.5, 0.02, 0.4, 0.01, 0.0, 0.02, -0.4, 0.0, -0.5, -0.02, -0.4, -0.01, 0.0, -0.02, 0.4],
   "edgeVertices": [0, 4],
+  "normEdgeVertices": [1, 2, 3, 5, 6, 7],
   "width": 1.0,
   "thickness": 0.04
 };
@@ -242,6 +249,7 @@ exports.SINGLE_EDGE = {
   "name": "katana",
   "vertices": [0.0, 0.5, 0.01, 0.1, 0.01, -0.5, -0.01, -0.5, -0.01, 0.1],
   "edgeVertices": [0],
+  "normEdgeVertices": [2, 3],
   "width": 1,
   "thickness": 0.02
 };
@@ -317,6 +325,8 @@ exports.BladeGeometry = exports.TIP_GEOMETRIES = void 0;
 var THREE = __webpack_require__(/*! three */ "../Infiniforge/node_modules/three/build/three.module.js");
 
 var GeometryData_1 = __webpack_require__(/*! ../../modeling/GeometryData */ "../Infiniforge/build/core/modeling/GeometryData.js");
+
+var CrossSection_1 = __webpack_require__(/*! ../../modeling/CrossSection */ "../Infiniforge/build/core/modeling/CrossSection.js");
 
 exports.TIP_GEOMETRIES = ["standard", "rounded", "square", "clip"];
 
@@ -474,10 +484,46 @@ var BladeGeometry = /*#__PURE__*/function (_GeometryData_1$Geome) {
     }
   }, {
     key: "setBladeCrossSection",
-    value: function setBladeCrossSection(crossSection, edgeVerts, color) {
-      _get(_getPrototypeOf(BladeGeometry.prototype), "setCrossSection", this).call(this, crossSection, color);
+    value: function setBladeCrossSection(crossSection, edgeVerts, color, normEdges) {
+      var duplicate_verts = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : false;
 
-      this._bladeEdgeVertices = edgeVerts;
+      if (!duplicate_verts) {
+        _get(_getPrototypeOf(BladeGeometry.prototype), "setCrossSection", this).call(this, crossSection, color);
+
+        this._bladeEdgeVertices = edgeVerts;
+        return this;
+      }
+
+      var offset = 0;
+      var dupedVerts = [];
+      var newEdgeVerts = [];
+
+      for (var i = 0; i < crossSection.getVertices().length; i++) {
+        if (edgeVerts.includes(i)) {
+          newEdgeVerts.push(dupedVerts.length);
+          newEdgeVerts.push(dupedVerts.length + 1);
+          dupedVerts.push(crossSection.getVertices()[i].clone());
+        } else if (normEdges === null || normEdges === void 0 ? void 0 : normEdges.includes(i)) {
+          dupedVerts.push(crossSection.getVertices()[i].clone());
+        }
+
+        dupedVerts.push(crossSection.getVertices()[i].clone());
+      }
+
+      var verts = [];
+
+      for (var _i = 0; _i < dupedVerts.length; _i++) {
+        verts.push(dupedVerts[_i].x);
+        verts.push(dupedVerts[_i].z);
+      }
+
+      var modifiedCrossSection = new CrossSection_1.CrossSection({
+        vertices: verts
+      });
+
+      _get(_getPrototypeOf(BladeGeometry.prototype), "setCrossSection", this).call(this, modifiedCrossSection);
+
+      this._bladeEdgeVertices = newEdgeVerts;
       return this;
     }
   }]);
@@ -616,7 +662,7 @@ var SwordGenerator = /*#__PURE__*/function (_Generator_1$Generato) {
 
               case 11:
                 _context.next = 13;
-                return sword.toGlTF();
+                return sword.toGlTF(this._verbose);
 
               case 13:
                 return _context.abrupt("return", _context.sent);
@@ -690,7 +736,7 @@ var SwordGenerator = /*#__PURE__*/function (_Generator_1$Generato) {
   }, {
     key: "buildBlade",
     value: function buildBlade(sword, template, params) {
-      var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
+      var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s;
 
       var color = (_a = params === null || params === void 0 ? void 0 : params.color) !== null && _a !== void 0 ? _a : "rgb(128, 128, 128)";
       var tip = (params === null || params === void 0 ? void 0 : params.tip) ? params.tip == "random" ? this.randomTip() : params.tip : "standard";
@@ -731,7 +777,7 @@ var SwordGenerator = /*#__PURE__*/function (_Generator_1$Generato) {
         var edgeSpline = this.CreateEdgeSpline(nControlPoints, edgeScaleTolerance, evenSpacedBaseCPs);
       }
 
-      var bladeGeometry = new BladeGeometery_1.BladeGeometry(bladeLength, template.extrusionCurve).setBladeCrossSection(new CrossSection_1.CrossSection(crossSection), crossSection.edgeVertices, new THREE.Color(color)).scale(new THREE.Vector2(template.bladeThickness / crossSection.thickness, template.baseBladeWidth / crossSection.width)).extrudeSection(edgeSpline, baseSplineSamples, baseSectionLength, 0.2).extrudeSection(new THREE.SplineCurve([new THREE.Vector2(0, 0), new THREE.Vector2(0, 1)]), midSplineSamples, midSectionLength, 0.3).createTip(tip, tipSectionLength);
+      var bladeGeometry = new BladeGeometery_1.BladeGeometry(bladeLength, template.extrusionCurve).setBladeCrossSection(new CrossSection_1.CrossSection(crossSection), crossSection.edgeVertices, new THREE.Color(color), (_s = crossSection.normEdgeVertices) !== null && _s !== void 0 ? _s : [], true).scale(new THREE.Vector2(template.bladeThickness / crossSection.thickness, template.baseBladeWidth / crossSection.width)).extrudeSection(edgeSpline, baseSplineSamples, baseSectionLength, 0.2).extrudeSection(new THREE.SplineCurve([new THREE.Vector2(0, 0), new THREE.Vector2(0, 1)]), midSplineSamples, midSectionLength, 0.3).createTip(tip, tipSectionLength);
       sword.add(bladeGeometry);
     }
   }, {
@@ -1396,11 +1442,14 @@ var GeometryData = /*#__PURE__*/function () {
     value: function toGlTF() {
       var _this = this;
 
+      var verbose = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
       var gltfExporter = new GLTFExporter_1.GLTFExporter();
       return new Promise(function (resolve, reject) {
         gltfExporter.parse(_this.toMesh(), function (gltf) {
           resolve(gltf);
-        }, {});
+        }, {
+          verbose: verbose
+        });
       });
     }
   }, {
@@ -1654,7 +1703,8 @@ var GLTFExporter = /*#__PURE__*/function () {
         maxTextureSize: Infinity,
         animations: [],
         forcePowerOfTwoTextures: false,
-        includeCustomExtensions: false
+        includeCustomExtensions: false,
+        verbose: false
       };
       options = Object.assign({}, DEFAULT_OPTIONS, options);
 
@@ -1808,7 +1858,7 @@ var GLTFExporter = /*#__PURE__*/function () {
             gltfProperty.extras = json;
           }
         } catch (error) {
-          console.warn('THREE.GLTFExporter: userData of \'' + object.name + '\' ' + 'won\'t be serialized because of JSON.stringify error - ' + error.message);
+          if (options.verbose) console.warn('THREE.GLTFExporter: userData of \'' + object.name + '\' ' + 'won\'t be serialized because of JSON.stringify error - ' + error.message);
         }
       }
 
@@ -1960,7 +2010,7 @@ var GLTFExporter = /*#__PURE__*/function () {
         }
 
         if (material instanceof three_1.ShaderMaterial) {
-          console.warn('GLTFExporter: THREE.ShaderMaterial not supported.');
+          if (options.verbose) console.warn('GLTFExporter: THREE.ShaderMaterial not supported.');
           return null;
         }
 
@@ -1978,7 +2028,7 @@ var GLTFExporter = /*#__PURE__*/function () {
           };
           extensionsUsed['KHR_materials_unlit'] = true;
         } else if (!(material instanceof three_1.MeshStandardMaterial)) {
-          console.warn('GLTFExporter: Use MeshStandardMaterial or MeshBasicMaterial for best results.');
+          if (options.verbose) console.warn('GLTFExporter: Use MeshStandardMaterial or MeshBasicMaterial for best results.');
         }
 
         var color = [];
@@ -2037,7 +2087,7 @@ var GLTFExporter = /*#__PURE__*/function () {
         var mode = WEBGL_CONSTANTS.TRIANGLES;
 
         if (!(geometry instanceof three_1.BufferGeometry)) {
-          console.warn('GLTFExporter: Exporting THREE.Geometry will increase file size. Use BufferGeometry instead.');
+          if (options.verbose) console.warn('GLTFExporter: Exporting THREE.Geometry will increase file size. Use BufferGeometry instead.');
           geometry = new three_1.BufferGeometry().setFromObject(mesh);
         }
 
@@ -2055,7 +2105,7 @@ var GLTFExporter = /*#__PURE__*/function () {
         var originalNormal = geometry.getAttribute('normal');
 
         if (originalNormal !== undefined && !isNormalizedNormalAttribute(originalNormal)) {
-          console.warn('THREE.GLTFExporter: Creating normalized normal attribute from the non-normalized one.');
+          if (options.verbose) console.warn('THREE.GLTFExporter: Creating normalized normal attribute from the non-normalized one.');
           geometry.setAttribute('normal', createNormalizedNormalAttribute(originalNormal));
         }
 
@@ -2080,7 +2130,7 @@ var GLTFExporter = /*#__PURE__*/function () {
           var array = attribute.array;
 
           if (attributeName === 'JOINTS_0' && !(array instanceof Uint16Array) && !(array instanceof Uint8Array)) {
-            console.warn('GLTFExporter: Attribute "skinIndex" converted to type UNSIGNED_SHORT.');
+            if (options.verbose) console.warn('GLTFExporter: Attribute "skinIndex" converted to type UNSIGNED_SHORT.');
             modifiedAttribute = new three_1.BufferAttribute(new Uint16Array(array), attribute.itemSize, attribute.normalized);
           }
 
@@ -2116,7 +2166,7 @@ var GLTFExporter = /*#__PURE__*/function () {
             for (var attributeName in geometry.morphAttributes) {
               if (attributeName !== 'position' && attributeName !== 'normal') {
                 if (!warned) {
-                  console.warn('GLTFExporter: Only POSITION and NORMAL morph are supported.');
+                  if (options.verbose) console.warn('GLTFExporter: Only POSITION and NORMAL morph are supported.');
                   warned = true;
                 }
 
