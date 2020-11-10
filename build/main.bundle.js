@@ -72224,7 +72224,7 @@ function init() {
   camera.position.y = 1;
   camera.updateProjectionMatrix();
   scene = new three_build_three_module__WEBPACK_IMPORTED_MODULE_1__["Scene"]();
-  scene.background = new three_build_three_module__WEBPACK_IMPORTED_MODULE_1__["Color"](0xcccccc); // controls
+  scene.background = new three_build_three_module__WEBPACK_IMPORTED_MODULE_1__["Color"](0x5884a6); // controls
 
   controls = new three_examples_jsm_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_5__["OrbitControls"](camera, renderer.domElement);
   controls.enableDamping = true;

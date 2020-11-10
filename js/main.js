@@ -68,7 +68,7 @@ function init() {
     camera.updateProjectionMatrix();
 
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xcccccc);
+    scene.background = new THREE.Color(0x5884a6);
 
     // controls
 
