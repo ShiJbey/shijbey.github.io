@@ -1,7 +1,10 @@
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import * as THREE from 'three';
 import * as dat from 'three/examples/jsm/libs/dat.gui.module';
 import { GLTFExporter } from 'three/examples/jsm/exporters/GLTFExporter';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { TransformControls } from 'three/examples/jsm/controls/TransformControls';
 import * as Infiniforge from 'infiniforge';
 import { randomSeed } from './utils';
 
@@ -20,7 +23,12 @@ class InfiniforgeApp {
     this.renderer = null;
     this.scene = null;
     this.camera = null;
-    this.controls = null;
+    this.orbitControl = null;
+    this.transformControl = null;
+    this.raycaster = new THREE.Raycaster();
+    this.pointer = new THREE.Vector2();
+    this.onUpPosition = new THREE.Vector2();
+    this.onDownPosition = new THREE.Vector2();
     this.init();
   }
 
@@ -28,7 +36,6 @@ class InfiniforgeApp {
     this.initThree();
     this.initForgeParams();
     this.onWindowResize.bind(this);
-    this.onKeyDown.bind(this);
     this.animate.bind(this);
   }
 
@@ -42,29 +49,54 @@ class InfiniforgeApp {
     const rendererRect = this.renderer.domElement.getBoundingClientRect();
     this.renderer.setSize(rendererRect.width, rendererRect.height);
     this.renderer.setPixelRatio(window.devicePixelRatio);
+    this.renderer.shadowMap.enabled = true;
+
+    this.scene = new THREE.Scene();
+    this.scene.background = new THREE.Color(0xf0f0f0);
 
     const aspect = rendererRect.width / rendererRect.height;
     this.camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
     this.camera.position.z = 2;
     this.camera.position.y = 1;
     this.camera.updateProjectionMatrix();
+    this.scene.add(this.camera);
 
-    this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0x5884a6);
+    const planeGeometry = new THREE.PlaneBufferGeometry(200, 200);
+    planeGeometry.rotateX(-Math.PI / 2);
+    const planeMaterial = new THREE.ShadowMaterial({ opacity: 0.2 });
+    const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    plane.position.y = -10;
+    plane.receiveShadow = true;
+    this.scene.add(plane);
+
+    const helper = new THREE.GridHelper(200, 100);
+    helper.position.y = -9.9;
+    helper.material.opacity = 0.25;
+    helper.material.transparent = true;
+    this.scene.add(helper);
 
     // controls
-    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-    this.controls.enableDamping = true;
-    this.controls.dampingFactor = 0.05;
-    this.controls.screenSpacePanning = false;
-    this.controls.minDistance = 0.5;
-    this.controls.maxDistance = 3;
-    this.controls.enableZoom = true;
-    this.controls.autoRotate = true;
-    this.controls.enableRotate = true;
-    this.controls.enableKeys = false;
+    this.orbitControl = new OrbitControls(this.camera, this.canvas);
+    this.orbitControl.damping = 0.3;
+    this.orbitControl.enableDamping = true;
+    this.orbitControl.dampingFactor = 0.05;
+    // orbitControl.screenSpacePanning = false;
+    this.orbitControl.minDistance = 0.5;
+    // orbitControl.maxDistance = 3;
+    this.orbitControl.enableZoom = true;
+    // orbitControl.autoRotate = true;
+    // orbitControl.autoRotateSpeed = 1.0;
+    this.orbitControl.enableRotate = true;
+    this.orbitControl.enableKeys = true;
+    this.orbitControl.addEventListener('change', this.render.bind(this));
 
-    // Lights
+    this.transformControl = new TransformControls(this.camera, this.canvas);
+    this.transformControl.addEventListener('change', this.render.bind(this));
+    this.transformControl.addEventListener('dragging-changed', (event) => {
+      this.orbitControl.enabled = !event.value;
+    });
+    this.scene.add(this.transformControl);
+
     const light1 = new THREE.DirectionalLight(0xffffff);
     light1.position.set(1, 1, 1);
     this.scene.add(light1);
@@ -77,12 +109,13 @@ class InfiniforgeApp {
     this.scene.add(light3);
 
     window.addEventListener('resize', this.onWindowResize.bind(this), false);
-    this.canvas.addEventListener('keydown', this.onKeyDown, false);
+    document.addEventListener('pointerdown', this.onPointerDown.bind(this), false);
+    document.addEventListener('pointerup', this.onPointerUp.bind(this), false);
   }
 
   initForgeParams() {
-    const forgeParams = {
-      output: 'gltf',
+    this.forgeParams = {
+      output: 'mesh',
       seed: 'Enter a seed value',
       template: 'random',
       bladeParams: {
@@ -104,7 +137,7 @@ class InfiniforgeApp {
 
     const guiFunctions = {
       'Random Seed': () => {},
-      Forge: this.forge,
+      Forge: this.forge.bind(this),
       'Random Forge': () => {
         this.seedController.setValue(randomSeed());
         this.forge();
@@ -129,7 +162,7 @@ class InfiniforgeApp {
       'Thickened Diamond': 'thickened_diamond',
       Lenticular: 'lenticular',
       Fuller: 'fuller',
-      'Doule Fuller': 'doule_fuller',
+      'Double Fuller': 'double_fuller',
       'Broad Fuller': 'broad_fuller',
       'Single edge': 'single_edge',
     };
@@ -163,33 +196,32 @@ class InfiniforgeApp {
       this.seedController.setValue(randomSeed());
     });
 
-    this.seedController = this.gui.add(forgeParams, 'seed');
+    this.seedController = this.gui.add(this.forgeParams, 'seed');
 
-    this.gui.add(forgeParams, 'template', supportedTemplates);
+    this.gui.add(this.forgeParams, 'template', supportedTemplates);
 
     const bladeOptions = this.gui.addFolder('Blade Options');
     bladeOptions.add(
-      forgeParams.bladeParams,
+      this.forgeParams.bladeParams,
       'crossSection',
       supportedCrossSections,
     );
-    bladeOptions.add(forgeParams.bladeParams, 'tip', supportedBladeTips);
-    bladeOptions.add(forgeParams.bladeParams, 'edgeScaleTolerance', 0, 0.5);
-    bladeOptions.addColor(forgeParams.bladeParams, 'color');
+    bladeOptions.add(this.forgeParams.bladeParams, 'tip', supportedBladeTips);
+    bladeOptions.add(this.forgeParams.bladeParams, 'edgeScaleTolerance', 0, 1);
+    bladeOptions.addColor(this.forgeParams.bladeParams, 'color');
 
     const guardOptions = this.gui.addFolder('Guard Options');
-    guardOptions.addColor(forgeParams.guardParams, 'color');
+    guardOptions.addColor(this.forgeParams.guardParams, 'color');
 
     const handleOptions = this.gui.addFolder('Handle Options');
-    handleOptions.addColor(forgeParams.handleParams, 'color');
+    handleOptions.addColor(this.forgeParams.handleParams, 'color');
 
     const pommelOptions = this.gui.addFolder('Pommel Options');
-    pommelOptions.addColor(forgeParams.pommelParams, 'color');
+    pommelOptions.addColor(this.forgeParams.pommelParams, 'color');
 
     this.gui.add(guiFunctions, 'Toggle Wireframe');
 
     document.getElementById('canvas-container').appendChild(this.gui.domElement);
-    this.gui.domElement.style.position = 'absolute';
   }
 
   render() {
@@ -198,7 +230,7 @@ class InfiniforgeApp {
 
   animate() {
     requestAnimationFrame(this.animate.bind(this));
-    this.controls.update();
+    this.orbitControl.update();
     this.render();
   }
 
@@ -220,7 +252,7 @@ class InfiniforgeApp {
         this.setGlTFDownload(true);
       });
     } catch (error) {
-      alert(error);
+      // Catch generation errors
     }
   }
 
@@ -240,15 +272,33 @@ class InfiniforgeApp {
     this.renderer.setSize(this.canvas.width, this.canvas.height);
   }
 
-  onKeyDown(e) {
-    e.preventDefault();
+  onPointerDown(event) {
+    this.onDownPosition.x = event.offsetX;
+    this.onDownPosition.y = event.offsetY;
+  }
 
-    if (e.key === 'ArrowUp' && this.swordModel) {
-      this.swordModel.position.y += 0.015;
+  onPointerUp(event) {
+    this.onUpPosition.x = event.offsetX;
+    this.onUpPosition.y = event.offsetY;
+
+    if (this.onDownPosition.distanceTo(this.onUpPosition) === 0) this.transformControl.detach();
+
+    if (!this.swordModel) {
+      return;
     }
 
-    if (e.key === 'ArrowDown' && this.swordModel) {
-      this.swordModel.position.y -= 0.015;
+    this.pointer.x = (event.offsetX / this.canvas.offsetWidth) * 2 - 1;
+    this.pointer.y = -(event.offsetY / this.canvas.offsetHeight) * 2 + 1;
+
+    this.raycaster.setFromCamera(this.pointer, this.camera);
+
+    const intersects = this.raycaster.intersectObjects([this.swordModel]);
+
+    if (intersects.length > 0) {
+      const obj = intersects[0].object;
+      if (obj !== this.transformControl.object) {
+        this.transformControl.attach(obj);
+      }
     }
   }
 
@@ -256,7 +306,9 @@ class InfiniforgeApp {
     const downloadButton = document.getElementById('download-button');
     if (enable) {
       downloadButton.disabled = false;
-      downloadButton.parentElement.href = `data:application/json,${encodeURIComponent(this.swordglTF)}`;
+      downloadButton.parentElement.href = URL.createObjectURL(
+        new Blob([this.swordglTF], { type: 'application/gltf;charset=utf-8' }),
+      );
     } else {
       downloadButton.disabled = true;
     }

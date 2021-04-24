@@ -139,11 +139,11 @@ const projects = [
     image: 'assets/ml-boxing.gif',
     image_alt: 'boxing gif',
     links: [
-      {
-        icon: 'fas fa-play',
-        text: 'Play Demo!',
-        url: 'ml-boxing.html',
-      },
+      // {
+      //   icon: 'fas fa-play',
+      //   text: 'Play Demo!',
+      //   url: 'ml-boxing.html',
+      // },
       {
         icon: 'fab fa-github',
         text: 'View on GitHub',

@@ -9,7 +9,7 @@
     <script src="./ml-boxing/TemplateData/UnityProgress.js"></script>
     <script src="./ml-boxing/Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/ml-boxing.json", {onProgress: UnityProgress});
+      const unityInstance = UnityLoader.instantiate("unityContainer", "ml-boxing/Build/ml-boxing.json", {onProgress: UnityProgress});
     </script>
   </head>
   <body>

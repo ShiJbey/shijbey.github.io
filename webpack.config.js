@@ -15,6 +15,12 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        enforce: 'pre',
+        exclude: /node_modules/,
+        use: ['source-map-loader'],
+      },
+      {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         use: {
@@ -26,6 +32,7 @@ module.exports = {
       },
     ],
   },
+  devtool: 'source-map',
   devServer: {
     host: '127.0.0.1',
     port: 8080,

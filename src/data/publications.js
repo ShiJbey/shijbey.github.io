@@ -7,7 +7,7 @@ const publications = [
   {
     year: '2018',
     title: 'Head movements are correlated with other measures of visual attention at smaller spatial scales',
-    url: 'assets.publications/08362264.pdf',
+    url: 'assets/publications/08362264.pdf',
   },
   {
     year: '2017',
