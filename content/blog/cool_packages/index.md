@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head> </head>
-  <body>
-    <p>
+<p>
       Here are some cool packages I've come across in the wild. I am documenting
       them here so that I remember for future projects
     </p>
@@ -56,5 +52,3 @@
         </div>
       </li>
     </ul>
-  </body>
-</html>

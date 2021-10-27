@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head> </head>
-  <body>
-    <h1>Paper Readings</h1>
+<h1>Paper Readings</h1>
     <p>
       I saw this format on Mark J. Nelson's
       <a href="https://www.kmjn.org/paperlog/">site</a>, and I really liked how
@@ -103,6 +99,3 @@
         </p>
       </div>
     </div>
-
-  </body>
-</html>

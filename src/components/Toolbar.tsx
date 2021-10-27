@@ -1,20 +1,27 @@
-import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
+import { StaticImage } from "gatsby-plugin-image"
+import * as React from "react"
+import { Navbar, Nav } from "react-bootstrap"
 
-const Toolbar = () => (
-  <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="px-2">
+const Toolbar: React.FC = () => (
+  <Navbar
+    collapseOnSelect
+    expand="lg"
+    bg="dark"
+    variant="dark"
+    className="px-2"
+  >
     <Navbar.Brand href="/#">
-      <img
+      <StaticImage
         alt=""
-        src="assets/anvil.png"
-        width="30"
-        height="30"
+        src="../images/anvil.png"
+        width={30}
+        height={30}
         className="mx-3"
       />
       ShiJBey.github.io
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-    <Navbar.Collapse id="responsive-navbar-nav">
+    <Navbar.Collapse id="responsive-navbar-nav" role="">
       <Nav className="mr-auto">
         <Nav.Link href="/#about">About</Nav.Link>
         <Nav.Link href="/#projects">Projects</Nav.Link>
@@ -23,6 +30,6 @@ const Toolbar = () => (
       </Nav>
     </Navbar.Collapse>
   </Navbar>
-);
+)
 
-export default Toolbar;
+export default Toolbar
