@@ -10,7 +10,7 @@ const Toolbar: React.FC = () => (
     variant="dark"
     className="px-2"
   >
-    <Navbar.Brand href="/#">
+    <Navbar.Brand href="/">
       <StaticImage
         alt=""
         src="../images/anvil.png"

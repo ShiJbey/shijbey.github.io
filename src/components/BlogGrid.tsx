@@ -17,12 +17,10 @@ interface QueryResponse {
   }
 }
 
-const ProjectGrid: React.FC = () => {
+const BlogGrid: React.FC = () => {
   const query: QueryResponse = useStaticQuery(graphql`
-    query ProjectPreviewQuery {
-      allMarkdownRemark(
-        filter: { frontmatter: { category: { eq: "project" } } }
-      ) {
+    query BlogPreviewQuery {
+      allMarkdownRemark(filter: { frontmatter: { category: { eq: "blog" } } }) {
         nodes {
           frontmatter {
             title
@@ -63,4 +61,4 @@ const ProjectGrid: React.FC = () => {
   )
 }
 
-export default ProjectGrid
+export default BlogGrid

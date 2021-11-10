@@ -1,3 +1,10 @@
+---
+title: Project Ideas and Cool Packages
+description: Collection of project ideas I want to try as well as packages that I want to play around with
+date: "2021-11-09"
+category: blog
+---
+
 <p>
       Here are some cool packages I've come across in the wild. I am documenting
       them here so that I remember for future projects

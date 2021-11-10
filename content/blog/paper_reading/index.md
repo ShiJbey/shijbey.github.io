@@ -1,3 +1,9 @@
+---
+title: Paper Reading Blog
+description: My thoughts on research papers that I've read.
+date: "2021-11-09"
+category: blog
+---
 <h1>Paper Readings</h1>
     <p>
       I saw this format on Mark J. Nelson's

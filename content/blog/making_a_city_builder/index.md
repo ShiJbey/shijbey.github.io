@@ -1,3 +1,12 @@
+---
+title: Creating a City Builder using Python
+description: Record of lessons learned and design decions during my journey developing my first city builder game. Follow along as I learn how to architect a city builder, use pygame, and make the whole thing run a social simulation
+date: "2021-11-09"
+category: blog
+series: Creating A City Builder
+chapter: 0
+---
+
 # Creating My First City Builder
 
 ## Surfacing Agent-related Content to the player

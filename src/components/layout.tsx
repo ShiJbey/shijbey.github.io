@@ -9,10 +9,8 @@ const Layout: React.FC = ({ children }) => {
       <Toolbar />
       <Container className="layout-wrapper">
         <main>{children}</main>
-        <footer>
-          <Footer />
-        </footer>
       </Container>
+      <Footer />
     </>
   )
 }
