@@ -2,20 +2,79 @@ import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
 import BlogGrid from "../components/BlogGrid"
 import Layout from "../components/layout"
+import LeadershipActivities from "../components/LeadershipActivities"
 import ProjectGrid from "../components/ProjectGrid"
 import PublicationTable from "../components/PublicationTable"
+
+const AWARDS: { year: string; name: string; organization: string }[] = [
+  {
+    year: "2018",
+    name: "Graduate Small Research Grant (GuSH)",
+    organization: "Carnegie Mellon University",
+  },
+  {
+    year: "2017",
+    name: "Steven Geracimos Memorial Award",
+    organization:
+      "University of Delaware, Computer Information Sciences Department",
+  },
+  {
+    year: "2015",
+    name: "Elbert C. Wiser RISE Corporate Friends Award",
+    organization: "University of Delaware, College of Engineering",
+  },
+]
+
+interface Education {
+  start_year: string
+  end_year: string
+  degree: string
+  institution: string
+}
+
+const EDUCATION: Education[] = [
+  {
+    start_year: "2020",
+    end_year: "present",
+    degree: "Doctor of Philosophy in Computational Media",
+    institution: "UC Santa Cruz",
+  },
+  {
+    start_year: "2017",
+    end_year: "2019",
+    degree: "Master of Science in Biomedical Engineering",
+    institution: "Carnegie Mellon University",
+  },
+  {
+    start_year: "2014",
+    end_year: "2017",
+    degree: "Bachelor of Science in Neuroscience",
+    institution: "University of Delaware",
+  },
+  {
+    start_year: "2013",
+    end_year: "2017",
+    degree: "Bachelor of Science in Computer Science",
+    institution: "University of Delaware",
+  },
+]
 
 const HomePage: React.FC = () => (
   <Layout>
     <section id="about" className="mb-3">
-      <h1 className="text-center my-3">About Me</h1>
+      <h1 className="text-center my-3">Shi Johnson-Bey (he/him)</h1>
       <div className="container">
         <div className="row">
           <div className="col-md-4">
-            <StaticImage
-              src="../images/GDC19Headshot.jpg"
-              alt="photo at GDC19 AI Summit"
-            />
+            <div
+              className="shadow"
+              style={{ borderRadius: "10%", overflow: "hidden" }}
+            >
+              <StaticImage
+                src="../images/GDC19Headshot.jpg"
+                alt="photo at GDC19 AI Summit"
+              />
+            </div>
           </div>
           <div className="col-md-8 p-3">
             <p>
@@ -27,8 +86,7 @@ const HomePage: React.FC = () => (
               at the University of California - Santa Cruz. I have a M.S. in
               Biomedical Engineering from Carnegie Mellon University and two
               B.S. degrees in Computer Science and Neuroscience from the
-              University of Delaware. In my spare time, run a Black-Owned food
-              business directory called,{" "}
+              University of Delaware. I am the co-founder of,{" "}
               <a
                 href="https://theblacklistdmv.com"
                 target="_blank"
@@ -36,8 +94,12 @@ const HomePage: React.FC = () => (
               >
                 The Blacklist DMV
               </a>
-              . I also do some freelance educational game development. Checkout
-              my projects and feel free to reach out.
+              , where we focus on spotlighting Black-owned food businesses in
+              Washington D.C, Maryland, and Virginia. I am currently the sole
+              web developer and designer for our online business directory,{" "}
+              <a href="https://jyackl.com" target="_blank" rel="noreferrer">
+                Jyackl.
+              </a>
             </p>
           </div>
         </div>
@@ -71,22 +133,32 @@ const HomePage: React.FC = () => (
       <h1 className="text-center my-3">Resume/CV</h1>
       <div className="container bg-white mb-3 rounded p-3 border shadow">
         <h3 className="text-center mb-3">Education</h3>
-        <p>
-          Ph.D. Computaional Media, University of California - Santa Cruz, 2020
-          - Present
-        </p>
-        <p>M.S. Biomedical Engineering, Carnegie Mellon University, 2019</p>
-        <p>B.S. Computer Science, University of Delaware, 2017</p>
-        <p>B.S. Neuroscience, University of Delaware, 2017</p>
+        <hr></hr>
+
+        {EDUCATION.map(entry => (
+          <div className={`row`}>
+            <div className={`col-auto`}>
+              {entry.start_year} - {entry.end_year}
+            </div>
+            <div className={`col`}>
+              <p>
+                <strong>{entry.degree}</strong>
+              </p>
+              <p>{entry.institution}</p>
+            </div>
+          </div>
+        ))}
       </div>
 
       <div className="container bg-white mb-3 rounded p-3 border shadow">
         <h3 className="text-center mb-3">Skills</h3>
 
         <h4>Most-used Programming Languages</h4>
-        <p>Python, Typescript, C#, HTML/CSS, C/C++, Rust</p>
+        <p>Python, Typescript/JavaScript, C#, HTML/CSS, C/C++</p>
+
         <h4>Recently-used Technologies</h4>
         <p>Unity, Angular, React, NodeJs</p>
+
         <h4>Spoken Languages</h4>
         <p>English(Native), Japanese (Passed JLPT N5)</p>
       </div>
@@ -94,10 +166,15 @@ const HomePage: React.FC = () => (
       <div className="container bg-white mb-3 rounded p-3 border shadow">
         <h3 className="text-center mb-3">Teaching Experience</h3>
 
-        <h4>
-          Undergraduate Teaching Assistant for "Introduction to Computer Science
-          II"
-        </h4>
+        <h4>TA for CMPM 80K - Foundations of Video Game Design</h4>
+        <p>UC Santa Cruz - Santa Cruz, CA</p>
+        <p>Jan 2022 - Mar 2022</p>
+
+        <h4>TA for CMPM 176 - Game Systems</h4>
+        <p>UC Santa Cruz - Santa Cruz, CA</p>
+        <p>Sep 2021 - Dec 2021</p>
+
+        <h4>TA for CISC 181 - Introduction to Computer Science II</h4>
         <p>University of Delaware CIS Department - Newark, DE</p>
         <p>Feb 2017 - May 2017</p>
         <p>Description:</p>
@@ -176,7 +253,7 @@ const HomePage: React.FC = () => (
 
         <h4>Virtual Reality Developer / Research Intern</h4>
         <p>
-          Johns Hopkins University Mind Brain Institude Computaional
+          Johns Hopkins University Mind Brain Institute Computational
           Neuroscience Lab - Baltimore, MD
         </p>
         <p>June 2015 - August 2015</p>
@@ -185,7 +262,7 @@ const HomePage: React.FC = () => (
           I worked in with Dr. Ernst Niebur one of his Ph.D. students, on a
           project to explore the role head movements play in the visual
           exploration of images and scenes. As the developer on this project, I
-          implemented and deployed our virtual reality environment on an Andriod
+          implemented and deployed our virtual reality environment on an Android
           smartphone using Unity and the Google Cardboard SDK. This research was
           conducted in Dr. Niebur's lab in the Mind/Brain Institute at the Johns
           Hopkins University. I learned about 3D math, VR design, data
@@ -223,37 +300,18 @@ const HomePage: React.FC = () => (
 
       <div className="container bg-white mb-3 rounded p-3 border shadow">
         <h3 className="text-center mb-3">Awards, Honors, and Grants</h3>
-
         <ul>
-          <li>
-            2018 Carnegie Mellon University Graduate Small Research Grant (GuSH)
-          </li>
-          <li>
-            2017 Steven Geracimos Memorial Award (University of Delaware,
-            Computer Information Sciences Department)
-          </li>
-          <li>
-            2015 Elbert C. Wiser RISE Corporate Friends Award (University of
-            Delaware, College of Engineering)
-          </li>
+          {AWARDS.map(award => (
+            <>
+              <li>
+                {award.year}, {award.name} ({award.organization})
+              </li>
+            </>
+          ))}
         </ul>
       </div>
 
-      <div className="container bg-white mb-3 rounded p-3 border shadow">
-        <h3 className="text-center mb-3">Leadership & Activities</h3>
-
-        <h4>Student Advisory Council Alumni Chair</h4>
-        <p>Resources to Insure Successful Engineers (RISE) Program</p>
-        <p>September 2014 - May 2017</p>
-
-        <h4>President</h4>
-        <p>UD Computer Animation and Game Design (UDCAGD)</p>
-        <p>May 2015 - May 2016</p>
-
-        <h4>Team Captain</h4>
-        <p>University of Delaware Mascot Team</p>
-        <p>May 2014 - May 2016</p>
-      </div>
+      <LeadershipActivities />
     </section>
   </Layout>
 )

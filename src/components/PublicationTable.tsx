@@ -10,6 +10,12 @@ interface PublicationEntry {
 const PublicationTable: React.FC = () => {
   const publications: PublicationEntry[] = [
     {
+      year: "2021",
+      title:
+        "Centrifuge: A Visual Tool for Authoring Sifting Patterns for Character-Based Simulationist Story Worlds",
+      downloadLink: "publications/Johnson-Bey_Centrifuge_PLIE2021.pdf",
+    },
+    {
       year: "2020",
       title:
         "A novel approach towards computing global maps for multi-robotic operations in tactical environments",
