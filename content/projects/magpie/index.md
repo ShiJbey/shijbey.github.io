@@ -3,6 +3,7 @@ title: Magpie
 description: Desktop game where the player is a Magpie bird stealing from a museum guarded by dogs. This game was the final group project for Computer Game Programming Fall 2018 at Carnegie Mellon University.
 date: "2020-01-04"
 category: project
+featuredImage: ./magpie.jpg
 ---
 
 ![Magpie Poster](./magpie.jpg)

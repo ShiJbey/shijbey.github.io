@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
 
 interface QueryResponse {
   allMarkdownRemark: {
@@ -9,6 +10,7 @@ interface QueryResponse {
         description?: string
         date?: string
         category?: string
+        featuredImage?: any
       }
       fields: {
         slug: string
@@ -31,6 +33,13 @@ const ProjectGrid: React.FC = () => {
             description
             date
             category
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 400) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           fields {
             slug
@@ -41,23 +50,24 @@ const ProjectGrid: React.FC = () => {
   `)
 
   return (
-    <div
-      style={{
-        display: "grid",
-        gap: "1.5rem",
-        placeContent: "start",
-        gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-      }}
-    >
+    <div className={`project-grid`}>
       {query.allMarkdownRemark.nodes.map((project, index) => {
         const { title, description } = project.frontmatter
         const { slug } = project.fields
+        const imgData =
+          project.frontmatter?.featuredImage?.childImageSharp?.fluid
         return (
-          <div key={`project_${index}`}>
+          <div key={`project_${index}`} className={`project-card shadow`}>
+            {imgData && <Img fluid={imgData} className={`card-background`} />}
+
             <a href={`${slug}`}>
-              <h3>{title}</h3>
+              <div className={`card-tint`}></div>
             </a>
-            <p>{description}</p>
+
+            <div className={`card-text`}>
+              <div className={`title`}>{title}</div>
+              <p>{description}</p>
+            </div>
           </div>
         )
       })}

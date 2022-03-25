@@ -3,6 +3,7 @@ title: Infiniforge
 description: 3D Sword Mesh procedural generator written in TypeScript.
 date: "2020-01-01"
 category: project
+featuredImage: ./infiniforge.png
 ---
 
 ![generated sword sample](./infiniforge.png)

@@ -3,6 +3,7 @@ title: ML-Agent Boxing
 description: I threw this project together over the course of a week as an entry in Unity's first challenge for their new 'Ml-Agents' machine learning workflow.
 date: "2020-01-01"
 category: project
+featuredImage: ./ml-boxing.gif
 ---
 
 ![Boxing Agents gif](./ml-boxing.gif)

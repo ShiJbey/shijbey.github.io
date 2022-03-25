@@ -3,11 +3,12 @@ title: Raid AI
 description: This was a brief startup project created on the side while working. The goal was to train agents using reinforcement learning to be better companions for RPG-style raid battles.
 date: "2020-01-04"
 category: project
+featuredImage: ./raid-ai.png
 ---
 
 ![unity screenshot](./raid-ai.png)
 
-**This Project is archived and not in progresss**
+**This Project is archived and not in progress**
 
 Inspired by my enjoyment of raids in games like Destiny, I started
 working on this project during my free time. The goal is to train
