@@ -1,6 +1,6 @@
 ---
-title: Projects I want to try and Cool Packages
-description: Collection of project ideas I want to try as well as packages that I want to play around with
+title: Cool Packages & Potential Projects
+description: Collection of project ideas I want to try as well as packages that I want to play around with.
 date: "2021-11-09"
 category: blog
 ---

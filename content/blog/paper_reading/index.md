@@ -3,7 +3,9 @@ title: Paper Reading Blog
 description: My thoughts on research papers that I've read.
 date: "2021-11-09"
 category: blog
+private: true
 ---
+
 I saw this format on Mark J. Nelson's [site](https://www.kmjn.org/paperlog/),
 and I really liked how it was organized. So, this is my attempt at
 reverse-engineering his paper reading log.
@@ -13,9 +15,8 @@ reverse-engineering his paper reading log.
 #### Towards adaptive quest narrative in shared, persistent virtual worlds
 
 **Citation**: Tomai, Emmett. "Towards adaptive quest narrative in shared, persistent
-          virtual worlds." In Proceedings of the AAAI Conference on Artificial
-          Intelligence and Interactive Digital Entertainment, vol. 8, no. 1.
-          2012.
+virtual worlds." In Proceedings of the AAAI Conference on Artificial
+Intelligence and Interactive Digital Entertainment, vol. 8, no. 1. 2012.
 
 **Links**:
 [[pdf](https://ojs.aaai.org/index.php/AIIDE/article/download/12540/12393)]
@@ -23,13 +24,13 @@ reverse-engineering his paper reading log.
 **Tags**: interactive narrative, quest generation
 
 **Abstract**: In this paper, we discuss motivations for studying interactive
-          narrative in shared, persistent worlds using the established
-          conventions of quest-based MMORPGs. We present a framework for
-          categorizing the various techniques used in these games according to
-          the interaction between the world model and the quest model. Using
-          this framework we generalize recent games to present a more dynamic
-          world model, and investigate extensions to the quest model to support
-          storytelling through adaptive quest narratives.
+narrative in shared, persistent worlds using the established
+conventions of quest-based MMORPGs. We present a framework for
+categorizing the various techniques used in these games according to
+the interaction between the world model and the quest model. Using
+this framework we generalize recent games to present a more dynamic
+world model, and investigate extensions to the quest model to support
+storytelling through adaptive quest narratives.
 
 **Thoughts**:
 
@@ -38,9 +39,9 @@ reverse-engineering his paper reading log.
 #### Loide: A web-based IDE for logic programming preliminary report
 
 **Citation**: Germano, Stefano, Francesco Calimeri, and Eliana Palermiti.
-          *"Loide: A web-based IDE for logic programming preliminary report."*
-          In International Symposium on Practical Aspects of Declarative
-          Languages, pp. 152-160. Springer, Cham, 2018.
+_"Loide: A web-based IDE for logic programming preliminary report."_
+In International Symposium on Practical Aspects of Declarative
+Languages, pp. 152-160. Springer, Cham, 2018.
 
 **Links**:
 [[pdf](https://arxiv.org/pdf/1709.05341.pdf)], [[Project Page](https://demacs-unical.github.io/LoIDE/)]

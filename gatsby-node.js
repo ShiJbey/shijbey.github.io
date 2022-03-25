@@ -12,11 +12,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
       {
         allMarkdownRemark(
+          filter: { frontmatter: { private: { ne: true } } }
           sort: { fields: [frontmatter___date], order: ASC }
           limit: 1000
         ) {
           nodes {
             id
+            frontmatter {
+              private
+            }
             fields {
               slug
             }
@@ -103,6 +107,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       category: String
       series: String
       chapter: String
+      private: Boolean
     }
 
     type Fields {

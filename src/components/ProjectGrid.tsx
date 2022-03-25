@@ -21,7 +21,9 @@ const ProjectGrid: React.FC = () => {
   const query: QueryResponse = useStaticQuery(graphql`
     query ProjectPreviewQuery {
       allMarkdownRemark(
-        filter: { frontmatter: { category: { eq: "project" } } }
+        filter: {
+          frontmatter: { private: { ne: true }, category: { eq: "project" } }
+        }
       ) {
         nodes {
           frontmatter {

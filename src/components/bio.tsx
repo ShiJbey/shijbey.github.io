@@ -32,15 +32,25 @@ const Bio = () => {
 
   return (
     <div className="bio">
-      <StaticImage
-        className="bio-avatar"
-        layout="fixed"
-        src="../images/profile_pic_200.png"
-        width={50}
-        height={50}
-        quality={95}
-        alt="Profile picture"
-      />
+      <div
+        style={{
+          borderRadius: "50%",
+          width: "50px",
+          height: "50px",
+          overflow: "hidden",
+        }}
+      >
+        <StaticImage
+          className="bio-avatar"
+          layout="fixed"
+          src="../images/profile_pic_200.png"
+          width={50}
+          height={50}
+          quality={95}
+          alt="Profile picture"
+        />
+      </div>
+
       {author?.name && (
         <p>
           Written by <strong>{author.name}</strong> {author?.summary || null}

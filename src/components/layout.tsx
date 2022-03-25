@@ -7,7 +7,7 @@ const Layout: React.FC = ({ children }) => {
   return (
     <>
       <Toolbar />
-      <Container className="layout-wrapper">
+      <Container>
         <main>{children}</main>
       </Container>
       <Footer />

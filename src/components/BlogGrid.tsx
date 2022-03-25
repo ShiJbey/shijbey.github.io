@@ -20,13 +20,18 @@ interface QueryResponse {
 const BlogGrid: React.FC = () => {
   const query: QueryResponse = useStaticQuery(graphql`
     query BlogPreviewQuery {
-      allMarkdownRemark(filter: { frontmatter: { category: { eq: "blog" } } }) {
+      allMarkdownRemark(
+        filter: {
+          frontmatter: { private: { ne: true }, category: { eq: "blog" } }
+        }
+      ) {
         nodes {
           frontmatter {
             title
             description
             date
             category
+            private
           }
           fields {
             slug
