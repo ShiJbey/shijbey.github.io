@@ -11,7 +11,7 @@ const CvPage: React.FC = () => (
     <Container>
       <h1>
         Shi Johnson-Bey CV{" "}
-        <a href="./publications/Shi_Johnson-Bey_CV.pdf">
+        <a href="/publications/Shi_Johnson-Bey_CV.pdf">
           <FontAwesomeIcon icon={"file-pdf"} color={"red"} />
         </a>
       </h1>

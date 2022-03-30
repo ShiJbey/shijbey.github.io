@@ -13,25 +13,25 @@ const PublicationTable: React.FC = () => {
       year: "2021",
       title:
         "Centrifuge: A Visual Tool for Authoring Sifting Patterns for Character-Based Simulationist Story Worlds",
-      downloadLink: "publications/Johnson-Bey_Centrifuge_PLIE2021.pdf",
+      downloadLink: "/publications/Johnson-Bey_Centrifuge_PLIE2021.pdf",
     },
     {
       year: "2020",
       title:
         "A novel approach towards computing global maps for multi-robotic operations in tactical environments",
-      downloadLink: "publications/DLC_SPIE_2020.pdf",
+      downloadLink: "/publications/DLC_SPIE_2020.pdf",
     },
     {
       year: "2018",
       title:
         "Head movements are correlated with other measures of visual attention at smaller spatial scales",
-      downloadLink: "publications/08362264.pdf",
+      downloadLink: "/publications/08362264.pdf",
     },
     {
       year: "2017",
       title:
         "Head movements during visual exploration of natural images in virtual reality",
-      downloadLink: "publications/HeadMovementsDuringVisualExploration.pdf",
+      downloadLink: "/publications/HeadMovementsDuringVisualExploration.pdf",
     },
   ]
 
