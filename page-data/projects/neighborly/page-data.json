@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-blog-post-js",
+    "path": "/projects/neighborly/",
+    "result": {"data":{"site":{"siteMetadata":{"title":"ShiJbey.github.io"}},"markdownRemark":{"id":"b438b7f1-7755-53ab-af92-19f3fa37a1da","excerpt":"W.I.P.","html":"<p>W.I.P.</p>","frontmatter":{"title":"Neighborly","date":"March 24, 2022","description":"Customizable Social Simulation Framework for making Talk of the Town-likes"}},"previous":{"fields":{"slug":"/blog/cool_packages/"},"frontmatter":{"title":"Cool Packages & Potential Projects"}},"next":{"fields":{"slug":"/projects/centrifuge/"},"frontmatter":{"title":"Centrifuge"}}},"pageContext":{"id":"b438b7f1-7755-53ab-af92-19f3fa37a1da","previousPostId":"c8aa4fdc-c9fa-5448-bcc7-f5e612ca0643","nextPostId":"f49d4296-c2a0-5488-aaaa-87f7f35ea002"}},
+    "staticQueryHashes": ["999109759"]}

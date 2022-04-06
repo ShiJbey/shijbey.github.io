@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-blog-post-js",
+    "path": "/projects/centrifuge/",
+    "result": {"data":{"site":{"siteMetadata":{"title":"ShiJbey.github.io"}},"markdownRemark":{"id":"f49d4296-c2a0-5488-aaaa-87f7f35ea002","excerpt":"W.I.P.","html":"<p>W.I.P.</p>","frontmatter":{"title":"Centrifuge","date":"April 01, 2022","description":"Node-based visual scripting language for story sifting"}},"previous":{"fields":{"slug":"/projects/neighborly/"},"frontmatter":{"title":"Neighborly"}},"next":null},"pageContext":{"id":"f49d4296-c2a0-5488-aaaa-87f7f35ea002","previousPostId":"b438b7f1-7755-53ab-af92-19f3fa37a1da","nextPostId":null}},
+    "staticQueryHashes": ["999109759"]}
