@@ -5,9 +5,13 @@ import Toolbar from "./Toolbar"
 const Layout: React.FC = ({ children }) => {
   return (
     <>
-      <Toolbar />
-      {children}
-      <Footer />
+      <header>
+        <Toolbar />
+      </header>
+      <main>{children}</main>
+      <footer style={{ marginTop: "auto" }}>
+        <Footer />
+      </footer>
     </>
   )
 }

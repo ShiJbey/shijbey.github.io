@@ -1,9 +1,8 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-
-import Layout from "../components/layout"
-import Seo from "../components/seo"
 import { Container } from "react-bootstrap"
+import Layout from "../components/Layout"
+import Seo from "../components/Seo"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -15,7 +14,7 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <Container>
+      <Container className="py-5">
         <article
           className="blog-post"
           itemScope

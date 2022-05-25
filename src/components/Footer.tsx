@@ -3,25 +3,22 @@ import * as React from "react"
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 
 const Footer: React.FC = () => (
-  <footer
-    className="p-3 text-center bg-dark"
-    style={{ fontSize: "16px", marginTop: "24px" }}
-  >
+  <div className="p-3 text-center bg-dark">
     <a
       className="mx-2"
       href="https://www.linkedin.com/in/shijbey"
       style={{ textDecoration: "none" }}
     >
-      <FontAwesomeIcon icon={faLinkedin} size="3x" color="white" />
+      <FontAwesomeIcon icon={faLinkedin} size="2x" color="white" />
     </a>
     <a
       className="mx-2"
       href="https://github.com/ShiJbey"
       style={{ textDecoration: "none" }}
     >
-      <FontAwesomeIcon icon={faGithub} size="3x" color="white" />
+      <FontAwesomeIcon icon={faGithub} size="2x" color="white" />
     </a>
-  </footer>
+  </div>
 )
 
 export default Footer

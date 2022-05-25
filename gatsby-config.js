@@ -3,7 +3,7 @@ module.exports = {
     title: `ShiJbey.github.io`,
     author: {
       name: `Shi Johnson-Bey`,
-      summary: `Computational Media Ph.D. student and Co-Founder of The Blacklist DMV`,
+      summary: `Computational Media Ph.D. student at University of California Santa Cruz and Co-Founder of The Blacklist DMV`,
     },
     description: `Personal online portfolio for Shi Johnson-Bey, Computational Media Ph.D. student and Co-Founder of The Blacklist DMV.`,
     siteUrl: `https://shijbey.github.io`,

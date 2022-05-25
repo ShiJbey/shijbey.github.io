@@ -1,12 +1,12 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import PublicationTable from "../components/PublicationTable"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import "../font-awesome"
 import { Container } from "react-bootstrap"
 
-const CvPage: React.FC = () => (
+const CvPage = () => (
   <Layout>
     <Container>
       <h1>
@@ -89,12 +89,10 @@ const CvPage: React.FC = () => (
           </tbody>
         </table>
       </section>
-
       <section className={`cv-section`}>
         <h3 className={`cv-section-title`}>Publications</h3>
         <PublicationTable />
       </section>
-
       <section className={`cv-section`}>
         <h3 className={`cv-section-title`}>Talks</h3>
         <table>
@@ -102,13 +100,22 @@ const CvPage: React.FC = () => (
             <tr>
               <td>2021</td>
               <td>
-                <div>
-                  AIIDE 21, PLIE Workshop,{" "}
-                  <a href="https://www.youtube.com/watch?v=B1OzIJAeN54">
-                    "Centrifuge: A Visual Tool for Authoring Sifting Patterns
-                    for Character-Based Simulationist Story Worlds"
-                  </a>
-                </div>
+                <a href="https://www.youtube.com/watch?v=B1OzIJAeN54">
+                  AIIDE 21, PLIE Workshop, "Centrifuge: A Visual Tool for
+                  Authoring Sifting Patterns for Character-Based Simulationist
+                  Story Worlds"
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>2018</td>
+              <td>
+                <a href=" https://www.facebook.com/staysafeonline/videos/interview-with-dr-charles-johnson-bey-director-of-cyber-innovations-lockheed-mar/2094617107516164/">
+                  National Cyber Security Alliance: "Interview with Dr. Charles
+                  Johnson-Bey, Director of Cyber Innovations, Lockheed Martin
+                  and Shi Johnson-Bey, Graduate Student, Carnegie Mellon
+                  University"
+                </a>
               </td>
             </tr>
           </tbody>
@@ -130,16 +137,41 @@ const CvPage: React.FC = () => (
                 </div>
               </td>
             </tr>
+            <tr>
+              <td>10/2011</td>
+              <td>
+                <a href="https://www.baltimoresun.com/maryland/bs-md-cybersecurity-challenge-20111022-story.html">
+                  Thomson, C., "'Cyber Challenge' encourages teen hackers to
+                  seek security jobs". The Baltimore Sun
+                </a>
+              </td>
+            </tr>
           </tbody>
         </table>
       </section>
-
       <section className={`cv-section`}>
         <h3 className={`cv-section-title`}>
           Committees and Leadership Positions
         </h3>
         <table>
           <tbody>
+            <tr>
+              <td>2022</td>
+              <td>
+                <div>
+                  AIIDE-22 Experimental AI in Games (EXAG) Workshop Organizer
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>2022</td>
+              <td>
+                <div>
+                  International Conference on Interactive Digital Storytelling
+                  (ICIDS) Publicity Chair
+                </div>
+              </td>
+            </tr>
             <tr>
               <td>2021</td>
               <td>
@@ -167,7 +199,6 @@ const CvPage: React.FC = () => (
           </tbody>
         </table>
       </section>
-
       <section className={`cv-section`}>
         <h3 className={`cv-section-title`}>Awards, Honors, and Fellowships</h3>
         <table>
@@ -225,7 +256,6 @@ const CvPage: React.FC = () => (
           </tbody>
         </table>
       </section>
-
       <section className={`cv-section`}>
         <h3 className={`cv-section-title`}>Teaching Positions</h3>
         <table>
@@ -257,11 +287,19 @@ const CvPage: React.FC = () => (
           </tbody>
         </table>
       </section>
-
       <section className={`cv-section`}>
         <h3 className={`cv-section-title`}>Research Positions</h3>
         <table>
           <tbody>
+            <tr>
+              <td>06/2021 - 08/2021</td>
+              <td>
+                <div>
+                  Part-time Research Staff @ American University, Computer
+                  Science Dept.
+                </div>
+              </td>
+            </tr>
             <tr>
               <td>08/2019 - 06/2020</td>
               <td>
@@ -292,7 +330,6 @@ const CvPage: React.FC = () => (
           </tbody>
         </table>
       </section>
-
       <section className={`cv-section`}>
         <h3 className={`cv-section-title`}>Software Engineering Positions</h3>
         <table>

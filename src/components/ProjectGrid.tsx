@@ -26,6 +26,7 @@ const ProjectGrid: React.FC = () => {
         filter: {
           frontmatter: { private: { ne: true }, category: { eq: "project" } }
         }
+        sort: { fields: frontmatter___date, order: DESC }
       ) {
         nodes {
           frontmatter {
@@ -39,6 +40,7 @@ const ProjectGrid: React.FC = () => {
                   ...GatsbyImageSharpFluid
                 }
               }
+              publicURL
             }
           }
           fields {
@@ -58,7 +60,14 @@ const ProjectGrid: React.FC = () => {
           project.frontmatter?.featuredImage?.childImageSharp?.fluid
         return (
           <div key={`project_${index}`} className={`project-card shadow`}>
-            {imgData && <Img fluid={imgData} className={`card-background`} />}
+            {imgData ? (
+              <Img fluid={imgData} className={`card-background`} />
+            ) : (
+              <img
+                src={project.frontmatter?.featuredImage?.publicURL}
+                className={`card-background`}
+              />
+            )}
 
             <a href={`${slug}`}>
               <div className={`card-tint`}></div>

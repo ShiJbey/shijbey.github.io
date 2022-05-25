@@ -1,6 +1,6 @@
 ---
 title: Auditory Brain-Computer Interface for VR
-description: My masters research on developing a auditory brain-computer interface for interacting with objects in virtual reality.
+description: My masters research on developing an auditory brain-computer interface for interacting with objects in virtual reality.
 date: "2020-01-01"
 category: project
 featuredImage: ./vr-screenshot.png
