@@ -10,6 +10,16 @@ interface PublicationEntry {
 const PublicationTable: React.FC = () => {
   const publications: PublicationEntry[] = [
     {
+      year: "2022",
+      title: "Exploring the Design Space of Social Physics Engines in Games",
+      downloadLink: "/publications/SocialPhysicsEngines.pdf",
+    },
+    {
+      year: "2022",
+      title: "Neighborly: A Sandbox for Simulation-based Emergent Narrative",
+      downloadLink: "/publications/Neighborly.pdf",
+    },
+    {
       year: "2021",
       title:
         "Centrifuge: A Visual Tool for Authoring Sifting Patterns for Character-Based Simulationist Story Worlds",

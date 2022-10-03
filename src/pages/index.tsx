@@ -19,11 +19,15 @@ const HomePage: React.FC = () => (
             <div className="col-md-4">
               <div
                 className="shadow"
-                style={{ borderRadius: "10%", overflow: "hidden" }}
+                style={{
+                  borderRadius: "10%",
+                  overflow: "hidden",
+                  maxWidth: "300px",
+                }}
               >
                 <StaticImage
-                  src="../images/GDC19Headshot.jpg"
-                  alt="photo at GDC19 AI Summit"
+                  src="../images/headshot.jpg"
+                  alt="headshot photo"
                   style={{ width: "100%" }}
                 />
               </div>
