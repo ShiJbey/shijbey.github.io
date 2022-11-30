@@ -1,5 +1,1 @@
-{
-    "componentChunkName": "component---src-pages-404-tsx",
-    "path": "/404.html",
-    "result": {"data":{"site":{"siteMetadata":{"title":"ShiJbey.github.io"}}},"pageContext":{}},
-    "staticQueryHashes": ["999109759"]}
+{"componentChunkName":"component---src-pages-404-tsx","path":"/404.html","result":{"data":{"site":{"siteMetadata":{"title":"ShiJbey.github.io"}}},"pageContext":{}},"staticQueryHashes":["1303558418","1943433993","3887083738","4268531930"],"slicesMap":{}}
