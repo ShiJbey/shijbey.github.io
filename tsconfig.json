@@ -5,9 +5,9 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
-    "target": "esnext",
+    "target": "ES2018",
     "jsx": "react",
-    "lib": ["dom", "es2015", "es2017"]
+    "lib": ["dom", "ESNext"]
   },
   "include": ["./src/**/*"]
 }
