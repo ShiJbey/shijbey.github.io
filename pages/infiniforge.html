@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description"
         content="Portfolio website for Shi Johnson-Bey, Ph.D. student in the Computational Media Dept. at UC Santa Cruz." />
-    <meta name="image" content="/headshot.jpg" />
+    <meta name="image" content="/images/headshot.jpg" />
     <meta name="og:title" content="Shi Johnson-Bey | Infiniforge" />
     <meta name="og:description"
         content="Portfolio website for Shi Johnson-Bey, Ph.D. student in the Computational Media Dept. at UC Santa Cruz." />
@@ -16,7 +16,7 @@
     <meta name="twitter:title" content="Shi Johnson-Bey | Infiniforge" />
     <meta name="twitter:description"
         content="Portfolio website for Shi Johnson-Bey, Ph.D. student in the Computational Media Dept. at UC Santa Cruz." />
-    <meta name="twitter:image" content="/headshot.jpg" />
+    <meta name="twitter:image" content="/images/headshot.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shi Johnson-Bey | Infiniforge</title>
     <script src="https://kit.fontawesome.com/aa8432bc25.js" crossorigin="anonymous" defer></script>
@@ -67,7 +67,7 @@
     </header>
     <main>
         <div class="container mt-5">
-            <h1 class="text-center mb-3">Infiniforge</h1>
+            <h1 class="text-center mb-3 display-1">Infiniforge</h1>
 
             <div id="canvas-container" class="border canvas-container my-3">
                 <canvas id="threejs-canvas" tabindex="1"></canvas>
@@ -79,12 +79,8 @@
                 </a>
             </div>
 
-
-
             <section id="how-to-play">
                 <h2 class="sectionHeader">How to Play</h2>
-                <p>This is demo uses a webpack'ed bundle of the <a
-                        href="https://github.com/ShiJbey/Infiniforge">Infiniforge</a> module.</p>
                 <p>Rotate the model using 'W', 'A', 'S', 'D'.</p>
                 <p>Move the model forward with '1' and backwards with '2'/</p>
                 <p>Move model vertically with 'Q' and 'E'.</p>
@@ -93,40 +89,39 @@
             <section id="about-the-game">
                 <h2>About The Game</h2>
                 <p>
-                    I started designing this project in 2016. At the time, I was heavily interested in both
-                    blacksmithing
-                    and procedural generation. When I started, I didn't know anything about computer graphics or PCG.
-                    So,
-                    this project served as my introduction to both of those. Over the past three years, this project has
-                    helped me to grow more as a programmer. I continue to add to Infiniforge, even though it was to be
-                    submitted for the August 2016 /procedural_generation subreddit challenge. Infiniforge is a NodeJS
-                    module
-                    that, when combined with an HTTP server, exports 3D meshes (using ThreeJs) as glTF JSON via a REST
-                    API.
-                    The resulting glTF models can then be imported into Unity or any other software that supports the
+                    I started designing this project in 2016. At the time, I was
+                    heavily interested in both blacksmithing and procedural
+                    generation. I didn't know anything about
+                    computer graphics or PCG when I started. So, this project served as my
+                    introduction to both of those. Over the past three years,
+                    this project has helped me to grow more as a programmer. I continue
+                    to add to Infiniforge, even though it was to be submitted for the
+                    <a href="https://www.reddit.com/r/proceduralgeneration/comments/4wubjy/monthly_challenge_9_august_2016_procedural_weapons/"
+                        rel="none">August 2016 /procedural_generation subreddit challenge</a>.
+                    Infiniforge is a NodeJS module that generates and exports 3D meshes
+                    (using ThreeJs) as glTF JSON. The models can be
+                    imported into Unity or other software that supports the
                     format.
                     <br>
-                    <!-- <img id="swordScreenshot" src="./Assets/sword-screenshot.png" alt="Sword Screenshot"> -->
+                    This project went through many past iterations. The first working
+                    demo used Blender python scripts to generate 3D geometry in
+                    Blender. However, I eventually removed Blender from the system and
+                    moved the geometry generation to JavaScript/Typescript. This new
+                    approach greatly reduced the dependencies needed to run the
+                    application.
                     <br>
-                    This project went through many past iterations. The first working demo used Blender python scripts
-                    to
-                    generate 3D geometry in Blender using a forked process. However, I eventually removed Blender from
-                    the
-                    system and moved the geometry generation to JavaScript/Typescript. This new approach greatly reduced
-                    the
-                    dependencies needed to run the application.
-                    <br>
-                    <br>
-                    The edges of the sword are generated by modifying a spline and then sampling the spline at different
-                    resolutions. Moreover, I created a special web-tool for creating and editing the blade
-                    cross-sections
+                    The edges of the sword are generated by modifying a spline and then
+                    sampling the spline at different resolutions. Moreover, I created a
+                    special web tool for creating and editing the blade cross-sections
                     used during generation.
                     <br>
-                    <!-- <img id="crosssectionToolScreenshot" src="./Assets/CSTool.PNG" alt="Tool Screenshot"> -->
-                    <br>
-                    All code is available on GitHub. Also, a demo is available below. Feel free to play with the
-                    different
-                    generation parameters. If you find a sword you like, export it as glTF and 3D print it.
+                    All code is available on
+                    <a href="https://github.com/ShiJbey/Infiniforge">GitHub</a>.
+                    The demo above lets people get a feel for the output before
+                    downloading Infiniforge from npm. Feel free to play with the
+                    different generation parameters. If you find a sword you like,
+                    export it as glTF. You could even 3D print the model (after some
+                    rescaling).
                 </p>
             </section>
 
