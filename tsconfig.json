@@ -1,13 +1,12 @@
 {
-  "compilerOptions": {
-    "esModuleInterop": true,
-    "outDir": "./dist/",
-    "sourceMap": true,
-    "noImplicitAny": true,
-    "module": "commonjs",
-    "target": "ES2018",
-    "jsx": "react",
-    "lib": ["dom", "ESNext"]
-  },
-  "include": ["./src/**/*"]
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "CommonJS",
+        "target": "ES2018",
+        "lib": ["dom", "ESNext"],
+        "moduleResolution": "node"
+    },
+    "include": ["./src/**/*"]
 }

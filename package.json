@@ -7,7 +7,7 @@
   "license": "None",
   "private": true,
   "scripts": {
-    "start": "webpack serve --open --config webpack.dev.js",
+    "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "deploy": "npm run build && gh-pages -d dist"
   },
@@ -32,7 +32,7 @@
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
     "dat.gui": "^0.7.9",
-    "infiniforge": "^2.2.0",
+    "infiniforge": "^2.2.1",
     "lodash": "^4.17.21",
     "seedrandom": "^3.0.5",
     "three": "^0.148.0"

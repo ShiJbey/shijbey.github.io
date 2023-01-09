@@ -1453,10 +1453,10 @@ import-local@^3.0.2:
     pkg-dir "^4.2.0"
     resolve-cwd "^3.0.0"
 
-infiniforge@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/infiniforge/-/infiniforge-2.2.0.tgz#89cd3f3413f2eec9a96b57719f54e640c4f79334"
-  integrity sha512-iPJFf9ec3TgMs3PVfmfgD0+ri5+RWMtGvkt4Sr8JupKGp2M5Upz8pfqKjWNj9NMXgbmbe3AIjYQoMnsdRIaYtw==
+infiniforge@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/infiniforge/-/infiniforge-2.2.1.tgz#774658ee39d38030d5954b57fd831c590a44d3d5"
+  integrity sha512-EMnVbgD0WFbKiVwmvnUlMww7PgnBOEo9Gp6HF0/vLvY4EZ3yuDOBSdjgJ5WGmqLo/vpzKAAfAGChNC2eAzkHsQ==
 
 inflight@^1.0.4:
   version "1.0.6"
