@@ -5,7 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
     entry: {
         shared: './src/shared.ts',
-        infiniforge: './src/infiniforge-app.ts',
+        infiniforge: './src/infiniforgeApp.ts',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
