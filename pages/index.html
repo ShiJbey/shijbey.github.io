@@ -23,7 +23,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg navbar-dark custom-nav">
             <div class="container container-fluid">
                 <a href="/" class="navbar-brand">
                     <img src="/favicon.ico" alt="Shi Johnson-Bey" width="30" height="30"
@@ -54,13 +54,13 @@
             </div>
         </nav>
     </header>
-    <main>
-        <div class="jumbotron mt-5 mb-3">
-            <div class="container">
+    <main class="home-main">
+        <div class="homepage-jumbotron jumbotron mb-5">
+            <div class="container jumbotron-content">
                 <h1 class="display-1">Shi Johnson-Bey</h1>
-                <p class="display-6">Computational Media Ph.D. Student @ UC Santa Cruz</p>
+                <p class="display-6">Ph.D. Candidate in Computational Media @ UC Santa Cruz</p>
                 <p>
-                    My name is Shi Johnson-Bey (pronounced like "shy"). I research
+                    My name is Ishmael "Shi" Johnson-Bey (pronounced like "shy"). I research
                     multi-a/gent simulations for emergent storytelling as a Ph.D. student
                     in the Expressive Intelligence Studio at the University of California
                     - Santa Cruz. I have an M.S. in Biomedical Engineering from Carnegie
@@ -104,35 +104,69 @@
                 </div>
             </div>
         </div>
+
         <div class="container mb-5">
-            <section class="mb-3">
-                <h2>Projects</h2>
-                <p>
-                    Recently, I have spent most of my time switching between Angular web development
-                    and Python simulation development. You can view all my active and past projects
-                    on the <a href="/projects.html">Projects</a> page of my website. I try to give
-                    a decent description of each project along with links for people interested in
-                    the code and any playable demos!
-                </p>
-                <a href="/projects.html">
-                    <button class="btn btn-secondary">
-                        Explore Projects!
-                    </button>
-                </a>
+            <section class="p-3 mb-4">
+                <div class="row">
+                    <div class="col col-12 col-md-6">
+                        <h2>Projects</h2>
+                        <p>
+                            Recently, I have spent most of my time switching between Angular web development
+                            and Python simulation development. You can view all my active and past projects
+                            on the <a href="/projects.html">Projects</a> page of my website. I try to give
+                            a decent description of each project along with links for people interested in
+                            the code and any playable demos!
+                        </p>
+                        <a href="/projects.html">
+                            <button class="btn btn-primary">
+                                Explore Projects!
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col col-12 col-md-6 project-image p-3">
+                        <img src="https://user-images.githubusercontent.com/11076525/259484349-810faa96-66f1-45d8-869d-94a0d7a4ecfc.png"
+                            alt="screenshot of Calypso sample game." class="w-100 rounded shadow" />
+                    </div>
+                </div>
+
             </section>
-            <section class="mb-3">
-                <h2>Graphic Design</h2>
-                <p>
-                    Something new to my portfolio is samples of my graphic/web design work. Aside
-                    from coding, I enjoy creating logos and stickers because I think that they make
-                    people feel special and like they are a part of something. Some of my work is
-                    available on RedBubble, but most of the pieces are not actively for sale.
-                </p>
-                <a href="/graphic-design.html">
-                    <button class="btn btn-secondary">
-                        View Design Work!
-                    </button>
-                </a>
+
+            <hr>
+
+            <!-- <div id="divider_id" class="website-divider-container-386899">
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="divider-img-386899" viewBox="0 0 1080 200"
+                    preserveAspectRatio="none">
+
+                    <path style="opacity:0.45" d="M 0,200 540,0 1080,200 Z"></path>
+                    <path style="opacity:1;" d="M 0,200 540,48 1080,200 Z"></path>
+
+                </svg>
+
+            </div> -->
+
+            <section class="mb-4 p-3">
+                <div class="row">
+                    <div class="col col-12 col-md-6">
+                        <h2>Graphic Design</h2>
+                        <p>
+                            Something new to my portfolio is samples of my graphic/web design work. Aside
+                            from coding, I enjoy creating logos and stickers because I think that they make
+                            people feel special and like they are a part of something. Some of my work is
+                            available on RedBubble, but most of the pieces are not actively for sale.
+                        </p>
+                        <a href="/graphic-design.html">
+                            <button class="btn btn-primary">
+                                View Design Work!
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col col-12 col-md-6 project-image p-3">
+                        <img src="/images/graphic_design/exag_stickers.jpg" alt="stickers on a table"
+                            class="w-100 rounded shadow" />
+                    </div>
+                </div>
+
             </section>
         </div>
     </main>
@@ -140,7 +174,7 @@
         <div class="container py-4 footer-content">
             <div class="row">
                 <div class="col">
-                    &copy; Ishmael Johnson-Bey 2023
+                    &copy; Ishmael Johnson-Bey 2024
                 </div>
             </div>
         </div>
