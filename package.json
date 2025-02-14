@@ -1,9 +1,9 @@
 {
     "scripts": {
         "build_js": "webpack --config webpack.prod.js",
-        "build_jekyll": "jekyll build",
+        "build_jekyll": "JEKYLL_ENV=production bundle exec jekyll build",
         "build": "npm run build_js && npm run build_jekyll",
-        "deploy": "npm run build && gh-pages -d dist"
+        "deploy": "npm run build && gh-pages -d _site"
     },
     "dependencies": {
         "dat.gui": "^0.7.9",
