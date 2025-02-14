@@ -1,0 +1,31 @@
+- title: 'Building Visual Novels with Social Simulation and Storylets'
+  year: '2024'
+  url: '/static/publications/BuildingVisualNovels.pdf'
+
+- title: 'Toward Using ChatGPT to Generate Theme-relevant Simulated Storyworlds'
+  year: '2023'
+  url: 'https://ceur-ws.org/Vol-3626/short5.pdf'
+
+- title: 'Exploring the Design Space of Social Physics Engines in Games'
+  year: '2022'
+  url: '/static/publications/SocialPhysicsEngines.pdf'
+
+- title: 'Neighborly: A Sandbox for Simulation-Based Emergent Narrative'
+  year: '2022'
+  url: '/static/publications/Neighborly.pdf'
+
+- title: 'Centrifuge: A Visual Tool for Authoring Sifting Patterns for Character-Based Simulationist Story Worlds'
+  year: '2021'
+  url: '/static/publications/Johnson-Bey_Centrifuge_PLIE2021.pdf'
+
+- title: 'A Novel Approach Towards Computing Global Maps for Multi-Robotic Operations in Tactical Environments'
+  year: '2020'
+  url: '/static/publications/DLC_SPIE_2020.pdf'
+
+- title: 'Head Movements are Correlated With Other Measures of Visual Attention at Smaller Spatial Scales'
+  year: '2018'
+  url: '/static/publications/08362264.pdf'
+
+- title: 'Head Movements During Visual Exploration of Natural Images in Virtual Reality'
+  year: '2017'
+  url: '/static/publications/HeadMovementsDuringVisualExploration.pdf'
