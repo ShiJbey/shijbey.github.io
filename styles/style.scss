@@ -1,4 +1,7 @@
-@import '~bootstrap/scss/bootstrap';
+---
+---
+
+// @import '~bootstrap/scss/bootstrap';
 
 /* CSS Custom Properties Definitions */
 :root {
@@ -276,7 +279,7 @@ blockquote > ol {
 }
 
 .homepage-jumbotron {
-    background: url('../../static/images/banner.jpg');
+    background: url('/static/images/banner.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     padding-top: 3rem;
@@ -302,4 +305,12 @@ blockquote > ol {
 footer {
     background: #1a202c;
     color: white;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.w-80 {
+    width: 80%;
 }

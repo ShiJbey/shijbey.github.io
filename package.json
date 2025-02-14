@@ -1,40 +1,25 @@
 {
-  "name": "shijbey.github.io",
-  "version": "4.0.0",
-  "description": "Personal portfolio website of Shi Johnson-Bey",
-  "repository": "https://github.com/ShiJbey/shijbey.github.io.git",
-  "author": "Shi Johnson-Bey <shijbey@gmail.com>",
-  "license": "None",
-  "private": true,
-  "scripts": {
-    "start": "webpack serve --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
-    "deploy": "npm run build && gh-pages -d dist"
-  },
-  "devDependencies": {
-    "@types/dat.gui": "^0.7.7",
-    "@types/three": "^0.148.0",
-    "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "^6.7.2",
-    "gh-pages": "^4.0.0",
-    "html-webpack-plugin": "^5.5.0",
-    "sass": "^1.57.1",
-    "sass-loader": "^13.2.0",
-    "style-loader": "^3.3.1",
-    "ts-loader": "^9.4.1",
-    "typescript": "^4.9.4",
-    "webpack": "^5.76.0",
-    "webpack-cli": "^5.0.0",
-    "webpack-dev-server": "^4.11.1",
-    "webpack-merge": "^5.8.0"
-  },
-  "dependencies": {
-    "@popperjs/core": "^2.11.6",
-    "bootstrap": "^5.2.3",
-    "dat.gui": "^0.7.9",
-    "infiniforge": "^2.2.1",
-    "lodash": "^4.17.21",
-    "seedrandom": "^3.0.5",
-    "three": "^0.148.0"
-  }
+    "scripts": {
+        "build_js": "webpack --config webpack.prod.js",
+        "build_jekyll": "jekyll build",
+        "build": "npm run build_js && npm run build_jekyll",
+        "deploy": "npm run build && gh-pages -d dist"
+    },
+    "dependencies": {
+        "dat.gui": "^0.7.9",
+        "infiniforge": "^2.2.1",
+        "lodash": "^4.17.21",
+        "seedrandom": "^3.0.5",
+        "three": "^0.148.0"
+    },
+    "devDependencies": {
+        "@types/dat.gui": "^0.7.13",
+        "@types/three": "^0.148.0",
+        "gh-pages": "^6.3.0",
+        "ts-loader": "^9.5.2",
+        "tslib": "^2.8.1",
+        "webpack": "^5.98.0",
+        "webpack-cli": "^6.0.1",
+        "webpack-merge": "^6.0.1"
+    }
 }

@@ -1,0 +1,36 @@
+---
+layout: default
+title: Shi Johnson-Bey - Graphic Design
+---
+
+<main>
+    <div class="container mt-5">
+        <h1 class="text-center display-1 mb-3">Graphic Design</h1>
+
+        {% for member in site.data.design_projects %}
+        <h2 class="d-block d-md-none text-center">{{member.name}}</h2>
+        <div class="row mb-4">
+            <div class="col col-12 col-md-6 project-image p-3">
+                <img src="{{member.img_src}}" alt="{{member.img_alt}}" class="w-100 rounded shadow" />
+            </div>
+            <div class="col col-12 col-md-6 project-description">
+                <div>
+                    <h2 class="d-none d-md-block">{{member.name}}</h2>
+                    <p>{{member.summary}}</p>
+                    {% if member.links %}
+                    <ul>
+                        {% for entry in member.links %}
+                        <li>
+                            <a href="{{entry.url}}" rel="none">{{entry.text}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <hr>
+        {% endfor %}
+
+    </div>
+</main>

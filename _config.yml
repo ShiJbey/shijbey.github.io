@@ -1,0 +1,18 @@
+plugins:
+    - jekyll-seo-tag
+
+sass:
+    sass_dir: _sass
+
+exclude:
+    [
+        'src',
+        'node_modules',
+        '.vscode',
+        'package.json',
+        'package-lock.json',
+        'README.md',
+        'tsconfig.json',
+        'webpack.common.js',
+        'webpack.prod.js',
+    ]

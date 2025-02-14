@@ -2,13 +2,17 @@
     "compilerOptions": {
         "strict": true,
         "forceConsistentCasingInFileNames": true,
-        "outDir": "./dist/",
-        "sourceMap": true,
+        // "outDir": "./dist/",
+        // "sourceMap": true,
         "noImplicitAny": true,
-        "module": "CommonJS",
         "target": "ES2018",
-        "lib": ["dom", "ESNext"],
+        "lib": [
+            "dom",
+            "ESNext"
+        ],
         "moduleResolution": "node"
     },
-    "include": ["./src/**/*"]
+    "include": [
+        "./src/**/*"
+    ]
 }
