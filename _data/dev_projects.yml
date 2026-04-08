@@ -1,5 +1,5 @@
 - name: 'Drolta: A Logic Programming-Inspired Query Language for SQLite in Python'
-  is_active: true
+  is_active: false
   summary: >
       Drolta is a story-sifting language I created for working with SQLite data
       in Python. It mimics logic programming to make queries easier to write
@@ -16,7 +16,7 @@
   github: 'https://github.com/ShiJbey/drolta_py'
 
 - name: 'Minerva: An Agent-Based Dynasty Simulation'
-  is_active: true
+  is_active: false
   summary: >
       Minerva is a non-interactive dynasty simulator that models procedurally generated
       characters and families vying for influence and power over a shared map. It is
@@ -38,7 +38,7 @@
   github: 'https://github.com/ShiJbey/minerva'
 
 - name: 'Anansi: Social Simulation-Driven Visual Novels in Unity'
-  is_active: true
+  is_active: false
   summary: >
       Anansi is a framework for creating social simulation-driven visual novel experiences in
       Unity. It combines the Ink narrative scripting language, a storylet architecture, and a
@@ -51,7 +51,7 @@
   github: 'https://github.com/ShiJbey/Anansi'
 
 - name: 'TDRS: A Trait-Driven Relationship System for Unity'
-  is_active: true
+  is_active: false
   summary: >
       TDRS (Trait-Driven Relationship System) is a toolkit for modeling dynamic character
       relationships for life sims, dating

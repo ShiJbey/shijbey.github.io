@@ -4,7 +4,7 @@
   college: 'Baskin School of Engineering'
   department: 'Computational Media Department'
   advisors: 'Michael Mateas, Noah Wardrip-Fruin'
-  years: '2020 - 2025 (expected)'
+  years: '2020 - 2025'
   logo_src: '/static/images/ucsc.png'
   logo_alt: 'UC Santa Cruz Logo'
 
