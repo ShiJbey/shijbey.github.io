@@ -1,0 +1,8 @@
+"$schema" = "./node_modules/wrangler/config-schema.json"
+name = "personal-portfolio"
+compatibility_date = "2026-04-08"
+compatibility_flags = ["nodejs_compat"]
+build.command = "npm run build"
+assets.binding = ""
+observability.enabled = true
+assets.directory = "_site"
