@@ -1,5 +1,6 @@
 {
     "scripts": {
+        "dev": "jekyll serve --incremental",
         "build_js": "webpack --config webpack.prod.js",
         "build_jekyll": "JEKYLL_ENV=production bundle exec jekyll build",
         "build": "npm run build_js && npm run build_jekyll",
