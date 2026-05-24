@@ -16,7 +16,10 @@ title: Shi Johnson-Bey - CV
                         <td>{{member.years}}</td>
                         <td>
                             <div>
-                                <b>{{member.degree}} in {{member.major}}</b><br>
+                                <b>{{member.degree}}</b> in <b>{{member.major}}</b><br>
+                                {% if member.concentration %}
+                                Concentration: {{member.concentration}}<br>
+                                {% endif %}
                                 {{member.university}}<br>
                                 {{member.college}}<br>
                                 {{member.department}}<br>

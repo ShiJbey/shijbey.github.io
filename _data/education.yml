@@ -1,5 +1,6 @@
 - degree: 'Doctor of Philosophy'
   major: 'Computational Media'
+  concentration: 'AI in Games'
   university: 'University of California, Santa Cruz'
   college: 'Baskin School of Engineering'
   department: 'Computational Media Department'
@@ -10,6 +11,7 @@
 
 - degree: 'Master of Science'
   major: 'Biomedical Engineering'
+  concentration: 'Brain-Computer Interfaces for VR'
   university: 'Carnegie Mellon University'
   college: 'College of Engineering'
   department: 'Biomedical Engineering Department'
