@@ -106,18 +106,20 @@ footer {
         padding: var(--spacing-2);
         vertical-align: top;
     }
+
+    table {
+        width: 100%;
+        margin-bottom: var(--spacing-8);
+        border-collapse: collapse;
+        border-spacing: 0.25rem;
+    }
+
+    table thead tr th {
+        border-bottom: 1px solid var(--color-accent);
+    }
 }
 
-table {
-    width: 100%;
-    margin-bottom: var(--spacing-8);
-    border-collapse: collapse;
-    border-spacing: 0.25rem;
-}
 
-table thead tr th {
-    border-bottom: 1px solid var(--color-accent);
-}
 
 /* Images that appear on projects and graphic design pages */
 .project-image {
@@ -282,12 +284,19 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
+    top: 0;
     padding: 0.75rem 1rem;
     background: linear-gradient(transparent 5%, rgba(0, 0, 0, 1) 95%);
     color: #fff;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.img-card-title .title-text {
     font-size: 1.4rem;
     font-weight: 600;
-    transition: opacity 0.3s ease;
 }
 
 /* Overlay shown on hover */
@@ -327,4 +336,49 @@ footer {
 
 .img-card-overlay .btn {
     white-space: nowrap;
+}
+
+figure {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 80%;
+}
+
+figure img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+figcaption {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    font-style: italic;
+    color: #666;
+}
+
+.project-overview-table {
+    width: 100%;
+    margin-bottom: var(--spacing-8);
+    border-collapse: collapse;
+    border-spacing: 0.25rem;
+}
+
+.project-overview-table > tbody >tr {
+    padding-top: var(--spacing-1);
+    padding-bottom: var(--spacing-1);
+    border: 1px solid black;
+}
+
+.project-overview-table td {
+    padding: var(--spacing-2);
+    vertical-align: top;
+    border-left: 1px solid black;
+}
+
+.project-overview-table thead tr th {
+    border-bottom: 1px solid black;
 }
