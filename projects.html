@@ -38,6 +38,15 @@ title: Shi Johnson-Bey - Projects
                         </a>
                     </div>
                     {% endif %}
+                    {% if member.post %}
+                    <div class="mb-3">
+                        <a href="{{member.post}}" rel="none">
+                            <button class="btn btn-primary">
+                                Read More
+                            </button>
+                        </a>
+                    </div>
+                    {% endif %}
                     <div>
                         {% if member.links %}
                         <h3>Links</h3>
