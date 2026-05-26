@@ -14,6 +14,7 @@
   img_src: '/static/images/projects/drolta_b.png'
   img_alt: 'Drolta from Castlevania: Nocturne'
   github: 'https://github.com/ShiJbey/drolta_py'
+  post: '/2026/05/25/drolta.html'
 
 - name: 'Minerva: An Agent-Based Dynasty Simulation'
   is_active: false
