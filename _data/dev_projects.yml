@@ -50,6 +50,7 @@
   img_src: 'https://github.com/ShiJbey/Calypso/assets/11076525/46455e67-94b6-49e5-a072-980bd9ca6754'
   img_alt: 'screenshot of Anansi sample game.'
   github: 'https://github.com/ShiJbey/Anansi'
+  post: '/2026/05/26/anansi-postmortem.html'
 
 - name: 'TDRS: A Trait-Driven Relationship System for Unity'
   is_active: false
