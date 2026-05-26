@@ -106,18 +106,20 @@ footer {
         padding: var(--spacing-2);
         vertical-align: top;
     }
+
+    table {
+        width: 100%;
+        margin-bottom: var(--spacing-8);
+        border-collapse: collapse;
+        border-spacing: 0.25rem;
+    }
+
+    table thead tr th {
+        border-bottom: 1px solid var(--color-accent);
+    }
 }
 
-table {
-    width: 100%;
-    margin-bottom: var(--spacing-8);
-    border-collapse: collapse;
-    border-spacing: 0.25rem;
-}
 
-table thead tr th {
-    border-bottom: 1px solid var(--color-accent);
-}
 
 /* Images that appear on projects and graphic design pages */
 .project-image {
@@ -157,69 +159,6 @@ hr {
     background-color: rgb(211, 216, 226);
     padding-top: 16px;
     padding-bottom: 16px;
-}
-
-/* Heading */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--font-heading);
-    margin-bottom: var(--spacing-6);
-    line-height: var(--lineHeight-tight);
-    letter-spacing: -0.025em;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: var(--fontWeight-bold);
-    color: var(--color-heading);
-}
-
-h1 {
-    font-weight: var(--fontWeight-black);
-    font-size: var(--fontSize-6);
-    color: var(--color-heading-black);
-}
-
-h2 {
-    font-size: var(--fontSize-5);
-}
-
-h3 {
-    font-size: var(--fontSize-4);
-}
-
-h4 {
-    font-size: var(--fontSize-3);
-}
-
-h5 {
-    font-size: var(--fontSize-2);
-}
-
-h6 {
-    font-size: var(--fontSize-1);
-}
-
-h1 > a {
-    color: inherit;
-    text-decoration: none;
-}
-
-h2 > a,
-h3 > a,
-h4 > a,
-h5 > a,
-h6 > a {
-    text-decoration: none;
-    color: inherit;
 }
 
 /* Prose */
@@ -313,4 +252,133 @@ footer {
 
 .w-80 {
     width: 80%;
+}
+
+/** HOME PAGE CARDS **/
+
+.img-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    min-height: 400px;
+    text-decoration: none;
+    // display: block;
+}
+
+.img-card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease;
+}
+
+.img-card:hover .img-card-bg {
+    transform: scale(1.05);
+}
+
+/* Always-visible title bar at bottom */
+.img-card-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(transparent 5%, rgba(0, 0, 0, 1) 95%);
+    color: #fff;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.img-card-title .title-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+/* Overlay shown on hover */
+.img-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.img-card:hover .img-card-overlay {
+    opacity: 1;
+}
+
+.img-card:hover .img-card-title {
+    opacity: 0;
+}
+
+.img-card-overlay h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.img-card-overlay p {
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.img-card-overlay .btn {
+    white-space: nowrap;
+}
+
+figure {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 80%;
+}
+
+figure img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+figcaption {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    font-style: italic;
+    color: #666;
+}
+
+.project-overview-table {
+    width: 100%;
+    margin-bottom: var(--spacing-8);
+    border-collapse: collapse;
+    border-spacing: 0.25rem;
+}
+
+.project-overview-table > tbody >tr {
+    padding-top: var(--spacing-1);
+    padding-bottom: var(--spacing-1);
+    border: 1px solid black;
+}
+
+.project-overview-table td {
+    padding: var(--spacing-2);
+    vertical-align: top;
+    border-left: 1px solid black;
+}
+
+.project-overview-table thead tr th {
+    border-bottom: 1px solid black;
 }

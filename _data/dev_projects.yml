@@ -112,9 +112,7 @@
       coding for the web app. You can still try it out.
   img_src: '/static/images/projects/jyackl.jpg'
   img_alt: 'Screenshot of Jyackl.com'
-  links:
-      - text: Jyackl.com
-        url: 'https://jyackl.com'
+  post: '/2026/05/24/jyackl-postmortem.html'
 
 - name: 'Infiniforge: Procedurally Generated 3D Swords'
   is_active: false
